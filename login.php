@@ -27,7 +27,6 @@ else{
 
 print_r($_REQUEST);
 $name = $_REQUEST['username'];
-if($name ==
 ?>
 
 <html>
