@@ -1,28 +1,29 @@
+
 <?php
 
-$decoded = file_get_contents("users.json");
-$decoded = json_decode($file);
-$decoded = $decoded->users;
 
-$foundUser = true;
-$accessToken
+if(strlen($_REQUEST['username']) > 0){
 
-foreach($decoded as $user){
+  $decoded = file_get_contents("./users.json");
+  $decoded = json_decode($decoded);
+  $decoded = $decoded->users;
+  
 
-	if($name == $user->name){
-		
-		$foundUser = true;
-		$accessToken = $user->access_token
-		break;
-  	}
+  foreach($decoded as $user){
+
+    if($_REQUEST['username']  == $user){
+      
+      session_start();
+      $_SESSION['username'] = $user->name;
+
+      header("Location: users.php");
+    }
+  }
 }
 
-if($foundUser){
+if(strlen($_REQUEST['username']) > 0){
 
-	
-}
-else{
-	echo "Invalid user name. Please create an account first"
+	echo "Invalid user name. Please create an account first";
 }
 
 print_r($_REQUEST);
@@ -31,7 +32,7 @@ $name = $_REQUEST['username'];
 
 <html>
 <body>
-<form method="POST">
+<form action="/login.php" method="POST">
 User name: <input type="text" name="username">
 <input type="submit" value="Submit">
 </form>
