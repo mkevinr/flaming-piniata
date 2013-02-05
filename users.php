@@ -1,5 +1,6 @@
 <html>
 <body>
+<a href="/">Home</a><br>
 <p><b>Users:</b></p>
 <?php
 
