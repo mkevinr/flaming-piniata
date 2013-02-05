@@ -1,7 +1,9 @@
 <html>
 <body>
 <a href="/">Home</a>
-
+<br><br>
+<b>Create Account:</b>
+<br><br>
 <?php
 
   if($_REQUEST['failed'] === true){

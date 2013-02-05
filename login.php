@@ -26,7 +26,8 @@ if(strlen($_REQUEST['username']) > 0){
 
 <html>
 <body>
-<a href="/">Home</a><br>
+<a href="/">Home</a><br><br>
+<b>Login:</b><br><br>
 <form action="/login.php" method="POST">
 User name: <input type="text" name="username">
 <input type="submit" value="Submit">
