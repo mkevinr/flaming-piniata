@@ -25,9 +25,6 @@ if(strlen($_REQUEST['username']) > 0){
 
 	echo "Invalid user name. Please create an account first";
 }
-
-print_r($_REQUEST);
-$name = $_REQUEST['username'];
 ?>
 
 <html>

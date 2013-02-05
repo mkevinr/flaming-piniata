@@ -3,11 +3,13 @@
   if(strlen($_REQUEST['code']) <= 0){
 
     session_start();
-    $_SESSION[create_username'] = $_REQUEST['username'];
+    $_SESSION['create_username'] = $_REQUEST['username'];
 
     header("Location: https://foursquare.com/oauth2/authenticate?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF&response_type=code&redirect_uri=http://ec2-54-234-155-254.compute-1.amazonaws.com/oauth.php");
   }
   else{
+
+    session_start();
 
     $ch = curl_init("https://foursquare.com/oauth2/access_token"
     . "?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF"
@@ -23,19 +25,20 @@
     curl_close($ch);
 
     $file = file_get_contents('./users.json');
+
     if($file === false){
 
-      $users = array("users" => array($_SESSION['create_username'] => $access_token));
+      $users = array($_SESSION['create_username'] => $access_token);
     }
     else{
-
-      $users = json_decode(file_get_contents('./users.json'));
-      $users->users[$_SESSION['create_username']] = $access_token;
+      $users = json_decode(file_get_contents('./users.json'), true);
+      $username = $_SESSION['create_username'];
+      $users[$username] = $access_token;
     }
 
-    //file_put_contents('./users.json', json_encode($users));
+    file_put_contents('./users.json', json_encode($users));
 
-    //session_unset('create_username');
+    session_unset('create_username');
     header("Location: /");
   }
 
