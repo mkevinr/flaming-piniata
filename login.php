@@ -1,20 +1,17 @@
 
 <?php
 
-
 if(strlen($_REQUEST['username']) > 0){
 
   $decoded = file_get_contents("./users.json");
   $decoded = json_decode($decoded);
-  $decoded = $decoded->users;
-  
 
-  foreach($decoded as $user){
+  foreach($decoded as $user => $access_token){
 
     if($_REQUEST['username']  == $user){
-      
+
       session_start();
-      $_SESSION['username'] = $user->name;
+      $_SESSION['username'] = $user;
 
       header("Location: users.php");
     }
