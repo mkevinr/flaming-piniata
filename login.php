@@ -18,13 +18,18 @@ if(strlen($_REQUEST['username']) > 0){
   while($row = mysql_fetch_array($result)){
 
       if($row['username'] == $_REQUEST['username']){
+
+        session_start();
+	$_SESSION['username'] = $_REQUEST['username'];
 	
 	if($row['privileges'] == "admin"){
 
+	  $_SESSION['privileges'] = "admin";
 	  header("Location: admin_profile.php");
 	}
         else if($row['privileges'] == "driver"){
 
+	  $_SESSION['privileges'] = "driver";
 	  header("Location: driver_profile.php");
 	}
     }

@@ -20,6 +20,28 @@
       die('Error: ' . mysql_error() . " sql: " . $sql);
     }
 
+    $sql = "SELECT id FROM USERS WHERE username='" . $_REQUEST['username'] 
+           . "'";
+
+    mysql_query($sql,$con);
+
+    $result = mysql_query($sql, $con);
+
+    if (!$result)
+    {
+      die('Error: ' . mysql_error() . " sql: " . $sql);
+    }
+
+    $row = mysql_fetch_array($result);
+    $id = $row['id'];
+
+    $sql = "INSERT INTO DRIVERS VALUES (" . $id . ",'')";
+
+    if (!mysql_query($sql,$con))
+    {
+      die('Error: ' . mysql_error() . " sql: " . $sql);
+    }
+
     header("Location: /index.php");
   } 
 
