@@ -3,17 +3,30 @@
 
 if(strlen($_REQUEST['username']) > 0){
 
-  $decoded = file_get_contents("./users.json");
-  $decoded = json_decode($decoded);
 
-  foreach($decoded as $user => $access_token){
+  $con = mysql_connect("localhost","root","altair8");
 
-    if($_REQUEST['username']  == $user){
+  if (!$con)
+  {
+    die('Could not connect: ' . mysql_error());
+  }
 
-      session_start();
-      $_SESSION['username'] = $user;
+  mysql_select_db("master", $con);
 
-      header("Location: users.php");
+  $result = mysql_query("SELECT username, privileges FROM USERS");
+
+  while($row = mysql_fetch_array($result)){
+
+      if($row['username'] == $_REQUEST['username']){
+	
+	if($row['privileges'] == "admin"){
+
+	  header("Location: admin_profile.php");
+	}
+        else if($row['privileges'] == "driver"){
+
+	  header("Location: driver_profile.php");
+	}
     }
   }
 }
@@ -23,6 +36,7 @@ if(strlen($_REQUEST['username']) > 0){
 	echo "Invalid user name. Please create an account first";
 }
 ?>
+
 
 <html>
 <body>

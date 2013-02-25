@@ -5,7 +5,7 @@
     session_start();
     $_SESSION['create_username'] = $_REQUEST['username'];
 
-    header("Location: https://foursquare.com/oauth2/authenticate?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF&response_type=code&redirect_uri=http://ec2-184-73-135-30.compute-1.amazonaws.com/oauth.php");
+    header("Location: https://foursquare.com/oauth2/authenticate?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF&response_type=code&redirect_uri=http://ec2-50-17-15-54.compute-1.amazonaws.com/oauth.php");
   }
   else{
 
@@ -15,7 +15,7 @@
     . "?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF"
     . "&client_secret=J52ZJITMDYABWYUWIIQB5WPDQ4I3DJP5GJBDZLUJRB3CMDY5"
     . "&grant_type=authorization_code"
-    . "&redirect_uri=http://ec2-184-73-135-30.compute-1.amazonaws.com/oauth.php"
+    . "&redirect_uri=http://ec2-50-17-15-54.compute-1.amazonaws.com/oauth.php"
     . "&code=" . $_REQUEST['code']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, 0);
