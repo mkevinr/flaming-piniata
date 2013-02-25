@@ -49,7 +49,7 @@ if(strlen($_REQUEST['username']) > 0){
 <b>Login:</b><br><br>
 <form action="/login.php" method="POST">
 User name: <input type="text" name="username">
-<input type="submit" value="Submit">
+<input type="submit" value="Login">
 </form>
 
 <body>
