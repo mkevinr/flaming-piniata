@@ -41,14 +41,13 @@
     {
       die('Error: ' . mysql_error() . " sql: " . $sql);
     }
-
-    $sql = "SELECT id FROM USERS WHERE username='" . $_REQUEST['username'] 
-           . "'";
 		   
 	session_start();
 	$_SESSION['create_username'] = $_REQUEST['username'];
+	
+	var_dump($_SESSION['create_username'];
 
-    header("Location: /drivers/oauth.php");
+    //header("Location: /drivers/oauth.php");
   } 
 
   if($_REQUEST['failed'] === true){
