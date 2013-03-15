@@ -64,7 +64,7 @@
     }
 
     session_unset('create_username');
-    header("Location: /drivers/");
+    //header("Location: /drivers/");
   }
 
 ?>
