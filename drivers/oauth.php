@@ -3,6 +3,7 @@
   echo "<p>hello</p>";
   if(strlen($_REQUEST['code']) <= 0){
 
+	echo "<p>hello 2</p>";
     session_start();
     $_SESSION['create_username'] = $_REQUEST['username'];
 	
