@@ -4,8 +4,10 @@
 
     session_start();
     $_SESSION['create_username'] = $_REQUEST['username'];
+	
+	$server_address = file_get_contents("../server_address");
 
-    header("Location: https://foursquare.com/oauth2/authenticate?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF&response_type=code&redirect_uri=http://ec2-50-17-15-54.compute-1.amazonaws.com/oauth.php");
+    header("Location: https://foursquare.com/oauth2/authenticate?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF&response_type=code&redirect_uri=" . $server_address . "/drivers/oauth.php");
   }
   else{
 
@@ -15,7 +17,7 @@
     . "?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF"
     . "&client_secret=J52ZJITMDYABWYUWIIQB5WPDQ4I3DJP5GJBDZLUJRB3CMDY5"
     . "&grant_type=authorization_code"
-    . "&redirect_uri=http://ec2-50-17-15-54.compute-1.amazonaws.com/oauth.php"
+    . "&redirect_uri=" . $server_address . "/drivers/oauth.php"
     . "&code=" . $_REQUEST['code']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -23,23 +25,20 @@
     $access_token = json_decode($access_token);
     $access_token = $access_token->access_token;
     curl_close($ch);
+	
+	$con = mysql_connect("localhost","root","altair8");
+    mysql_select_db("driver_site", $con);	
 
-    $file = file_get_contents('./users.json');
+    $sql = "UPDATE DRIVERS SET four_square_auth_token='" . $access_token .
+		"' WHERE username='" . $_SESSION['create_username'] . "')";
 
-    if($file === false){
-
-      $users = array($_SESSION['create_username'] => $access_token);
+    if (!mysql_query($sql,$con))
+    {
+      die('Error: ' . mysql_error() . " sql: " . $sql);
     }
-    else{
-      $users = json_decode(file_get_contents('./users.json'), true);
-      $username = $_SESSION['create_username'];
-      $users[$username] = $access_token;
-    }
-
-    file_put_contents('./users.json', json_encode($users));
 
     session_unset('create_username');
-    header("Location: /");
+    header("Location: /drivers/");
   }
 
 ?>
