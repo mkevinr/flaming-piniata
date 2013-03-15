@@ -7,7 +7,7 @@
 	
 	$server_address = file_get_contents("../server_address");
 	
-	print("server_address: " . server_address);
+	echo "server_address: " . server_address;
 	
 	$redirect_location = "Location: https://foursquare.com/oauth2/authenticate?"
 			. "client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF&response_type=code&redirect_uri=" 
