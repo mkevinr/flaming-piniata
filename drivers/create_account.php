@@ -54,7 +54,7 @@
   }
 ?>
 
-<form action="/create_account.php" method="POST">
+<form action="/drivers/create_account.php" method="POST">
 User name: <input type="text" name="username"><br>
 Phone number: <input type="text" name="phone_number"><br>
 <input type="submit" value="Submit">
