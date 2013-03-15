@@ -30,7 +30,7 @@
     . "?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF"
     . "&client_secret=J52ZJITMDYABWYUWIIQB5WPDQ4I3DJP5GJBDZLUJRB3CMDY5"
     . "&grant_type=authorization_code"
-    . "&redirect_uri=" . $server_address . "/drivers/oauth.php"
+    . "&redirect_uri=http://" . $server_address . "/drivers/oauth.php"
     . "&code=" . $_REQUEST['code']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -43,7 +43,7 @@
     mysql_select_db("driver_site", $con);	
 
     $sql = "UPDATE DRIVERS SET four_square_auth_token='" . $access_token .
-		"' WHERE username='" . $_SESSION['create_username'] . "')";
+		"' WHERE username='" . $_SESSION['create_username'] . "'";
 
     if (!mysql_query($sql,$con))
     {

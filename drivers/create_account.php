@@ -44,6 +44,9 @@
 
     $sql = "SELECT id FROM USERS WHERE username='" . $_REQUEST['username'] 
            . "'";
+		   
+	session_start();
+	$_SESSION['create_username'] = $_REQUEST['username'];
 
     header("Location: /drivers/oauth.php");
   } 
