@@ -57,7 +57,7 @@
 
     $sql = "UPDATE DRIVERS SET four_square_auth_token='" . $access_token .
 		"' WHERE username='" . $_SESSION['create_username'] . "'";
-
+	var_dump($sql);
     if (!mysql_query($sql,$con))
     {
       die('Error: ' . mysql_error() . " sql: " . $sql);
