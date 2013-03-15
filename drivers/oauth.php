@@ -14,6 +14,8 @@
 			. $server_address . "/drivers/oauth.php";
 
     header($redirect_location);
+	
+	echo "hello 4";
   }
   else{
 
