@@ -33,7 +33,7 @@
 
     mysql_select_db("driver_site", $con);	
 
-    $sql = "INSERT INTO DRIVERS (username, phone_number, esl)"
+    $sql = "INSERT INTO DRIVERS (username, phone_number, driver_esl)"
 		. " VALUES ('" . $_REQUEST['username'] . "', '" . $_REQUEST['phone_number'] . "', '"
 		. $esl . "')";
 
