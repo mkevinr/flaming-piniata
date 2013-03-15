@@ -47,7 +47,7 @@
 	
 	var_dump($_SESSION['create_username']);
 
-    //header("Location: /drivers/oauth.php");
+    header("Location: /drivers/oauth.php");
   } 
 
   if($_REQUEST['failed'] === true){
