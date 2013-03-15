@@ -40,9 +40,9 @@
     . "&code=" . $_REQUEST['code']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, 0);
-    $access_token = curl_exec($ch);
+    $access_token_json = curl_exec($ch);
 	echo "<br><p>first access token: " . $access_token . "</p>";
-    $access_token = json_decode($access_token);
+    $access_token = json_decode($access_token_json);
 	echo "<br><p>second access token: " . $access_token . "</p>";
     $access_token = $access_token->access_token;
 	echo "<br><p>third access token: " . $access_token . "</p>";
