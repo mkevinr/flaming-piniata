@@ -13,7 +13,7 @@
 			. "client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF&response_type=code&redirect_uri=" 
 			. $server_address . "/drivers/oauth.php"
 
-    header();
+    header($redirect_location);
   }
   else{
 
