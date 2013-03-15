@@ -14,8 +14,10 @@
 	$redirect_location = "Location: https://foursquare.com/oauth2/authenticate?"
 			. "client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF&response_type=code&redirect_uri=" 
 			. $server_address . "/drivers/oauth.php";
+			
+	echo "<br>" . $redirect_location;
 
-    header($redirect_location);
+    //header($redirect_location);
 	
 	echo "hello 4";
   }
