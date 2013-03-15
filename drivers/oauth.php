@@ -26,12 +26,14 @@
     session_start();
 
 	echo "<p>hello 3</p>";
-    $ch = curl_init("https://foursquare.com/oauth2/access_token"
+	$curl_command = "https://foursquare.com/oauth2/access_token"
     . "?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF"
     . "&client_secret=J52ZJITMDYABWYUWIIQB5WPDQ4I3DJP5GJBDZLUJRB3CMDY5"
     . "&grant_type=authorization_code"
     . "&redirect_uri=http://" . $server_address . "/drivers/oauth.php"
-    . "&code=" . $_REQUEST['code']);
+    . "&code=" . $_REQUEST['code'];
+	echo "<p>curl command: " . $curl_command . "</p>";
+    $ch = curl_init(curl_command);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     $access_token = curl_exec($ch);
