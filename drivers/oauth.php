@@ -47,10 +47,10 @@
 	var_dump($access_token);
     $access_token = json_decode($access_token);
 	var_dump($access_token);
-	echo "<br><p>second access token: " . $access_token . "</p>";
+	//echo "<br><p>second access token: " . $access_token . "</p>";
     $access_token = $access_token->access_token;
 	var_dump($access_token);
-	echo "<br><p>third access token: " . $access_token . "</p>";
+	//echo "<br><p>third access token: " . $access_token . "</p>";
 	
 	$con = mysql_connect("localhost","root","altair8");
     mysql_select_db("driver_site", $con);	
