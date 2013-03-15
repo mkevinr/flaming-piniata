@@ -17,7 +17,7 @@
 			
 	echo "<br>" . $redirect_location;
 
-    //header($redirect_location);
+    header($redirect_location);
 	
 	echo "hello 4";
   }
