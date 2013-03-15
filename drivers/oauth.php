@@ -35,8 +35,11 @@
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     $access_token = curl_exec($ch);
+	echo "<br><p>first access token: " . $access_token . "</p>";
     $access_token = json_decode($access_token);
+	echo "<br><p>second access token: " . $access_token . "</p>";
     $access_token = $access_token->access_token;
+	echo "<br><p>third access token: " . $access_token . "</p>";
     curl_close($ch);
 	
 	$con = mysql_connect("localhost","root","altair8");
@@ -51,7 +54,7 @@
     }
 
     session_unset('create_username');
-    header("Location: /drivers/");
+    //header("Location: /drivers/");
   }
 
 ?>
