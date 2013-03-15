@@ -40,13 +40,17 @@
     . "&code=" . $_REQUEST['code']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, 0);
-    $access_token_json = curl_exec($ch);
-	echo "<br><p>first access token: " . $access_token . "</p>";
-    $access_token = json_decode($access_token_json);
+    $access_token = curl_exec($ch);
+	curl_close($ch);
+	//echo "<br><p>first access token: " . $access_token . "</p>";
+	echo "first access token: ";
+	var_dump($access_token);
+    $access_token = json_decode($access_token);
+	var_dump($access_token);
 	echo "<br><p>second access token: " . $access_token . "</p>";
     $access_token = $access_token->access_token;
+	var_dump($access_token);
 	echo "<br><p>third access token: " . $access_token . "</p>";
-    curl_close($ch);
 	
 	$con = mysql_connect("localhost","root","altair8");
     mysql_select_db("driver_site", $con);	
