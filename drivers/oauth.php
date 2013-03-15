@@ -1,13 +1,12 @@
 <?php
 
+  $server_address = file_get_contents("../server_address");
   echo "<p>hello</p>";
   if(strlen($_REQUEST['code']) <= 0){
 
 	echo "<p>hello 2</p>";
     session_start();
     $_SESSION['create_username'] = $_REQUEST['username'];
-	
-	$server_address = file_get_contents("../server_address");
 	
 	echo $server_address;
 	
