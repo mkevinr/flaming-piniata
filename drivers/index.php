@@ -1,6 +1,6 @@
 <html>
 <body>
-<p><b>Drivers Home</b></p><br><br>
+<p><b>Drivers Home</b></p>
 
 <?php
 	$server_address = file_get_contents("../server_address");
