@@ -16,7 +16,7 @@ if (!$result)
   die('Error: ' . mysql_error() . " sql: " . $sql);
 }
 
-for($i = 0; i < mysql_num_rows(); i++){
+while($row = mysql_fetch_array($result)){
 
 	$row = mysql_fetch_array($result);
 	$user = $row['username'];
