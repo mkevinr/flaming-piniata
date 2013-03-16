@@ -1,6 +1,6 @@
 <html>
 <body>
-<a href="/">Home</a>
+<a href="/drivers/">Home</a>
 <br><br>
 <b>Create Account:</b>
 <br><br>

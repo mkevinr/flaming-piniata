@@ -1,15 +1,26 @@
 <html>
 <body>
-<a href="/">Home</a><br>
+<a href="/drivers/">Home</a><br>
 <p><b>Users:</b></p>
 <?php
 
-$decoded = file_get_contents("./users.json");
-$decoded = json_decode($decoded, true);
+$con = mysql_connect("localhost","root","altair8");
+mysql_select_db("driver_site", $con);	
 
-foreach($decoded as $user => $access_token){
+$sql = "SELECT username FROM DRIVERS";
 
-    echo "<a href=\"/profile.php?username=" . $user . "\">" . $user . "</a><br>";
+$result = mysql_query($sql,$con);
+
+if (!$result)
+{
+  die('Error: ' . mysql_error() . " sql: " . $sql);
+}
+
+for($i = 0; i < mysql_num_rows(); i++){
+
+	$row = mysql_fetch_array($result);
+	$user = $row['username'];
+	echo "<a href=\"/drivers/driver_profile.php?username=" . $user . "\">" . $user . "</a><br>";
 }
 ?>
 

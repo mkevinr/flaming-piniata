@@ -13,25 +13,16 @@ if(strlen($_REQUEST['username']) > 0){
 
   mysql_select_db("master", $con);
 
-  $result = mysql_query("SELECT username, privileges FROM USERS");
+  $result = mysql_query("SELECT username FROM USERS");
 
   while($row = mysql_fetch_array($result)){
 
       if($row['username'] == $_REQUEST['username']){
 
         session_start();
-	$_SESSION['username'] = $_REQUEST['username'];
-	
-	if($row['privileges'] == "admin"){
-
-	  $_SESSION['privileges'] = "admin";
-	  header("Location: admin_profile.php");
-	}
-        else if($row['privileges'] == "driver"){
-
-	  $_SESSION['privileges'] = "driver";
-	  header("Location: driver_profile.php");
-	}
+		$_SESSION['username'] = $_REQUEST['username'];
+		
+		header("Location: /drivers/");
     }
   }
 }
@@ -45,7 +36,7 @@ if(strlen($_REQUEST['username']) > 0){
 
 <html>
 <body>
-<a href="/">Home</a><br><br>
+<a href="/drivers/">Home</a><br><br>
 <b>Login:</b><br><br>
 <form action="/login.php" method="POST">
 User name: <input type="text" name="username">
