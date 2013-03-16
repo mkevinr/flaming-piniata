@@ -38,7 +38,7 @@ if(strlen($_REQUEST['username']) > 0){
 <body>
 <a href="/drivers/">Home</a><br><br>
 <b>Login:</b><br><br>
-<form action="/login.php" method="POST">
+<form action="/drivers/login.php" method="POST">
 User name: <input type="text" name="username">
 <input type="submit" value="Login">
 </form>
