@@ -1,6 +1,10 @@
 <?php
 
   session_start();
+  
+  $con = mysql_connect("localhost","root","altair8");
+
+  mysql_select_db("driver_site", $con);	
 
   $sql = "SELECT esl,phone_number,latitude,longitude FROM DRIVERS WHERE username=" . $_SESSION['username'];
   $result = mysql_query($sql);
