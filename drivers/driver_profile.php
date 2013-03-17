@@ -6,7 +6,7 @@
 
   mysql_select_db("driver_site", $con);	
 
-  $sql = "SELECT driver_esl,phone_number,latitude,longitude FROM DRIVERS WHERE username=" . $_SESSION['username'];
+  $sql = "SELECT driver_esl,phone_number,latitude,longitude FROM DRIVERS WHERE username='" . $_SESSION['username'] . "'";
   $result = mysql_query($sql);
 
   if(!$result){
