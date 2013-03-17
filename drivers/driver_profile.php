@@ -34,7 +34,7 @@
     mysql_close($con);
   }
 
-  print("<p><a href=\"/drivers/\">Home</a>");
+  print("<p><a href=\"/drivers/\">Home</a></p><br>");
   print("Your esl: " . $esl . "<br>");
   print("Current Location: Latitude: " . $latitude . " Longitude: " . $longitude);
   print("<form action=\"/driver_profile.php\" method=\"POST\">");
