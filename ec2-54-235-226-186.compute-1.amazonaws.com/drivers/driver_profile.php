@@ -6,6 +6,18 @@
 
   mysql_select_db("driver_site", $con);	
   
+  if($_REQUEST['save'] == true){
+  
+	$sql = "INSERT INTO FLOWER_SHOPS (driver_id,name,latitude,longitude,esl) VALUES(". $_SESSION['driver_id'] . 
+		",'" . $_REQUEST['flower_shop_name'] . "'," . $_REQUEST['flower_shop_latitude'] . "," . $_REQUEST['flower_shop_longitude']
+		. ",'" . $_REQUEST['flower_shop_esl'] . "')";
+		
+	if(!mysql_query($sql, $con){
+	
+	  die("error: " . mysql_error() . " sql: " . $sql);
+	}
+  }
+  
   $sql = "SELECT driver_esl,phone_number,latitude,longitude FROM DRIVERS WHERE id=" . $_REQUEST['driver_id'];
   $result = mysql_query($sql);
 
@@ -46,7 +58,7 @@
     print("<input type=\"submit\" value=\"Save\"><br/><br/>");
     print("<b>Flower shops to listen to events from:<br/><br/>");
 	
-    $sql = "SELECT * FROM DRIVER_TO_FLOWER_SHOP_MAP WHERE driver_id=" . $_SESSION['driver_id'];
+    $sql = "SELECT * FROM FLOWER_SHOPS WHERE driver_id=" . $_SESSION['driver_id'];
 	$result = mysql_query($sql);
 	
 	if(!$result){
@@ -65,12 +77,26 @@
 		}
 		
 		$flower_shop_row = mysql_fetch_array($result);
-		print("Name: " . $flower_shop_row['name'] . " Latitude: " . $flower_shop_row['latitude'] . " Longitude: " . $flower_shop_row['longitude']);
+		print("Name: " . $flower_shop_row['name'] . " Latitude: " . $flower_shop_row['latitude'] . " Longitude: " . $flower_shop_row['longitude']
+			. "<br/>");
+		print("esl: " . $flowerw_shop_row['esl'] . "<br/>");
 	}
 	
-	print("<br/><br/>");
-	print("<form action=\"/drivers/flower_shops.php?add=true\" method=\"POST\">");
-    print("<input type=\"submit\" value=\"Add\">");
+	if($_REQUEST['add'] == true){
+	
+		print("<br/><br/>");
+		print("<form action=\"/drivers/driver_profile.php?save=true\" method=\"POST\">");
+		print("<b>Flower shop name: </b><input type=\"text\" name=\"flower_shop_name\" size=50><br>");
+		print("<b>Latitude: </b><input type=\"text\" name=\"flower_shop_latitude\" size=50><br>");
+		print("<b>Longitude: </b><input type=\"text\" name=\"flower_shop_longitude\" size=50><br>");
+		print("<b>esl: </b><input type=\"text\" name=\"flower_shop_esl\" size=50><br>");
+		print("<input type=\"submit\" value=\"Save\">");		
+	}
+	else{
+		print("<br/><br/>");
+		print("<form action=\"/drivers/driver_profile.php?add=true\" method=\"POST\">");
+		print("<input type=\"submit\" value=\"Add\">");
+	}
 	
 	mysql_close($con);
   }
