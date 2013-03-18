@@ -21,8 +21,9 @@ if(strlen($_REQUEST['username']) > 0){
 
         session_start();
 		$_SESSION['driver_id'] = $row['id'];
+		printf("session['driver_id']: " . $_SESSION['driver_id']);
 		
-		header("Location: /drivers/");
+		//header("Location: /drivers/");
     }
   }
 }
