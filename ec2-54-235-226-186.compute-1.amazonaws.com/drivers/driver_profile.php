@@ -37,7 +37,7 @@
   print("<p><a href=\"https://" . $server_address . "/drivers/\"><b>Home</b></a></p>");
   print("<b>esl: </b>" . $esl . "</b><br/>");
   
-  if(array_key_exists('driver_id'), $_SESSION && array_key_exists('driver_id', $_REQUEST) && $_SESSION['driver_id'] == $_REQUEST['driver_id']){
+  if(array_key_exists('driver_id', $_SESSION) && array_key_exists('driver_id', $_REQUEST) && $_SESSION['driver_id'] == $_REQUEST['driver_id']){
   
   	if(array_key_exists('phone_number', $_REQUEST)){
 
