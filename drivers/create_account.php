@@ -6,6 +6,7 @@
 <br><br>
 <?php
 
+  session_start();
   if($_REQUEST['oauth'] == 'finished'){
   
     $con = mysql_connect("localhost","root","altair8");
@@ -79,7 +80,6 @@
       die('Error: ' . mysql_error() . " sql: " . $sql);
     }
 		   
-	session_start();
 	$_SESSION['create_username'] = $_REQUEST['username'];
 	
 	var_dump($_SESSION['create_username']);
