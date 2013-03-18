@@ -13,7 +13,7 @@ if(array_key_exists('username', $_REQUEST)){
     die('Could not connect: ' . mysql_error());
   }
 
-  mysql_select_db("driver_site", $con);
+  mysql_select_db("flower_shop_site", $con);
 
   $result = mysql_query("SELECT id,username FROM FLOWER_SHOPS", $con);
 
