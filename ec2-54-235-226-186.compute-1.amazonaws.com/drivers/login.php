@@ -38,12 +38,9 @@ print ("<html>");
 print ("<body>");
 print ("<a href=\"https://" . $server_address . "/drivers/\">Home</a><br><br>");
 print ("<b>Login:</b><br><br>");
-print ("<form action=\https://" . $server_address . "/drivers/login.php\" method=\"POST\">");
+print ("<form action=\"https://" . $server_address . "/drivers/login.php\" method=\"POST\">");
 ?>
 
-
-<b>Login:</b><br><br>
-<form action="/drivers/login.php" method="POST">
 User name: <input type="text" name="username">
 <input type="submit" value="Login">
 </form>
