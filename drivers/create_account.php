@@ -14,7 +14,7 @@
     mysql_select_db("driver_site", $con);
 	
 	print("session['create_username']: " . $_SESSION['create_username']);
-	$sql = "SELECT id,four_square_auth_token WHERE username='" . $_SESSION['create_username'] . "'";
+	$sql = "SELECT id,four_square_auth_token FROM DRIVERS WHERE username='" . $_SESSION['create_username'] . "'";
 	$result = mysql_query($sql, $con);
 	
 	if(!$result){
