@@ -3,7 +3,7 @@
 
 $server_address = file_get_contents("../server_address");
 
-if(strlen($_REQUEST['username']) > 0){
+if(array_key_exists('username', $_REQUEST)){
 
 
   $con = mysql_connect("localhost","root","altair8");
@@ -19,7 +19,7 @@ if(strlen($_REQUEST['username']) > 0){
 
   while($row = mysql_fetch_array($result)){
 
-      if($row['username'] == $_REQUEST['username']){
+    if($row['username'] == $_REQUEST['username']){
 
         session_start();
 		$_SESSION['driver_id'] = $row['id'];
@@ -29,7 +29,7 @@ if(strlen($_REQUEST['username']) > 0){
   }
 }
 
-if(strlen($_REQUEST['username']) > 0){
+if(array_key_exists('username', $_REQUEST)){
 
 	echo "Invalid user name. Please create an account first";
 }
