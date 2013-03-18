@@ -18,7 +18,7 @@
     mysql_select_db("flower_shop_site", $con);	
 
     $sql = "INSERT INTO FLOWER_SHOPS (username, name, latitude, longitude)"
-		. " VALUES ('" . $_REQUEST['username'] . "','" . $_REQUEST['name'] . "'," . $_REQUEST['latitude'] . "," . $_REQUEST['longitude'] . ")";
+		. " VALUES ('" . $_REQUEST['username'] . "',\"" . $_REQUEST['name'] . "\"," . $_REQUEST['latitude'] . "," . $_REQUEST['longitude'] . ")";
 
     if (!mysql_query($sql,$con))
     {
