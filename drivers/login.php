@@ -17,7 +17,7 @@ if(strlen($_REQUEST['username']) > 0){
 
   while($row = mysql_fetch_array($result)){
 
-  	  printf("$row['username']: " . $row['username'] . " $row['id']: " . $row['id']);
+  	  printf("row['username']: " . $row['username'] . " row['id']: " . $row['id']);
       if($row['username'] == $_REQUEST['username']){
 
         session_start();
