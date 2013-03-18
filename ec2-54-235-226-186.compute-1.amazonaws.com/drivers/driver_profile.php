@@ -100,6 +100,10 @@
 		$driver_esl = "https://" . $server_address . "/drivers/input_event.php?" . $driver_esl_token;
 		
 		$sql = "INSERT INTO FLOWER_SHOPS (driver_id,driver_esl_token) VALUES (" . $_SESSION['driver_id'] . ",'" . $driver_esl_token . "')";
+		if(!mysql_query($sql, $con)){
+		
+			die("error: " . mysql_error() . "sql: " . $sql);
+		}
 	
 		print("<b>Your esl: " . $driver_esl . "</b><br/>");
 		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?save=true&driver_id=" . $_REQUEST['driver_id']
