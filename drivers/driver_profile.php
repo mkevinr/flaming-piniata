@@ -23,7 +23,7 @@
   if(strlen($_REQUEST['phone_number']) > 0){
 
     $sql = "UPDATE DRIVERS SET phone_number='" . $_REQUEST['phone_number']
-	. "' WHERE user_id=" . $user_id;
+	. "' WHERE username='" . $_SESSION['username'] . "'";
     mysql_query($sql);
 
    if(!$result){
