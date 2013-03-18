@@ -20,7 +20,7 @@ while($row = mysql_fetch_array($result)){
 
 	$row = mysql_fetch_array($result);
 	$user_id = $row['id'];
-	echo "<a href=\"/drivers/driver_profile.php?user_id=" . $user_id . "\">" . $row['username'] . "</a><br>";
+	echo "<a href=\"/drivers/driver_profile.php?driver_id=" . $user_id . "\">" . $row['username'] . "</a><br>";
 }
 ?>
 
