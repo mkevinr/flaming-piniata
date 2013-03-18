@@ -11,9 +11,9 @@ if(strlen($_REQUEST['username']) > 0){
     die('Could not connect: ' . mysql_error());
   }
 
-  mysql_select_db("master", $con);
+  mysql_select_db("driver_site", $con);
 
-  $result = mysql_query("SELECT id,username FROM USERS");
+  $result = mysql_query("SELECT id,username FROM DRIVERS");
 
   while($row = mysql_fetch_array($result)){
 
