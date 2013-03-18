@@ -101,8 +101,7 @@
 		
 		$sql = "INSERT INTO FLOWER_SHOPS (driver_id,driver_esl_token) VALUES (" . $_SESSION['driver_id'] . ",'" . $driver_esl_token . "')";
 	
-		print("<br/><br/>");
-		print("<b>Your esl: https://" . $server_address . "/drivers/input_event.php?" . $row['driver_esl_token'] . "</b><br/>");
+		print("<b>Your esl: " . $driver_esl . "</b><br/>");
 		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?save=true&driver_id=" . $_REQUEST['driver_id']
 				. "\" method=\"POST\">");
 		print("<b>Flower shop name: </b><input type=\"text\" name=\"flower_shop_name\" size=50><br>");
