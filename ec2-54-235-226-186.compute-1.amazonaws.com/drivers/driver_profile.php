@@ -67,24 +67,24 @@
 	$result = mysql_query($sql);
 	
 	if(!$result){
-		
+			
 		die("error: " . mysql_error() . "sql: " . $sql);
 	}
 	
 	while($row = mysql_fetch_array($result)){
 	
-		$sql = "SELECT * FROM FLOWER_SHOPS WHERE id=" . $row['flower_shop_id'];
+		/*$sql = "SELECT * FROM FLOWER_SHOPS WHERE id=" . $row['flower_shop_id'];
 		$result = mysql_query($sql);
 		
 		if(!$result){
 		
 		  die("error: " . mysql_error() . "sql: " . $sql);	
-		}
+		}*/
 		
 		$flower_shop_row = mysql_fetch_array($result);
-		print("Name: " . $flower_shop_row['name'] . " Latitude: " . $flower_shop_row['latitude'] . " Longitude: " . $flower_shop_row['longitude']
+		print("Name: " . $ow['name'] . " Latitude: " . $row['latitude'] . " Longitude: " . $row['longitude']
 			. "<br/>");
-		print("esl: " . $flowerw_shop_row['esl'] . "<br/>");
+		print("esl: " . $row['esl'] . "<br/>");
 	}
 	
 	print("add: " . $_REQUEST['add']);
