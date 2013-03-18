@@ -32,7 +32,7 @@
 	$user_id = $user_info->response->user->id;
 	
 	$sql = "UPDATE DRIVERS SET four_square_user_id=$user_id WHERE id=" . $row['id'];
-	if(!mysql_query($sql, $con);){
+	if(!mysql_query($sql, $con)){
 	
 		die('Error: ' . mysql_error() . " sql: " . $sql);
 	}
