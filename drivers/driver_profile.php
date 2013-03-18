@@ -37,7 +37,7 @@
   print("<p><a href=\"/drivers/\"><b>Home</b></a></p><br/>");
   print("<b>Your esl: </b>" . $esl . "</b><br/>");
   print("<b>Current Location: </b>Latitude: " . $latitude . " Longitude: " . $longitude. "<br/>");
-  print("<form action=\"/driver_profile.php\" method=\"POST\">");
+  print("<form action=\"/drivers/driver_profile.php\" method=\"POST\">");
   print("<b>Phone number: </b><input type=\"text\" name=\"phone_number\" size=15 value="
 	. $phone_number . "><br>");
   print("<input type=\"submit\" value=\"Save\">");
