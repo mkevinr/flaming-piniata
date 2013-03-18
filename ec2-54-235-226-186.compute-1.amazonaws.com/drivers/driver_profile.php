@@ -81,7 +81,7 @@
 		  die("error: " . mysql_error() . "sql: " . $sql);	
 		}*/
 		
-		$flower_shop_row = mysql_fetch_array($result);
+		//$flower_shop_row = mysql_fetch_array($result);
 		print("Name: " . $row['name'] . " Latitude: " . $row['latitude'] . " Longitude: " . $row['longitude']
 			. "<br/>");
 		print("esl: " . $row['esl'] . "<br/>");
