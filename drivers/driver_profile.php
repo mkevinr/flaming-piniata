@@ -6,7 +6,7 @@
 
   mysql_select_db("driver_site", $con);	
 
-  $sql = "SELECT driver_esl,phone_number,latitude,longitude FROM DRIVERS WHERE id='" . $_REQUEST['driver_id'] . "'";
+  $sql = "SELECT driver_esl,phone_number,latitude,longitude FROM DRIVERS WHERE id=" . $_REQUEST['driver_id'];
   $result = mysql_query($sql);
 
   if(!$result){
@@ -28,7 +28,7 @@
   	if(strlen($_REQUEST['phone_number']) > 0){
 
 	  $sql = "UPDATE DRIVERS SET phone_number='" . $_REQUEST['phone_number']
-	  . "' WHERE id='" . $_SESSION['driver_id'] . "'";
+	  . "' WHERE id=" . $_SESSION['driver_id'];
 	  $result = mysql_query($sql);
 
 	  if(!$result){
