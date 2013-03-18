@@ -10,7 +10,7 @@
   print("<br><br>");
 
   session_start();
-  if($_REQUEST['oauth'] == 'finished'){
+  if(array_key_exists('oauth', $_REQUESt) && $_REQUEST['oauth'] == 'finished'){
   
     $con = mysql_connect("localhost","root","altair8");
 
@@ -45,7 +45,7 @@
 	header("Location: https://" . $server_address . "/drivers/");
   }
 	
-  if(strlen($_REQUEST['username']) > 0){
+  if(array_key_exists('username', $_REQUEST)){
   
 	$server_address = file_get_contents("../server_address");
 		
@@ -68,7 +68,7 @@
     header("Location: https://" . $server_address . "/drivers/oauth.php");
   } 
 
-  if($_REQUEST['failed'] === true){
+  if(array_key_exists('failed', $_REQUEST) && $_REQUEST['failed'] === true){
 
     echo "Account creation failed! Try again.";
   }
