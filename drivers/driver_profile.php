@@ -52,7 +52,7 @@
 		die("error: " . mysql_error() . "sql: " . $sql);
 	}
 	
-	while($row = msql_fetch_array(
+	while($row = msql_fetch_array()){
 	
 		$sql = "SELECT * FROM FLOWER_SHOPS WHERE id=" . $row['flower_shop_id'];
 		$result = mysql_query($sql);
@@ -63,12 +63,12 @@
 		}
 		
 		$flower_shop_row = mysql_fetch_array($result);
-		print("Name: " . flower_shop_row['name'] . " Latitude: " . $flower_shop_row['latitude'] . " Longitude: " . $flower_shop_row['longitude']";
+		print("Name: " . flower_shop_row['name'] . " Latitude: " . $flower_shop_row['latitude'] . " Longitude: " . $flower_shop_row['longitude'];
 	}
 	
 	print("<br/><br/>");
 	print("<form action=\"/drivers/flower_shops.php?add=true\" method=\"POST\">");
-    print("<input type=\"submit\" value=\"Add\">);
+    print("<input type=\"submit\" value=\"Add\">");
 	
 	mysql_close($con);
   }
