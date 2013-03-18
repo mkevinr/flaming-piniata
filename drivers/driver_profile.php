@@ -34,11 +34,11 @@
     mysql_close($con);
   }
 
-  print("<p><a href=\"/drivers/\">Home</a></p><br>");
-  print("Your esl: " . $esl . "<br>");
-  print("Current Location: Latitude: " . $latitude . " Longitude: " . $longitude);
+  print("<p><a href=\"/drivers/\"><b>Home</b></a></p><br/>");
+  print("<b>Your esl: " . $esl . "</b><br/>");
+  print("<b>Current Location:</b><br/>Latitude: " . $latitude . "<br/>Longitude: " . $longitude. "<br/>");
   print("<form action=\"/driver_profile.php\" method=\"POST\">");
-  print("Phone number: <input type=\"text\" name=\"phone_number\" size=75 value="
+  print("<b>Phone number: </b><input type=\"text\" name=\"phone_number\" size=15 value="
 	. $phone_number . "><br>");
   print("<input type=\"submit\" value=\"Save\">");
 ?>
