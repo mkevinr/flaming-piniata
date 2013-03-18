@@ -112,7 +112,8 @@
 			die("error: " . mysql_error() . "sql: " . $sql);
 		}
 		
-		$flower_shop_id = mysql_fetch_array($result)['id'];
+		$row = mysql_fetch_array($result);
+		$flower_shop_id = $row['id'];
 	
 		print("<b>Your esl: " . $driver_esl . "</b><br/>");
 		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?save=true&driver_id=" . $_REQUEST['driver_id']
