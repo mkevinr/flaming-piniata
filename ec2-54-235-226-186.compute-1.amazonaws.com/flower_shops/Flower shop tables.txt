@@ -1,0 +1,35 @@
+Table:
+	FLOWER_SHOPS
+Columns:
+	id : Primary
+	username
+	name
+	latitude
+	longitude
+	
+Table:
+	DRIVERS
+Columns:
+	id
+	flower_shop_id : Primary
+	flower_shop_esl_token
+	username
+	driver_esl
+	
+Table:
+	DELIVERIES
+Columns:
+	id
+	flower_shop_id
+	delivery_latitude
+	delivery_longitude
+	bid_chosen : boolean
+	
+Table:
+	BIDS
+Columns:
+	delivery_id
+	driver_id
+	estimated_delivery_time
+	
+	(set bid_chosen to true on the delivery then delete all bids that are not the one chosen. The keyword for not equals is <>)
