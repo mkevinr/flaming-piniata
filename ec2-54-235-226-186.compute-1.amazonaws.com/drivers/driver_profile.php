@@ -82,7 +82,7 @@
 		}*/
 		
 		$flower_shop_row = mysql_fetch_array($result);
-		print("Name: " . $ow['name'] . " Latitude: " . $row['latitude'] . " Longitude: " . $row['longitude']
+		print("Name: " . $row['name'] . " Latitude: " . $row['latitude'] . " Longitude: " . $row['longitude']
 			. "<br/>");
 		print("esl: " . $row['esl'] . "<br/>");
 	}
