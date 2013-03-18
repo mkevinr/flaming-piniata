@@ -38,7 +38,7 @@
 	}
   }
   
-  $sql = "SELECT driver_esl,phone_number,latitude,longitude FROM DRIVERS WHERE id=" . $_REQUEST['driver_id'];
+  $sql = "SELECT username,phone_number,latitude,longitude FROM DRIVERS WHERE id=" . $_REQUEST['driver_id'];
   $result = mysql_query($sql);
 
   if(!$result){
@@ -47,13 +47,13 @@
   }
 
   $row = mysql_fetch_array($result);
-  $esl = $row['driver_esl'];
+  $username = $row['username'];
   $phone_number = $row['phone_number'];
   $latitude = $row['latitude'];
   $longitude = $row['longitude'];
 
   print("<p><a href=\"https://" . $server_address . "/drivers/\"><b>Home</b></a></p>");
-  print("<b>esl: </b>" . $esl . "</b><br/>");
+  print("<b>Username: </b>" . $username . "</b><br/>");
   
   if(array_key_exists('driver_id', $_SESSION) && array_key_exists('driver_id', $_REQUEST) && $_SESSION['driver_id'] == $_REQUEST['driver_id']){
   
