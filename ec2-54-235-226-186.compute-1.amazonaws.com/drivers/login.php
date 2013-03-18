@@ -34,8 +34,8 @@ if(strlen($_REQUEST['username']) > 0){
 	echo "Invalid user name. Please create an account first";
 }
 
-print ("<html>")
-print ("<body>")
+print ("<html>");
+print ("<body>");
 print ("<a href=\"https://" . $server_address . "/drivers/\">Home</a><br><br>");
 print ("<b>Login:</b><br><br>");
 print ("<form action=\https://" . $server_address . "/drivers/login.php\" method=\"POST\">");
