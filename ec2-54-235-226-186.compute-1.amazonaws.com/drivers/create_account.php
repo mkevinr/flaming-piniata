@@ -10,7 +10,7 @@
   print("<br><br>");
 
   session_start();
-  if(array_key_exists('oauth', $_REQUESt) && $_REQUEST['oauth'] == 'finished'){
+  if(array_key_exists('oauth', $_REQUEST) && $_REQUEST['oauth'] == 'finished'){
   
     $con = mysql_connect("localhost","root","altair8");
 
