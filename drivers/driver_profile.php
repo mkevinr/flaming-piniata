@@ -5,6 +5,8 @@
   $con = mysql_connect("localhost","root","altair8");
 
   mysql_select_db("driver_site", $con);	
+  
+  printf("session['driver_id']: " . $_SESSION['driver_id'] . " request['driver_id']: " . $_REQUEST['driver_id']);
 
   $sql = "SELECT driver_esl,phone_number,latitude,longitude FROM DRIVERS WHERE id=" . $_REQUEST['driver_id'];
   $result = mysql_query($sql);
