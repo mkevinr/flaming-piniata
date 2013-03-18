@@ -125,7 +125,6 @@
 		print("<input type=\"submit\" value=\"Save\">");
 	}
 	else{
-		print("<br/>");
 		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?add=true&driver_id=" . $_REQUEST['driver_id'] 
 				. "\" method=\"POST\">");
 		print("<input type=\"submit\" value=\"Add\"></form>");
