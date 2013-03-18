@@ -87,7 +87,8 @@
 	if(array_key_exists('add', $_REQUEST) && $_REQUEST['add'] == true){
 	
 		print("<br/><br/>");
-		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?save=true\" method=\"POST\">");
+		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?save=true&driver_id=" . $_REQUEST['driver_id']
+				. "\" method=\"POST\">");
 		print("<b>Flower shop name: </b><input type=\"text\" name=\"flower_shop_name\" size=50><br>");
 		print("<b>Latitude: </b><input type=\"text\" name=\"flower_shop_latitude\" size=50><br>");
 		print("<b>Longitude: </b><input type=\"text\" name=\"flower_shop_longitude\" size=50><br>");
@@ -96,7 +97,8 @@
 	}
 	else{
 		print("<br/><br/>");
-		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?add=true\" method=\"POST\">");
+		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?add=true&driver_id=" . $_REQUEST['driver_id'] 
+				. "\" method=\"POST\">");
 		print("<input type=\"submit\" value=\"Add\">");
 	}
 	
