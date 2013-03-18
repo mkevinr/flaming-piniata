@@ -1,5 +1,7 @@
 <?php
 
+  print("add: " . $_REQUEST['add']);
+
   session_start();
   
   $server_address = file_get_contents("../server_address");
