@@ -1,7 +1,5 @@
 <?php
 
-  print("add: " . $_REQUEST['add']);
-
   session_start();
   
   $server_address = file_get_contents("../server_address");
@@ -55,7 +53,6 @@
 	  $phone_number = $_REQUEST['phone_number'];
 	}
 	
-	print("request['phone_number']: " . $_REQUEST['phone_number']);
     print("<b>Current Location: </b>Latitude: " . $latitude . " Longitude: " . $longitude. "<br/>");
     print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?driver_id=" . $_REQUEST['driver_id'] . "\" method=\"POST\">");
     print("<b>Phone number: </b><input type=\"text\" name=\"phone_number\" size=15 value="
@@ -73,21 +70,11 @@
 	
 	while($row = mysql_fetch_array($result)){
 	
-		/*$sql = "SELECT * FROM FLOWER_SHOPS WHERE id=" . $row['flower_shop_id'];
-		$result = mysql_query($sql);
-		
-		if(!$result){
-		
-		  die("error: " . mysql_error() . "sql: " . $sql);	
-		}*/
-		
-		//$flower_shop_row = mysql_fetch_array($result);
 		print("Name: " . $row['name'] . " Latitude: " . $row['latitude'] . " Longitude: " . $row['longitude']
 			. "<br/>");
-		print("esl: " . $row['esl'] . "<br/>");
+		print("esl: " . $row['esl'] . "<br/><br/>");
 	}
 	
-	print("add: " . $_REQUEST['add']);
 	if(array_key_exists('add', $_REQUEST) && $_REQUEST['add'] == true){
 	
 		print("<br/><br/>");
