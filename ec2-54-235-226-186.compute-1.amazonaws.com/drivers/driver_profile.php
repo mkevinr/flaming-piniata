@@ -28,7 +28,7 @@
   
   if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
   
-	$sql = "INSERT INTO FLOWER_SHOPS (driver_id,name,latitude,longitude,esl) VALUES(". $_SESSION['driver_id'] . 
+	$sql = "INSERT INTO FLOWER_SHOPS (driver_id,name,latitude,longitude,flower_shop_esl) VALUES(". $_SESSION['driver_id'] . 
 		",'" . $_REQUEST['flower_shop_name'] . "'," . $_REQUEST['flower_shop_latitude'] . "," . $_REQUEST['flower_shop_longitude']
 		. ",'" . $_REQUEST['flower_shop_esl'] . "')";
 		
