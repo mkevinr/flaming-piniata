@@ -15,7 +15,7 @@ if(array_key_exists('username', $_REQUEST)){
 
   mysql_select_db("driver_site", $con);
 
-  $result = mysql_query("SELECT id,username FROM FLOWER_SHOPS");
+  $result = mysql_query("SELECT id,username FROM FLOWER_SHOPS", $con);
 
   while($row = mysql_fetch_array($result)){
 
