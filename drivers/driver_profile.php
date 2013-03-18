@@ -35,6 +35,8 @@
 
 		die("error: " . mysql_error() . "sql: " . $sql);
 	  }
+	  
+	  $phone_number = $_REQUEST['phone_number'];
 	}
 	
 	print("request['phone_number']: " . $_REQUEST['phone_number']);
