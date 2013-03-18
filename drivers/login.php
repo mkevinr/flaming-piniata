@@ -13,14 +13,14 @@ if(strlen($_REQUEST['username']) > 0){
 
   mysql_select_db("master", $con);
 
-  $result = mysql_query("SELECT username FROM USERS");
+  $result = mysql_query("SELECT id,username FROM USERS");
 
   while($row = mysql_fetch_array($result)){
 
       if($row['username'] == $_REQUEST['username']){
 
         session_start();
-		$_SESSION['username'] = $_REQUEST['username'];
+		$_SESSION['driver_id'] = $row['id'];
 		
 		header("Location: /drivers/");
     }
