@@ -39,7 +39,7 @@
 	}
 	
 	session_unset('create_username');
-	die();
+	die("stopped");
 	//header("Location: /drivers/");
   }
 	
