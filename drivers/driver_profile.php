@@ -23,7 +23,7 @@
   print("<p><a href=\"/drivers/\"><b>Home</b></a></p>");
   print("<b>esl: </b>" . $esl . "</b><br/>");
   
-  if($_SESSION['driver_id'] == $_REQUESET['driver_id']){
+  if($_SESSION['driver_id'] == $_REQUEST['driver_id']){
   
   	if(strlen($_REQUEST['phone_number']) > 0){
 
@@ -35,7 +35,6 @@
 
 		die("error: " . mysql_error() . "sql: " . $sql);
 	  }
-
 	}
 
     print("<b>Current Location: </b>Latitude: " . $latitude . " Longitude: " . $longitude. "<br/>");
