@@ -68,7 +68,7 @@
 		die("error: " . mysql_error() . "sql: " . $sql);
 	}
 	
-	while($row = msql_fetch_array()){
+	while($row = mysql_fetch_array()){
 	
 		$sql = "SELECT * FROM FLOWER_SHOPS WHERE id=" . $row['flower_shop_id'];
 		$result = mysql_query($sql);
