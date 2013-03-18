@@ -2,6 +2,8 @@
 
   session_start();
   
+  $server_address = file_get_contents("../server_address");
+  
   $con = mysql_connect("localhost","root","altair8");
 
   mysql_select_db("driver_site", $con);	
@@ -32,7 +34,7 @@
   $latitude = $row['latitude'];
   $longitude = $row['longitude'];
 
-  print("<p><a href=\"/drivers/\"><b>Home</b></a></p>");
+  print("<p><a href=\"https://" . $server_address . "/drivers/\"><b>Home</b></a></p>");
   print("<b>esl: </b>" . $esl . "</b><br/>");
   
   if($_SESSION['driver_id'] == $_REQUEST['driver_id']){
@@ -52,7 +54,7 @@
 	}
 	
     print("<b>Current Location: </b>Latitude: " . $latitude . " Longitude: " . $longitude. "<br/>");
-    print("<form action=\"/drivers/driver_profile.php?driver_id=" . $_REQUEST['driver_id'] . "\" method=\"POST\">");
+    print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?driver_id=" . $_REQUEST['driver_id'] . "\" method=\"POST\">");
     print("<b>Phone number: </b><input type=\"text\" name=\"phone_number\" size=15 value="
 	  . $phone_number . "><br>");
     print("<input type=\"submit\" value=\"Save\"><br/><br/>");
@@ -85,7 +87,7 @@
 	if($_REQUEST['add'] == true){
 	
 		print("<br/><br/>");
-		print("<form action=\"/drivers/driver_profile.php?save=true\" method=\"POST\">");
+		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?save=true\" method=\"POST\">");
 		print("<b>Flower shop name: </b><input type=\"text\" name=\"flower_shop_name\" size=50><br>");
 		print("<b>Latitude: </b><input type=\"text\" name=\"flower_shop_latitude\" size=50><br>");
 		print("<b>Longitude: </b><input type=\"text\" name=\"flower_shop_longitude\" size=50><br>");
@@ -94,7 +96,7 @@
 	}
 	else{
 		print("<br/><br/>");
-		print("<form action=\"/drivers/driver_profile.php?add=true\" method=\"POST\">");
+		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?add=true\" method=\"POST\">");
 		print("<input type=\"submit\" value=\"Add\">");
 	}
 	

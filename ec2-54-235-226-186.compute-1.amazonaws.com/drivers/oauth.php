@@ -7,7 +7,7 @@
 
 	$redirect_location = "Location: https://foursquare.com/oauth2/authenticate?"
 			. "client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF&response_type=code&redirect_uri=" 
-			. "http://" . $server_address . "/drivers/oauth.php";
+			. "https://" . $server_address . "/drivers/oauth.php";
 			
     header($redirect_location);
   }
@@ -17,7 +17,7 @@
     . "?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF"
     . "&client_secret=J52ZJITMDYABWYUWIIQB5WPDQ4I3DJP5GJBDZLUJRB3CMDY5"
     . "&grant_type=authorization_code"
-    . "&redirect_uri=http://" . $server_address . "/drivers/oauth.php"
+    . "&redirect_uri=https://" . $server_address . "/drivers/oauth.php"
     . "&code=" . $_REQUEST['code']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -37,7 +37,7 @@
       die('Error: ' . mysql_error() . " sql: " . $sql);
     }
 
-    header("Location: /drivers/create_account.php?oauth=finished");
+    header("Location: https://" . $server_address . "/drivers/create_account.php?oauth=finished");
   }
 
 ?>
