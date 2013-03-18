@@ -39,8 +39,7 @@
       die('Error: ' . mysql_error() . " sql: " . $sql);
     }
 
-    session_unset('create_username');
-    header("Location: /drivers/");
+    header("Location: /drivers/create_account.php?oauth=finished");
   }
 
 ?>

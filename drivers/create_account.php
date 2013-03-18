@@ -5,6 +5,41 @@
 <b>Create Account:</b>
 <br><br>
 <?php
+
+  if($_REQUEST['oauth'] == 'finished'){
+  
+    $con = mysql_connect("localhost","root","altair8");
+
+    mysql_select_db("driver_site", $con);
+	
+	$sql = "SELECT id,four_square_auth_token WHERE username='" . $_SESSION['create_username'] . "'";
+	$result = mysql_query($sql, $con);
+	
+	if(!$result){
+	
+		die('Error: ' . mysql_error() . " sql: " . $sql);
+	}
+	
+	$row = mysql_fetch_array($result);
+
+	$ch = curl_init("https://api.foursquare.com/v2/users/self?oauth_token=" . $row['four_square_auth_token']);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+
+	$user_info = curl_exec($ch);
+	$user_info = json_decode($user_info);
+	
+	$user_id = $user_info->response->user->id;
+	
+	$sql = "UPDATE DRIVERS SET four_square_user_id=$user_id WHERE id=" . $row['id'];
+	if(!mysql_query($sql, $con);){
+	
+		die('Error: ' . mysql_error() . " sql: " . $sql);
+	}
+	
+	session_unset('create_username');
+	header("Location: /drivers/");
+  }
 	
   function getGUID(){
     if (function_exists('com_create_guid')){
