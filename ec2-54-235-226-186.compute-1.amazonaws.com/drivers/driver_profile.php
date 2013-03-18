@@ -8,7 +8,7 @@
 
   mysql_select_db("driver_site", $con);	
   
-  if($_REQUEST['save'] == true){
+  if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
   
 	$sql = "INSERT INTO FLOWER_SHOPS (driver_id,name,latitude,longitude,esl) VALUES(". $_SESSION['driver_id'] . 
 		",'" . $_REQUEST['flower_shop_name'] . "'," . $_REQUEST['flower_shop_latitude'] . "," . $_REQUEST['flower_shop_longitude']
@@ -37,9 +37,9 @@
   print("<p><a href=\"https://" . $server_address . "/drivers/\"><b>Home</b></a></p>");
   print("<b>esl: </b>" . $esl . "</b><br/>");
   
-  if($_SESSION['driver_id'] == $_REQUEST['driver_id']){
+  if(array_key_exists('driver_id'), $_SESSION && array_key_exists('driver_id', $_REQUEST) && $_SESSION['driver_id'] == $_REQUEST['driver_id']){
   
-  	if(strlen($_REQUEST['phone_number']) > 0){
+  	if(array_key_exists('phone_number', $_REQUEST)){
 
 	  $sql = "UPDATE DRIVERS SET phone_number='" . $_REQUEST['phone_number']
 	  . "' WHERE id=" . $_SESSION['driver_id'];
@@ -84,7 +84,7 @@
 		print("esl: " . $flowerw_shop_row['esl'] . "<br/>");
 	}
 	
-	if($_REQUEST['add'] == true){
+	if(array_key_exists('add', $_REQUEST) && $_REQUEST['add'] == true){
 	
 		print("<br/><br/>");
 		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?save=true\" method=\"POST\">");
