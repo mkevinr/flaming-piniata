@@ -1,6 +1,6 @@
 <?php
 
-	file_put_contents("checkin_test.txt", "Called checkin_notification.php!");
+	//file_put_contents("checkin_test.txt", "Called checkin_notification.php!");
 
 	$checkin = json_decode($_REQUEST['checkin']);
 	$four_square_user_id = $checkin->user->id;
