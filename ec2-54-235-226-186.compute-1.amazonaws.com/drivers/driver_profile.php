@@ -75,7 +75,7 @@
     print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?driver_id=" . $_REQUEST['driver_id'] . "\" method=\"POST\">");
     print("<b>Phone number: </b><input type=\"text\" name=\"phone_number\" size=15 value="
 	  . $phone_number . "><br>");
-    print("<input type=\"submit\" value=\"Save\"></form><br/><br/>");
+    print("<input type=\"submit\" value=\"Save\"></form><br/>");
     print("<b>Flower shops to listen to events from:<br/><br/>");
 	
     $sql = "SELECT * FROM FLOWER_SHOPS WHERE driver_id=" . $_SESSION['driver_id'];
