@@ -108,7 +108,7 @@
 		print("<b>Flower shop name: </b><input type=\"text\" name=\"flower_shop_name\" size=50><br>");
 		print("<b>Latitude: </b><input type=\"text\" name=\"flower_shop_latitude\" size=50><br>");
 		print("<b>Longitude: </b><input type=\"text\" name=\"flower_shop_longitude\" size=50><br>");
-		print("<b>esl: </b><input type=\"text\" name=\"flower_shop_esl\" size=50><br>");
+		print("<b>Flower shop's esl: </b><input type=\"text\" name=\"flower_shop_esl\" size=50><br>");
 		print("<input type=\"submit\" value=\"Save\">");
 	}
 	else{
