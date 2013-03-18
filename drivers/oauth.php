@@ -37,7 +37,7 @@
       die('Error: ' . mysql_error() . " sql: " . $sql);
     }
 
-    header("Location: /drivers/create_account.php?oauth=finished");*/
+    header("Location: /drivers/create_account.php?oauth=finished");
   }
 
 ?>
