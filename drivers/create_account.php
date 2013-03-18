@@ -39,6 +39,7 @@
 	}
 	
 	session_unset('create_username');
+	die();
 	//header("Location: /drivers/");
   }
 	
