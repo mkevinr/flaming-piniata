@@ -1,6 +1,6 @@
 <html>
 <body>
-<a href="/drivers/">Home</a><br>
+<a href="https:///drivers/">Home</a><br>
 <p><b>Users:</b></p>
 <?php
 
@@ -19,7 +19,7 @@ if (!$result)
 while($row = mysql_fetch_array($result)){
 
 	$user_id = $row['id'];
-	echo "<a href=\"/drivers/driver_profile.php?driver_id=" . $user_id . "\">" . $row['username'] . "</a><br>";
+	echo "<a href=\"https:///drivers/driver_profile.php?driver_id=" . $user_id . "\">" . $row['username'] . "</a><br>";
 }
 ?>
 
