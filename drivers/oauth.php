@@ -37,8 +37,8 @@
       die('Error: ' . mysql_error() . " sql: " . $sql);
     }
 
-	print("Session['create_username']: " . $_SESSION['create_username']");
-    //header("Location: /drivers/create_account.php?oauth=finished");
+	print("Session['create_username']: " . $_SESSION['create_username']);
+    //header("Location: /drivers/create_account.php?oauth=finished");*/
   }
 
 ?>
