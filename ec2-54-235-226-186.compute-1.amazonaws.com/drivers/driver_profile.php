@@ -14,7 +14,7 @@
 		",'" . $_REQUEST['flower_shop_name'] . "'," . $_REQUEST['flower_shop_latitude'] . "," . $_REQUEST['flower_shop_longitude']
 		. ",'" . $_REQUEST['flower_shop_esl'] . "')";
 		
-	if(!mysql_query($sql, $con){
+	if(!mysql_query($sql, $con)){
 	
 	  die("error: " . mysql_error() . " sql: " . $sql);
 	}
