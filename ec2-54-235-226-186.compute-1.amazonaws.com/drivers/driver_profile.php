@@ -104,10 +104,19 @@
 		
 			die("error: " . mysql_error() . "sql: " . $sql);
 		}
+		
+		$sql = "SELECT $id FROM FLOWER_SHOPS ORDER BY $id DESC LIMIT 1";
+		$result = mysql_query($sql, $con);
+		if(!$result){
+		
+			die("error: " . mysql_error() . "sql: " . $sql);
+		}
+		
+		$flower_shop_id = mysql_fetch_array()['id'];
 	
 		print("<b>Your esl: " . $driver_esl . "</b><br/>");
 		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?save=true&driver_id=" . $_REQUEST['driver_id']
-				. "\" method=\"POST\">");
+				. "&flower_shop_id=" . $flower_shop_id . "\" method=\"POST\">");
 		print("<b>Flower shop name: </b><input type=\"text\" name=\"flower_shop_name\" size=50><br>");
 		print("<b>Latitude: </b><input type=\"text\" name=\"flower_shop_latitude\" size=50><br>");
 		print("<b>Longitude: </b><input type=\"text\" name=\"flower_shop_longitude\" size=50><br>");
