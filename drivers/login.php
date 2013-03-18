@@ -17,14 +17,12 @@ if(strlen($_REQUEST['username']) > 0){
 
   while($row = mysql_fetch_array($result)){
 
-  	  printf("row['username']: " . $row['username'] . " row['id']: " . $row['id']);
       if($row['username'] == $_REQUEST['username']){
 
         session_start();
 		$_SESSION['driver_id'] = $row['id'];
-		printf("session['driver_id']: " . $_SESSION['driver_id']);
 		
-		//header("Location: /drivers/");
+		header("Location: /drivers/");
     }
   }
 }
