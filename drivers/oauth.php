@@ -13,8 +13,6 @@
   }
   else{
 
-    session_start();
-
     $ch = curl_init("https://foursquare.com/oauth2/access_token"
     . "?client_id=3B53D2V4SEVOHI1R5LNL1H50N4400SQO2JKJSO5MMSP4FLIF"
     . "&client_secret=J52ZJITMDYABWYUWIIQB5WPDQ4I3DJP5GJBDZLUJRB3CMDY5"
@@ -39,7 +37,8 @@
       die('Error: ' . mysql_error() . " sql: " . $sql);
     }
 
-    header("Location: /drivers/create_account.php?oauth=finished");
+	print("Session['create_username']: " . $_SESSION['create_username']");
+    //header("Location: /drivers/create_account.php?oauth=finished");
   }
 
 ?>
