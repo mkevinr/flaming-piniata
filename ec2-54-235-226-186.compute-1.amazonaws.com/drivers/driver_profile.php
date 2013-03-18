@@ -105,7 +105,7 @@
 			die("error: " . mysql_error() . "sql: " . $sql);
 		}
 		
-		$sql = "SELECT $id FROM FLOWER_SHOPS ORDER BY $id DESC LIMIT 1";
+		$sql = "SELECT $id FROM FLOWER_SHOPS ORDER BY id DESC LIMIT 1";
 		$result = mysql_query($sql, $con);
 		if(!$result){
 		
