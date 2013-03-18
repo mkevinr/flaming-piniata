@@ -1,10 +1,13 @@
 <html>
 <body>
-<a href="/drivers/">Home</a>
-<br><br>
-<b>Create Account:</b>
-<br><br>
 <?php
+
+  $server_address = file_get_contents("../server_address");
+
+  print("<a href=\"https://" . $server_address . "/drivers/\">Home</a>");
+  print("<br><br>");
+  print("<b>Create Account:</b>");
+  print("<br><br>");
 
   session_start();
   if($_REQUEST['oauth'] == 'finished'){
@@ -39,7 +42,7 @@
 	}
 	
 	session_unset('create_username');
-	header("Location: /drivers/");
+	header("Location: https://" . $server_address . "/drivers/");
   }
 	
   function getGUID(){
@@ -63,7 +66,7 @@
   if(strlen($_REQUEST['username']) > 0){
   
 	$server_address = file_get_contents("../server_address");
-	$esl = $server_address . "/drivers/input.php?" . getGUID();
+	$esl = "https://" . $server_address . "/drivers/input.php?" . getGUID();
 		
     $con = mysql_connect("localhost","root","altair8");
 
@@ -82,16 +85,17 @@
 	
 	var_dump($_SESSION['create_username']);
 
-    header("Location: /drivers/oauth.php");
+    header("Location: https://" . $server_address . "/drivers/oauth.php");
   } 
 
   if($_REQUEST['failed'] === true){
 
     echo "Account creation failed! Try again.";
   }
+  
+  print("<form action=\"https://" . $server_address . "/drivers/create_account.php\" method=\"POST\">");
 ?>
 
-<form action="/drivers/create_account.php" method="POST">
 User name: <input type="text" name="username"><br>
 Phone number: <input type="text" name="phone_number"><br>
 <input type="submit" value="Submit">
