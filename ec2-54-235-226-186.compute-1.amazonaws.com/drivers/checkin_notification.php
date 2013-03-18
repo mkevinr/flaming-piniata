@@ -21,7 +21,7 @@
 	
 	while($row = mysql_fetch_array($result)){
 	
-		$sql = "UPDATE DRIVERS SET latitude=" . $latitude ",longitude=" . $longitude;
+		$sql = "UPDATE DRIVERS SET latitude=" . $latitude . ",longitude=" . $longitude;
 		if(!mysql_query($sql, $con)){
 		
 			die('Error: ' . mysql_error() . " sql: " . $sql);
