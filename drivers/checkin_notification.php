@@ -2,7 +2,7 @@
 
 	file_put_contents("checkin_test.txt", "Called checkin_notification.php!");
 
-	/*$checkin = json_decode($_REQUEST['checkin']);
+	$checkin = json_decode($_REQUEST['checkin']);
 	$four_square_user_id = $checkin->user->id;
 	$location = $checkin->venue->location;
 	$latitude = $location->lat;
@@ -26,5 +26,5 @@
 		
 			die('Error: ' . mysql_error() . " sql: " . $sql);
 		}
-	}*/
+	}
 ?>
