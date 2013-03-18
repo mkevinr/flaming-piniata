@@ -36,6 +36,8 @@
 		die("error: " . mysql_error() . "sql: " . $sql);
 	  }
 	}
+	
+	print("request['phone_number']: " . $_REQUEST['phone_number']);
 
     print("<b>Current Location: </b>Latitude: " . $latitude . " Longitude: " . $longitude. "<br/>");
     print("<form action=\"/drivers/driver_profile.php?driver_id=" . $_REQUEST['driver_id'] . "\" method=\"POST\">");
