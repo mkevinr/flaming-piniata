@@ -84,6 +84,7 @@
 		print("esl: " . $flowerw_shop_row['esl'] . "<br/>");
 	}
 	
+	print("add: " . $_REQUEST['add']);
 	if(array_key_exists('add', $_REQUEST) && $_REQUEST['add'] == true){
 	
 		print("<br/><br/>");
