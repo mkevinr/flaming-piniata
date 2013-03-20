@@ -33,7 +33,7 @@
 		$id = $row['id'];
 		
 		$sql = "INSERT INTO FLOWER_SHOPS (id, name, latitude, longitude)"
-			. " VALUES (" . $id . ",'" . $_REQUEST['name'] . "\"," . $_REQUEST['latitude'] . "," . $_REQUEST['longitude'] . ")";
+			. " VALUES (" . $id . ",'" . $_REQUEST['name'] . "'," . $_REQUEST['latitude'] . "," . $_REQUEST['longitude'] . ")";
 
 		if (!mysql_query($sql,$con))
 		{
