@@ -8,7 +8,7 @@
 	$con = mysql_connect("localhost", "root", "altair8");
     mysql_select_db("flower_shop_site", $con);
 	
-	if(array_key_exists($_REQUEST['bid_id'], $_REQUEST)){
+	if(array_key_exists('bid_id', $_REQUEST)){
 	
 	
 		$sql = "SELECT driver_id,estimated_delivery_time FROM BID WHERE id=" . $_REQUEST['bid_id'];
