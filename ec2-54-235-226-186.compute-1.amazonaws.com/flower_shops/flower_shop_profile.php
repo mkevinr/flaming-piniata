@@ -73,14 +73,14 @@
 	  print("<b>Flower shop's esl:</b> https://" . $server_address . "/flower_shops/event_input.php?esl_token=" . $row['flower_shop_esl_token']);
 	  print("<b>Your username:</b> " . $row['username']);
 	  
-	  print("<b>Your esl:</b> " . $row['driver_esl'];
+	  print("<b>Your esl:</b> " . $row['driver_esl']);
 	}
 	else{
 	
-	  if(array_key_exists('save', $_REQUEST){
+	  if(array_key_exists('save', $_REQUEST)){
 	  
 		$sql = "UPDATE DRIVERS SET driver_id=" . $_SESSION['driver_id'] . ",flower_shop_id=" $_REQUEST['flower_shop_id'] 
-				. ",flower_shop_esl_token=" . $_REQUEST['flower_shop_esl_token'] . ",driver_esl=" . $_REQUEST['driver_esl']);
+				. ",flower_shop_esl_token=" . $_REQUEST['flower_shop_esl_token'] . ",driver_esl=" . $_REQUEST['driver_esl'];
 				
 		if(!mysql_query($sql, $con){
 		
