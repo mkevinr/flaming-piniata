@@ -1,5 +1,7 @@
 <?php
 
+  session_start();
+
   function getGUID(){
     if (function_exists('com_create_guid')){
         return com_create_guid();
@@ -23,8 +25,6 @@
   print("<a href=\"https://" . $server_address . "/flower_shops/flower_shop_profile.php?" . $_SESSION['flower_shop_id'] . "\"><b>Back</b></a><br/><br/>");
 
   if(array_key_exists('delivery_latitude', $_REQUEST) > 0){
-
-    session_start();
 
     $con = mysql_connect("localhost", "root", "altair8");
     mysql_select_db("flower_shop_site", $con);
