@@ -15,7 +15,7 @@ if(array_key_exists('username', $_REQUEST)){
 
   mysql_select_db("flower_shop_site", $con);
 
-  $sql = "SELECT id,username,privileges FROM USERS"
+  $sql = "SELECT id,username,privileges FROM USERS";
   $result = mysql_query($sql, $con);
   if(!$result){
   
