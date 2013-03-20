@@ -75,7 +75,7 @@
         , "delivery_latitude" => $_REQUEST['delivery_latitude']
 	    , "delivery_longitude" => $_REQUEST['delivery_longitude']));
 	
-		printf("$request: " $request);
+		printf("$request: " . $request);
 	}
 
       /*$ch = curl_init($esl);
