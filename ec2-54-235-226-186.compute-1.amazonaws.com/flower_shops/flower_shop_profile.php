@@ -127,7 +127,7 @@
 	print("<br/><a href=\"https://" . $server_address . "/flower_shops/request_delivery.php\">Request new delivery</a>");
 	print("<br/><a href=\"https://" . $server_address . "/flower_shops/view_deliveries.php\">View all deliveries</a>");
   
-  	if(array_key_exists('phone_number', $_REQUEST)){
+  	/*if(array_key_exists('phone_number', $_REQUEST)){
 
 	  $sql = "UPDATE DRIVERS SET phone_number='" . $_REQUEST['phone_number']
 	  . "' WHERE id=" . $_SESSION['driver_id'];
@@ -192,7 +192,7 @@
 		print("<b>Longitude: </b><input type=\"text\" name=\"flower_shop_longitude\" size=50><br>");
 		print("<b>Flower shop's esl: </b><input type=\"text\" name=\"flower_shop_esl\" size=50><br>");
 		print("<input type=\"submit\" value=\"Save\">");
-	}
+	}*/
 	
 	mysql_close($con);
   }
