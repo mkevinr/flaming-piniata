@@ -24,7 +24,7 @@
   
   $con = mysql_connect("localhost","root","altair8");
 
-  mysql_select_db("driver_site", $con);	
+  mysql_select_db("flower_shop_site", $con);	
   
   if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
   
@@ -38,8 +38,8 @@
 	}
   }
   
-  $sql = "SELECT username,phone_number,latitude,longitude FROM DRIVERS WHERE id=" . $_REQUEST['driver_id'];
-  $result = mysql_query($sql);
+  $sql = "SELECT * FROM FLOWER_SHOPS WHERE id=" . $_REQUEST['flower_shop_id'];
+  $result = mysql_query($sql, $con);
 
   if(!$result){
 
@@ -47,15 +47,74 @@
   }
 
   $row = mysql_fetch_array($result);
-  $username = $row['username'];
-  $phone_number = $row['phone_number'];
+  $name = $row['name'];
   $latitude = $row['latitude'];
   $longitude = $row['longitude'];
 
-  print("<p><a href=\"https://" . $server_address . "/drivers/\"><b>Home</b></a></p>");
-  print("<b>Username: </b>" . $username . "</b><br/>");
+  print("<p><a href=\"https://" . $server_address . "/flower_shops/\"><b>Home</b></a></p>");
+  print("<b>Name: </b>" . $name . "</b><br/>");
+  print("<b>Location: </b>Latitude: " . $latitude . " Longitude: " . $longitude. "<br/>");
   
-  if(array_key_exists('driver_id', $_SESSION) && array_key_exists('driver_id', $_REQUEST) && $_SESSION['driver_id'] == $_REQUEST['driver_id']){
+  if(array_key_exists('driver_id', $_SESSION){
+  
+	$sql = "SELECT * FROM DRIVERS WHERE flower_shop_id=" . $_REQUEST['flower_shop_id'] . ",driver_id=" . $_REQUEST['driver_id'];
+	$result = mysql_query($sql);
+	
+	if(!$result){
+	
+	  die("error: " . mysql_error() . " sql: " . $sql);
+	}
+	
+	$row = mysql_fetch_array($result);
+	if(array_key_exists('driver_id', $row)){
+
+	  // Print the output for if the driver has already registered with this flower shop 	
+	  print("<br/><b>Your Registration:</b><br/><br/>");
+	  print("<b>Flower shop's esl:</b> " . "https://" . $server_address . "/flower_shops/event_input.php?esl_token=" . $row['flower_shop_esl_token'];
+	  print("<b>Your username:</b> " . $row['username'];
+	  
+	  print("<b>Your esl:</b> " . $row['driver_esl'];
+	}
+	else{
+	
+	  if(array_key_exists('save', $_REQUEST){
+	  
+		$sql = "UPDATE DRIVERS SET driver_id=" . $_SESSION['driver_id'] . ",flower_shop_id=" $_REQUEST['flower_shop_id'] 
+				. ",flower_shop_esl_token=" . $_REQUEST['flower_shop_esl_token'] . ",driver_esl=" . $_REQUEST['driver_esl']);
+				
+		if(!mysql_query($sql, $con){
+		
+		  die("error: " . mysql_error() . " sql: " . $sql);
+		}
+		
+		header("Location: https://" . $server_address . "/flower_shops/flower_shop_profile.php?flower_shop_id" . $_REQUEST['flower_shop_id']);
+	  }
+	  if(array_key_exists('register', $_REQUEST)){
+	  
+		// Show form for the driver to register.
+		$flower_shop_esl_token = getGUID();
+		
+		print("<br/><b>Your Username:</b> " . $driver_username);
+		print("<br/><b>Flower Shop's esl:</b> " . "https://" . $server_address . "/flower_shops/event_input.php?esl_token=" . $flower_shop_esl_token;
+		print("<form action=\"https://" . $server_address . "/flower_shops/flower_shop_profile.php?flower_shop_id=" . $_REQUEST['flower_shop_id']
+				. "&flower_shop_esl_token=" . $flower_shop_esl_token . "&save=true&" . \" method=\"POST\">");
+		print("<br/>Your esl: </b><input type=\"text\"/>");
+		print("<br/><input type=\"submit\" value=\"Save\"/></form>");
+	  }
+	  else{
+	  
+	  	// Add a button the driver can use to register.
+		print("<form action=\"https://" . $server_address . "/flower_shops/flower_shop_profile.php?register=true&flower_shop_id="
+				. $_REQUEST['flower_shop_id'] . "\" method=\"POST\">");
+		print("<br/><input type=\"submit\" value=\"Register\"/></form>");
+	  }
+	}
+  }
+  else if(array_key_exists('flower_shop_id', $_SESSION) && array_key_exists('flower_shop_id', $_REQUEST) 
+		&& $_SESSION['flower_shop_id'] == $_REQUEST['flower_shop_id']){
+		
+	print("<br/><a href=\"https://" . $server_address . "/flower_shops/request_delivery.php\">Request new delivery</a>");
+	print("<br/><a href=\"https://" . $server_address . "/flower_shops/view_deliveries.php\">View all deliveries</a>");
   
   	if(array_key_exists('phone_number', $_REQUEST)){
 
@@ -66,12 +125,11 @@
 	  if(!$result){
 
 		die("error: " . mysql_error() . "sql: " . $sql);
-	  }
+	  }	
 	  
 	  $phone_number = $_REQUEST['phone_number'];
 	}
 	
-    print("<b>Current Location: </b>Latitude: " . $latitude . " Longitude: " . $longitude. "<br/>");
     print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?driver_id=" . $_REQUEST['driver_id'] . "\" method=\"POST\">");
     print("<b>Phone number: </b><input type=\"text\" name=\"phone_number\" size=15 value="
 	  . $phone_number . "><br/><br/>");
@@ -124,13 +182,11 @@
 		print("<b>Flower shop's esl: </b><input type=\"text\" name=\"flower_shop_esl\" size=50><br>");
 		print("<input type=\"submit\" value=\"Save\">");
 	}
-	else{
-		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?add=true&driver_id=" . $_REQUEST['driver_id'] 
-				. "\" method=\"POST\">");
-		print("<input type=\"submit\" value=\"Add\"></form>");
-	}
 	
 	mysql_close($con);
+  }
+  else{
+	print("<br><b>For more options/information log in as a driver or the owner of this flower shop</b>");
   }
 ?>
 

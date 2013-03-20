@@ -88,14 +88,14 @@
 	
 		print("Name: " . $row['name'] . " Latitude: " . $row['latitude'] . " Longitude: " . $row['longitude']
 			. "<br/>");
-		print("Your esl: https://" . $server_address . "/drivers/input_event.php?" . $row['driver_esl_token'] . "<br/>");
+		print("Your esl: https://" . $server_address . "/drivers/event_input.php?esl_token=" . $row['driver_esl_token'] . "<br/>");
 		print("Flower shop's esl: " . $row['flower_shop_esl'] . "<br/><br/>");
 	}
 	
 	if(array_key_exists('add', $_REQUEST) && $_REQUEST['add'] == true){
 	
 		$driver_esl_token = getGUID();
-		$driver_esl = "https://" . $server_address . "/drivers/input_event.php?" . $driver_esl_token;
+		$driver_esl = "https://" . $server_address . "/drivers/event_input.php?esl_token=" . $driver_esl_token;
 		
 		$sql = "INSERT INTO FLOWER_SHOPS (driver_id,driver_esl_token) VALUES (" . $_SESSION['driver_id'] . ",'" . $driver_esl_token . "')";
 		if(!mysql_query($sql, $con)){

@@ -4,6 +4,7 @@
 
    session_start();
    session_unset('flower_shop_id');
+   session_unset('driver_id');
 
    header("Location: https://" . $server_address . "/flower_shops/");
 ?>

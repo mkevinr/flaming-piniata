@@ -15,14 +15,24 @@ if(array_key_exists('username', $_REQUEST)){
 
   mysql_select_db("flower_shop_site", $con);
 
-  $result = mysql_query("SELECT id,username FROM FLOWER_SHOPS", $con);
+  $result = mysql_query("SELECT id,username,privileges FROM FLOWER_SHOPS", $con);
 
   while($row = mysql_fetch_array($result)){
 
     if($row['username'] == $_REQUEST['username']){
 
         session_start();
-		$_SESSION['flower_shop_id'] = $row['id'];
+		session_unset('driver_id');
+		session_unset('flower_shop_id');
+		
+		if($row['privileges'] == "flower_shop"){
+		
+			$_SESSION['flower_shop_id'] = $row['id'];
+		}
+		else{
+		
+			$_SESSION['driver_id'] = $row['id'];
+		}
 		
 		header("Location: https://" . $server_address . "/flower_shops/");
     }
