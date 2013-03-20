@@ -57,6 +57,17 @@
   
   if(array_key_exists('driver_id', $_SESSION)){
   
+	$sql = "SELECT username FROM USERS WHERE driver_id=" . $_SESSION['driver_id'];
+	$result = mysql_query($sql, $con);
+	
+	if(!$result){
+	
+	  die("error: " . mysql_error() . " sql: " . $sql);
+	}
+	
+	$row = mysql_fetch_array($result);
+	$driver_username = $row['username'];
+  
 	$sql = "SELECT * FROM DRIVERS WHERE flower_shop_id=" . $_REQUEST['flower_shop_id'] . " AND driver_id=" . $_SESSION['driver_id'];
 	$result = mysql_query($sql, $con);
 	
