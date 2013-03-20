@@ -26,15 +26,16 @@
 
   mysql_select_db("driver_site", $con);	
   
-  /*if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
+  if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
   
-	$sql = "UPDATE DRIVERS SET phone_number='" . $_REQUEST['phone_number'] . "' WHERE driver_id=" . $_REQUEST['driver_id'];
+	$sql = "UPDATE FLOWER_SHOPS SET name='" . $_REQUEST['flower_shop_name'] . "',latitude=" . $_REQUEST['flower_shop_latitude']
+			. ",longitude=" . $_REQUEST['flower_shop_longitude'] . ",flower_shop_esl='" . $_REQUEST['flower_shop_iesl'] . "' WHERE driver_id=" . $_REQUEST['driver_id'];;
 				
 	if(!mysql_query($sql, $con)){
 	
 	  die("error: " . mysql_error() . " sql: " . $sql);
 	}
-  }*/
+  }
   
   $sql = "SELECT username,phone_number,latitude,longitude FROM DRIVERS WHERE id=" . $_REQUEST['driver_id'];
   $result = mysql_query($sql);
@@ -122,6 +123,7 @@
 		print("<b>Flower shop's esl: </b><input type=\"text\" name=\"flower_shop_esl\" size=50><br>");
 		print("<input type=\"submit\" value=\"Save\">");
 	}
+	else if(
 	else{
 		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?add=true&driver_id=" . $_REQUEST['driver_id'] 
 				. "\" method=\"POST\">");
