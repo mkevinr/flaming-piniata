@@ -58,7 +58,6 @@
     echo "Account creation failed! Try again.";
   }
   
-  print("Just before Form!<br/>");
   print("<form action=\"https://" . $server_address . "/flower_shops/create_account.php\" method=\"POST\">");
   print("<select name=\"user_type\">");
   if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "flower_shop"){
@@ -84,7 +83,7 @@
 </form>
 
 <?php
-	if($_REQUEST['user_type'] == "flower_shop"){
+	if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "flower_shop"){
 	
 		print("<form action=\"https://" . $server_address . "/flower_shops/create_account.php?user_type=flower_shop\" method=\"POST\">");
 		print("User Name: <input type=\"text\" name=\"username\"><br>");
@@ -94,7 +93,7 @@
 		print("<input type=\"submit\" value=\"Submit\">");
 		print("</form>");
 	}
-	else if($_REQUEST['user_type'] == "driver"){
+	else if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "driver"){
 	
 		print("<form action=\"https://" . $server_address . "/flower_shops/create_account.php?user_type=driver\" method=\"POST\">");
 		print("User Name: <input type=\"text\" name=\"username\"><br>");		
