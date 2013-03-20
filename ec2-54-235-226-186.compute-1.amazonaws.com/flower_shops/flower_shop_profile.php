@@ -55,7 +55,7 @@
   print("<b>Name: </b>" . $name . "</b><br/>");
   print("<b>Location: </b>Latitude: " . $latitude . " Longitude: " . $longitude. "<br/>");
   
-  if(array_key_exists('driver_id', $_SESSION){
+  if(array_key_exists('driver_id', $_SESSION)){
   
 	$sql = "SELECT * FROM DRIVERS WHERE flower_shop_id=" . $_REQUEST['flower_shop_id'] . ",driver_id=" . $_REQUEST['driver_id'];
 	$result = mysql_query($sql);
