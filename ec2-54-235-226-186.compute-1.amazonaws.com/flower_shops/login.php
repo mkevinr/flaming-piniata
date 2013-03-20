@@ -16,6 +16,10 @@ if(array_key_exists('username', $_REQUEST)){
   mysql_select_db("flower_shop_site", $con);
 
   $result = mysql_query("SELECT id,username,privileges FROM FLOWER_SHOPS", $con);
+  if(!$result){
+  
+	die("error: " . mysql_error() . " sql: " . $sql);
+  }
 
   while($row = mysql_fetch_array($result)){
 
