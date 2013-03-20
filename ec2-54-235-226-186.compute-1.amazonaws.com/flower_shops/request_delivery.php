@@ -82,11 +82,13 @@
     	'Content-Length: ' . strlen($request))
 	  );
       curl_exec($ch);
-    } 
+    }
+
+	header("Location: https://" . $server_address . "/flower_shops/flower_shop_profile?flower_shop_id=" . $_SESSION['flower_shop_id']);
   }
   
   print("<p><b>Delivery request:</b></p>");
-  print("<form action=\"https://" . $server_address . "/flower_shops/flower_shop_profile.php?flower_shop_id=" . $_SESSION['flower_shop_id']
+  print("<form action=\"https://" . $server_address . "/flower_shops/request_delivery.php?flower_shop_id=" . $_SESSION['flower_shop_id']
 		. "\" method=\"POST\">");
 ?>
 
