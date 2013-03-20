@@ -28,7 +28,7 @@
 		
 		$sql = "DELETE FROM BIDS WHERE delivery_id=" . $_REQUEST['delivery_id'];
 		
-		if(!mysql_query($sql, $con){
+		if(!mysql_query($sql, $con)){
 		
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
