@@ -84,7 +84,7 @@
 	  print("<br/><b>Your Registration:</b><br/><br/>");
 	  print("<b>Flower shop's esl:</b> https://" . $server_address . "/flower_shops/event_input.php?esl_token=" . $row['flower_shop_esl_token']);
 	  print("<br/><b>Your username:</b> " . $driver_username);
-	  print("<b>Your esl:</b> " . $row['driver_esl']);
+	  print("<br/><b>Your esl:</b> " . $row['driver_esl']);
 	}
 	else{
 	
