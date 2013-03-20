@@ -69,13 +69,13 @@
 	}
 	
 	$row = mysql_fetch_array($result);
-	if(array_key_exists('driver_id', $row)){
+	
+	if(mysql_num_rows($result) > 0){
 
 	  // Print the output for if the driver has already registered with this flower shop 	
 	  print("<br/><b>Your Registration:</b><br/><br/>");
 	  print("<b>Flower shop's esl:</b> https://" . $server_address . "/flower_shops/event_input.php?esl_token=" . $row['flower_shop_esl_token']);
 	  print("<b>Your username:</b> " . $row['username']);
-	  
 	  print("<b>Your esl:</b> " . $row['driver_esl']);
 	}
 	else{
