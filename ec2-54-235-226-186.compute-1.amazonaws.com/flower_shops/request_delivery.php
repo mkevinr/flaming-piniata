@@ -63,6 +63,7 @@
 
     while($row = mysql_fetch_array($result)){
 
+
       $esl = $row['driver_esl'];
 
       $request = json_encode(array(
@@ -95,7 +96,7 @@
 
 Delivery Latitude: <input type="text" name="delivery_latitude"><br/>
 Delivery Longitude:  <input type="text" name="delivery_longitude"><br/>
-<input type="submit" value="Send Delivery Request"></form>
+<br/><input type="submit" value="Send Delivery Request"></form>
 
 </body>
 </html>
