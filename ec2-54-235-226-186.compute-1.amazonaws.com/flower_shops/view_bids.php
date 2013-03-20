@@ -57,7 +57,7 @@
 		print("<b>Assigned Driver:</b> " . $row['username'] . "<br/>");
 		print("<b>Estimated Delivery Time:</b> " . $row['estimated_delivery_time'] . "<br/>");
 		
-		if(row['username'] != null){
+		if($row['username'] != null){
 		
 			print("<form action=\"https://" . $server_address . "/view_bids.php?delivery_id=" . $_REQUEST['delivery_id'] 
 					. "&bid_id=" . $row['BIDS.id'] . "\" method=\"POST\">");
