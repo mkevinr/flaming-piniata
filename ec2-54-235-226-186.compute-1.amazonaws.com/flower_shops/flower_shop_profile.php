@@ -26,7 +26,7 @@
 
   mysql_select_db("flower_shop_site", $con);	
   
-  if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
+  /*if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
   
 	$sql = "UPDATE FLOWER_SHOPS SET name='" . $_REQUEST['flower_shop_name'] . "',latitude=" . $_REQUEST['flower_shop_latitude']
 			. ",longitude=" . $_REQUEST['flower_shop_longitude'] . ",flower_shop_esl='" . $_REQUEST['flower_shop_esl'] . "'"
@@ -36,7 +36,7 @@
 	
 	  die("error: " . mysql_error() . " sql: " . $sql);
 	}
-  }
+  }*/
   
   $sql = "SELECT * FROM FLOWER_SHOPS WHERE id=" . $_REQUEST['flower_shop_id'];
   $result = mysql_query($sql, $con);
