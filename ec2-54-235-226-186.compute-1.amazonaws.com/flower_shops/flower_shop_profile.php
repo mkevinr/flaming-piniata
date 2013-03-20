@@ -90,17 +90,19 @@
 	
 	  if(array_key_exists('save', $_REQUEST)){
 	  
-		$sql = "UPDATE DRIVERS SET driver_id=" . $_SESSION['driver_id'] . ",flower_shop_id=" . $_REQUEST['flower_shop_id'] 
-				. ",flower_shop_esl_token='" . $_REQUEST['flower_shop_esl_token'] . "',driver_esl='" . $_REQUEST['driver_esl'] . "'";
+		$sql = "INSERT INTO DRIVERS (driver_id,flower_shop_id,flower_shop_esl_token,driver_esl) VALUES(" . $_SESSION['driver_id']
+				. "," . $_REQUEST['flower_shop_id']	. ",'" . $_REQUEST['flower_shop_esl_token'] . "','" . $_REQUEST['driver_esl'] . "')";
 				
 		if(!mysql_query($sql, $con)){
 		
 		  die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		
+		print("<p>SQL 
+		
 		//header("Location: https://" . $server_address . "/flower_shops/flower_shop_profile.php?flower_shop_id=" . $_REQUEST['flower_shop_id']);
 	  }
-	  if(array_key_exists('register', $_REQUEST)){
+	  else if(array_key_exists('register', $_REQUEST)){
 	  
 		// Show form for the driver to register.
 		$flower_shop_esl_token = getGUID();
