@@ -7,7 +7,8 @@
 
 	$server_address = file_get_contents("../server_address");
 	print("<a href=\"https://" . $server_address . "/flower_shops/\"><b>Home</b></a><br/>");
-	print("<a href=\"https://" . $server_address . "/flower_shops/flower_shop_profile.php?" . $_SESSION['flower_shop_id'] . "\"><b>Back</b></a><br/><br/>");
+	print("<a href=\"https://" . $server_address . "/flower_shops/flower_shop_profile.php?flower_shop_id="
+		. $_SESSION['flower_shop_id'] . "\"><b>Back</b></a><br/><br/>");
 	
 	print("<b>Deliveries:</b><br/><br/>");
 
