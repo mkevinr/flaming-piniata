@@ -29,7 +29,7 @@
   if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
   
 	$sql = "UPDATE FLOWER_SHOPS SET name='" . $_REQUEST['flower_shop_name'] . "',latitude=" . $_REQUEST['flower_shop_latitude']
-			. ",longitude=" . $_REQUEST['flower_shop_longitude'] . ",flower_shop_esl='" . $_REQUEST['flower_shop_iesl'] . "' WHERE driver_id=" . $_REQUEST['driver_id'];;
+			. ",longitude=" . $_REQUEST['flower_shop_longitude'] . ",flower_shop_esl='" . $_REQUEST['flower_shop_esl'] . "' WHERE driver_id=" . $_REQUEST['driver_id'];;
 				
 	if(!mysql_query($sql, $con)){
 	
