@@ -7,7 +7,7 @@
 	if($event->_domain == "rfq" && $event->_name == "delivery_ready"){
 	
 		$con = mysql_connect("localhost", "root", "altair8");
-		mysql_select_db("flower_shop_site", $con);
+		mysql_select_db("driver_site", $con);
 		
 		$sql = "SELECT driver_id FROM FLOWER_SHOPS WHERE driver_esl_token='" . $_REQUEST['esl_token'] . "'";
 		$result = mysql_query($sql, $con);
