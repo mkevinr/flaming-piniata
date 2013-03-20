@@ -58,6 +58,7 @@
     echo "Account creation failed! Try again.";
   }
   
+  print("Just before Form!<br/>");
   print("<form action=\"https://" . $server_address . "/flower_shops/create_account.php\" method=\"POST\">");
   print("<select name=\"user_type\">");
   if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "flower_shop"){
