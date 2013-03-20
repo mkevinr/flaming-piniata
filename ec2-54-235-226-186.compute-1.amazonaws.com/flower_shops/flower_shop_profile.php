@@ -98,7 +98,7 @@
 		  die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		
-		header("Location: https://" . $server_address . "/flower_shops/flower_shop_profile.php?flower_shop_id" . $_REQUEST['flower_shop_id']);
+		header("Location: https://" . $server_address . "/flower_shops/flower_shop_profile.php?flower_shop_id=" . $_REQUEST['flower_shop_id']);
 	  }
 	  if(array_key_exists('register', $_REQUEST)){
 	  
