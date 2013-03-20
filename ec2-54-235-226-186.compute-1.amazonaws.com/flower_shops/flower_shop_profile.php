@@ -97,7 +97,7 @@
 		print("<br/><b>Your Username:</b> " . $driver_username);
 		print("<br/><b>Flower Shop's esl:</b> " . "https://" . $server_address . "/flower_shops/event_input.php?esl_token=" . $flower_shop_esl_token);
 		print("<form action=\"https://" . $server_address . "/flower_shops/flower_shop_profile.php?flower_shop_id=" . $_REQUEST['flower_shop_id']
-				. "&flower_shop_esl_token=" . $flower_shop_esl_token . "&save=true&" . \" method=\"POST\">");
+				. "&flower_shop_esl_token=" . $flower_shop_esl_token . "&save=true" . "\" method=\"POST\">");
 		print("<br/>Your esl: </b><input type=\"text\"/>");
 		print("<br/><input type=\"submit\" value=\"Save\"/></form>");
 	  }
