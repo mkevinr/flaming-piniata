@@ -23,7 +23,7 @@
   $server_address = file_get_contents("../server_address");
   
   $con = mysql_connect("localhost","root","altair8");
-
+	
   mysql_select_db("driver_site", $con);	
   
   if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
@@ -123,7 +123,6 @@
 		print("<b>Flower shop's esl: </b><input type=\"text\" name=\"flower_shop_esl\" size=50><br>");
 		print("<input type=\"submit\" value=\"Save\">");
 	}
-	else if(
 	else{
 		print("<form action=\"https://" . $server_address . "/drivers/driver_profile.php?add=true&driver_id=" . $_REQUEST['driver_id'] 
 				. "\" method=\"POST\">");
