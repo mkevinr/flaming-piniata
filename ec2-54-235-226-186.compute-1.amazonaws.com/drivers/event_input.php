@@ -3,6 +3,7 @@
 	file_put_contents("driver_site_event_input_test", "got_here");
 
 	$json = $entityBody = file_get_contents('php://input');
+	file_put_contents("driver_site_event_input_test",$json);
 	var_dump($json);
 
 	$event = json_decode($json);
