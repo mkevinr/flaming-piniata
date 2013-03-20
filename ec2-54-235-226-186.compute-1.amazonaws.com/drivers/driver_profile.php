@@ -26,7 +26,7 @@
 
   mysql_select_db("driver_site", $con);	
   
-  if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
+  /*if(array_key_exists('save', $_REQUEST) && $_REQUEST['save'] == true){
   
 	$sql = "UPDATE DRIVERS SET phone_number='" . $_REQUEST['phone_number'] . "' WHERE driver_id=" . $_REQUEST['driver_id'];
 				
@@ -34,7 +34,7 @@
 	
 	  die("error: " . mysql_error() . " sql: " . $sql);
 	}
-  }
+  }*/
   
   $sql = "SELECT username,phone_number,latitude,longitude FROM DRIVERS WHERE id=" . $_REQUEST['driver_id'];
   $result = mysql_query($sql);
