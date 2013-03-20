@@ -80,9 +80,9 @@
 	  if(array_key_exists('save', $_REQUEST)){
 	  
 		$sql = "UPDATE DRIVERS SET driver_id=" . $_SESSION['driver_id'] . ",flower_shop_id=" $_REQUEST['flower_shop_id'] 
-				. ",flower_shop_esl_token=" . $_REQUEST['flower_shop_esl_token'] . ",driver_esl=" . $_REQUEST['driver_esl'];
+				. ",flower_shop_esl_token='" . $_REQUEST['flower_shop_esl_token'] . "',driver_esl='" . $_REQUEST['driver_esl'] . "'";
 				
-		if(!mysql_query($sql, $con){
+		if(!mysql_query($sql, $con)){
 		
 		  die("error: " . mysql_error() . " sql: " . $sql);
 		}
