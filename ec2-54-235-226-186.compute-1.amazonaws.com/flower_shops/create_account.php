@@ -22,7 +22,7 @@
 			die('Error: ' . mysql_error() . " sql: " . $sql);
 		}
 		
-		$sql = "SELECT id FROM USERS WHERE username=" . $_REQUEST['username'];
+		$sql = "SELECT id FROM USERS WHERE username='" . $_REQUEST['username'] . "'";
 		$result = mysql_query($sql, $con);
 		if(!$result){
 		
