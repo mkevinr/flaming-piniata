@@ -57,7 +57,7 @@
   
   if(array_key_exists('driver_id', $_SESSION)){
   
-	$sql = "SELECT * FROM DRIVERS WHERE flower_shop_id=" . $_REQUEST['flower_shop_id'] . ",driver_id=" . $_REQUEST['driver_id'];
+	$sql = "SELECT * FROM DRIVERS WHERE flower_shop_id=" . $_REQUEST['flower_shop_id'] . ",driver_id=" . $_SESSION['driver_id'];
 	$result = mysql_query($sql);
 	
 	if(!$result){
