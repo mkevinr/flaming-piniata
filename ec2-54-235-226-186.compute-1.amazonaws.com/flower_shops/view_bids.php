@@ -36,7 +36,7 @@
 		header("Location: https://" . $server_address . "/flower_shops/view_deliveries.php");
 	}
 	
-	print("<a href=\"https://" . $server_address . "/flower_shops/\"><b>Home</b></a><br/>")
+	print("<a href=\"https://" . $server_address . "/flower_shops/\"><b>Home</b></a><br/>");
 	print("<a href=\"https://" . $server_address . "/flower_shops/view_deliveries.php\"><b>Back</b></a><br/><br/>");
 	
 	print("<b>Bids:</b><br/><br/>");
