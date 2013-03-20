@@ -15,7 +15,8 @@
     $con = mysql_connect("localhost", "root", "altair8");
     mysql_select_db("flower_shop_site", $con);
 	
-	$sql = "SELECT * FROM DELIVERIES LEFT JOIN USERS on DELIVERIES.assigned_driver_id=USERS.id WHERE flower_shop_id=" . $_SESSION['flower_shop_id'];
+	$sql = "SELECT DELIVERIES.id,delivery_latitude,delivery_longitude,username,estimated_delivery_time,actual_delivery_time"
+			. " FROM DELIVERIES LEFT JOIN USERS on DELIVERIES.assigned_driver_id=USERS.id WHERE flower_shop_id=" . $_SESSION['flower_shop_id'];
 
 	$result = mysql_query($sql,$con);
 	
