@@ -58,29 +58,33 @@
     echo "Account creation failed! Try again.";
   }
   
-  print("<form action=\"https://" . $server_address . "/flower_shops/create_account.php\" method=\"POST\">");
-  print("<select name=\"user_type\">");
-  if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "flower_shop"){
-	
-	print("<option value=\"flower_shop\" selected>Flower Shop</option>");
-  }
-  else{
+  if(!array_key_exists('user_type', $_REQUEST){
   
-    print("<option value=\"flower_shop\" selected>Flower Shop</option>");
-  }
-  
-  if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "driver"){
-  
-    print("<option value=\"driver\" selected>Driver</option>");  
-  }
-  else{
-  
-	print("<option value=\"driver\">Driver</option>");
+	  print("<form action=\"https://" . $server_address . "/flower_shops/create_account.php\" method=\"POST\">");
+	  print("<select name=\"user_type\">");
+	  //if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "flower_shop"){
+		
+		print("<option value=\"flower_shop\" selected>Flower Shop</option>");
+	  //}
+	  //else{
+	  
+		//print("<option value=\"flower_shop\" selected>Flower Shop</option>");
+	  //}
+	  
+	  //if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "driver"){
+	  
+	//	print("<option value=\"driver\" selected>Driver</option>");  
+	 // }
+	  //else{
+	  
+		print("<option value=\"driver\">Driver</option>");
+	  //}
+	  
+	print("</select><br/>");
+	print("<input type="submit" value="create"/>");
+	print("</form>");
   }
 ?>
-
-</select>
-</form>
 
 <?php
 	if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "flower_shop"){
