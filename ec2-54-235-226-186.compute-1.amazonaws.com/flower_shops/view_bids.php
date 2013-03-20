@@ -43,7 +43,8 @@
 	
 	session_start();
 
-	$sql = "SELECT username,driver_id FROM BIDS INNER JOIN USERS ON BIDS.driver_id=USERS.id WHERE delivery_id=" . $_REQUEST['delivery_id'];
+	$sql = "SELECT USERS.username,BIDS.driver_id FROM BIDS INNER JOIN USERS ON BIDS.driver_id=USERS.id WHERE delivery_id=" 
+		. $_REQUEST['delivery_id'];
 
 	$result = mysql_query($sql,$con);
 	
