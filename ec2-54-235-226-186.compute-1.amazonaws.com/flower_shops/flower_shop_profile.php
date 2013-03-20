@@ -83,7 +83,7 @@
 	  // Print the output for if the driver has already registered with this flower shop 	
 	  print("<br/><b>Your Registration:</b><br/><br/>");
 	  print("<b>Flower shop's esl:</b> https://" . $server_address . "/flower_shops/event_input.php?esl_token=" . $row['flower_shop_esl_token']);
-	  print("<b>Your username:</b> " . $driver_username);
+	  print("<br/><b>Your username:</b> " . $driver_username);
 	  print("<b>Your esl:</b> " . $row['driver_esl']);
 	}
 	else{
