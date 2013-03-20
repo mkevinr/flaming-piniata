@@ -35,7 +35,7 @@
 		if($row['username'] == null){
 		
 			print("<form action=\"https://" . $server_address . "/view_bids.php?delivery_id=" . $row['id'] . "\" method=\"POST\">");
-			print("<input type=\"submit\" value=\"View Bids\"></form>");
+			print("<input type=\"submit\" value=\"View Bids\"></form><br/>");
 		}
 	}
 ?>
