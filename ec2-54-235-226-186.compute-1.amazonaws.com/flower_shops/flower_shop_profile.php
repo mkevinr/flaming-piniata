@@ -98,8 +98,6 @@
 		  die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		
-		print("<p>SQL 
-		
 		//header("Location: https://" . $server_address . "/flower_shops/flower_shop_profile.php?flower_shop_id=" . $_REQUEST['flower_shop_id']);
 	  }
 	  else if(array_key_exists('register', $_REQUEST)){
