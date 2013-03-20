@@ -38,7 +38,7 @@
 	}
   }*/
   
-  $sql = "SELECT * FROM FLOWER_SHOPS WHERE id=" . $_REQUEST['flower_shop_id'];
+  $sql = "SELECT * FROM FLOWER_SHOPS WHERE id=" . $_SESSION['flower_shop_id'];
   $result = mysql_query($sql, $con);
 
   if(!$result){
