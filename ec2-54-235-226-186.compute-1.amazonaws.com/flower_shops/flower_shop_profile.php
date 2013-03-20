@@ -38,7 +38,6 @@
 	}
   }*/
   
-  var_dump($_REQUEST);
   $sql = "SELECT * FROM FLOWER_SHOPS WHERE id=" . $_REQUEST['flower_shop_id'];
   $result = mysql_query($sql, $con);
 
