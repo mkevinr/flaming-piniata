@@ -35,7 +35,6 @@
 		
 		if($row['username'] == null){
 		
-			print("<p>row['id']: " . $row['id'] . "</p>");
 			print("<form action=\"https://" . $server_address . "/flower_shops/view_bids.php?delivery_id=" . $row['id']
 					. "\" method=\"POST\">");
 			print("<input type=\"submit\" value=\"View Bids\"></form><br/>");

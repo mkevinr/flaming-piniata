@@ -1,10 +1,14 @@
 <?php
 
+	file_put_contents("driver_site_event_input_test", "got_here");
+
 	$json = $entityBody = file_get_contents('php://input');
 
 	$event = json_decode($json);
 	
 	if($event->_domain == "rfq" && $event->_name == "delivery_ready"){
+	
+		print("<p><b>in if</b></p><br/>");
 	
 		$con = mysql_connect("localhost", "root", "altair8");
 		mysql_select_db("driver_site", $con);
@@ -47,4 +51,6 @@
 	    );
         curl_exec($ch);
 	}	
+	
+	print("<p><b>after if</b></p>");
 ?>

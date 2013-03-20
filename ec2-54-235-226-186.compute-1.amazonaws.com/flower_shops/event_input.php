@@ -1,5 +1,7 @@
 <?php
 
+    file_put_contents("flower_shop_event_input_test", "got_here");
+
 	$json = $entityBody = file_get_contents('php://input');
 
 	$event = json_decode($json);
