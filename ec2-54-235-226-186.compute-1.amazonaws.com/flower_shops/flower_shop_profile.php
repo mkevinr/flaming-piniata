@@ -57,7 +57,7 @@
   
   if(array_key_exists('driver_id', $_SESSION)){
   
-	$sql = "SELECT username FROM USERS WHERE driver_id=" . $_SESSION['driver_id'];
+	$sql = "SELECT username FROM USERS WHERE id=" . $_SESSION['driver_id'];
 	$result = mysql_query($sql, $con);
 	
 	if(!$result){
