@@ -86,7 +86,8 @@
   }
   
   print("<p><b>Delivery request:</b></p>");
-  print("<form action=\"https://" . $server_address . "/flower_shop_profile.php?flower_shop_id=" . $_SESSION['flower_shop_id'] . "\" method=\"POST\">");
+  print("<form action=\"https://" . $server_address . "/flower_shops/flower_shop_profile.php?flower_shop_id=" . $_SESSION['flower_shop_id']
+		. "\" method=\"POST\">");
 ?>
 
 Delivery Latitude: <input type="text" name="delivery_latitude"><br/>
