@@ -81,7 +81,7 @@
 	  //}
 	  
 	print("</select><br/>");
-	print("<input type="submit" value="create"/>");
+	print("<input type=\"submit\" value=\"Create\"/>");
 	print("</form>");
   }
 ?>
