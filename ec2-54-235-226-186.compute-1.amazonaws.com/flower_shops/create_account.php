@@ -43,7 +43,7 @@
 	}
 	else{
 
-		$sql = "INSERT INTO USERS (usernames, privileges) VALUES ('" . $_REQUEST['username'] . "','driver')";
+		$sql = "INSERT INTO USERS (username, privileges) VALUES ('" . $_REQUEST['username'] . "','driver')";
 
 		if (!mysql_query($sql,$con))
 		{
