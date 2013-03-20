@@ -32,7 +32,7 @@
 	$GUID = getGUID();
 	
 	$sql = "INSERT INTO DELIVERIES (guid,flower_shop_id,delivery_latitude,delivery_longitude) VALUES"
-			. "('" . $GUID . "'," . $_SESSION['flower_shop_id'] . "," . $_REQUEST['delivery_latitude'] . "," $_REQUEST['delivery_longitude'] . ")";
+			. "('" . $GUID . "'," . $_SESSION['flower_shop_id'] . "," . $_REQUEST['delivery_latitude'] . "," . $_REQUEST['delivery_longitude'] . ")";
 	
 	if(!mysql_query($sql, $con)){
 	
@@ -80,7 +80,7 @@
       curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     	'Content-Type: application/json',
     	'Content-Length: ' . strlen($request))
-	);
+	  );
       curl_exec($ch);
     } 
   }
