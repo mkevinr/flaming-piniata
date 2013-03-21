@@ -31,6 +31,7 @@
 		
 		file_put_contents("driver_site_event_input_test", "\number of rows from first query: " . mysql_num_rows($result), FILE_APPEND);
 		
+		$row = mysql_fetch_array($result);
 		$driver_id = $row['driver_id'];
 		
 		$sql = "SELECT username FROM DRIVERS WHERE id=" . $driver_id;
