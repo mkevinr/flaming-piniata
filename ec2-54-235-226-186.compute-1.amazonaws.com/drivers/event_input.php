@@ -38,6 +38,8 @@
 		}
 		
 		$username = $row['username'];
+		
+		file_put_contents("driver_site_event_input_test", "\nusername: " . $username, FILE_APPEND);
 	
 		$request = json_encode(array(
         "_domain" => "rfq"
