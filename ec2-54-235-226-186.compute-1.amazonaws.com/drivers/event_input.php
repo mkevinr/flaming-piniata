@@ -35,6 +35,8 @@
 		
 		$result = mysql_query($sql, $con);
 		
+		file_put_contents("driver_site_event_input_test", "\ngets here 4: " . $username, FILE_APPEND);
+		
 		if(!$result){
 		
 			die("error: " . mysql_error() . " sql: " . $sql);
@@ -42,6 +44,7 @@
 		
 		$username = $row['username'];
 		
+		file_put_contents("driver_site_event_input_test", "\ngets here 5: " . $username, FILE_APPEND);
 		file_put_contents("driver_site_event_input_test", "\nusername: " . $username, FILE_APPEND);
 	
 		$request = json_encode(array(
