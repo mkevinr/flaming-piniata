@@ -20,7 +20,7 @@
 		
 		file_put_contents("driver_site_event_input_test", "\ndriver_esl_token: " . $_REQUEST['esl_token'], FILE_APPEND);
 		
-		$sql = "SELECT driver_id FROM FLOWER_SHOPS WHERE driver_esl_token='" . $_REQUEST['esl_token'] . "'";
+		$sql = "SELECT flower_shop_esl,driver_id FROM FLOWER_SHOPS WHERE driver_esl_token='" . $_REQUEST['esl_token'] . "'";
 				file_put_contents("driver_site_event_input_test", "\ngets here 1: " . $username, FILE_APPEND);
 		$result = mysql_query($sql, $con);
 		
@@ -32,6 +32,7 @@
 		file_put_contents("driver_site_event_input_test", "\number of rows from first query: " . mysql_num_rows($result), FILE_APPEND);
 		
 		$row = mysql_fetch_array($result);
+		$flower_shop_esl = $row['flower_shop_esl'];
 		$driver_id = $row['driver_id'];
 		
 		$sql = "SELECT username FROM DRIVERS WHERE id=" . $driver_id;
@@ -63,7 +64,7 @@
 		, "driver_name" => $username
         , "estimated_delivery_time" => 5));
 
-        $ch = curl_init($esl);
+        $ch = curl_init($flower_shop_esl);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
