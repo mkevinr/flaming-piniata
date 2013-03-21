@@ -34,7 +34,7 @@
 		$delivery_id = $row['id'];
 		
 		file_put_contents("flower_shop_event_input_test", "\ngot_here 8", FILE_APPEND);
-		$sql = "SELECT driver_id FROM DRIVERS WHERE flower_shop_esl_token='" . $_REQUEST['esl_token'];
+		$sql = "SELECT driver_id FROM DRIVERS WHERE flower_shop_esl_token='" . $_REQUEST['esl_token'] . "'";
 
 		file_put_contents("flower_shop_event_input_test", "\ngot_here 9", FILE_APPEND);		
 		$result = mysql_query($sql, $con);
