@@ -31,7 +31,7 @@
 		
 		$sql = "SELECT username FROM DRIVERS WHERE id=" . $driver_id;
 		
-		file_put_contents("driver_site_event_input_test", "\ndriver_id: " $driver_id, FILE_APPEND);
+		file_put_contents("driver_site_event_input_test", "\ndriver_id: " . $driver_id, FILE_APPEND);
 		file_put_contents("driver_site_event_input_test", "\ngets here 2: " . $username, FILE_APPEND);
 		
 		$result = mysql_query($sql, $con);
