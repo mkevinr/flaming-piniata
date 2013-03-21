@@ -19,7 +19,7 @@
 		
 		$result = mysql_query($sql, $con);
 		
-		file_put_contents("flower_shop_event_input_test", "\gnot_here 3", FILE_APPEND);
+		file_put_contents("flower_shop_event_input_test", "\ngot_here 3", FILE_APPEND);
 		
 		if(!$result){
 		
