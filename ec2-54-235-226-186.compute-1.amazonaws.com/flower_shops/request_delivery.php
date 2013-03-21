@@ -76,9 +76,8 @@
 	    , "delivery_longitude" => $_REQUEST['delivery_longitude']));
 	
 		printf("$request: " . $request);
-	}
 
-      /*$ch = curl_init($esl);
+      $ch = curl_init($esl);
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
       curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -86,10 +85,11 @@
     	'Content-Type: application/json',
     	'Content-Length: ' . strlen($request))
 	  );
+	  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_exec($ch);
     }
 
-	header("Location: https://" . $server_address . "/flower_shops/flower_shop_profile?flower_shop_id=" . $_SESSION['flower_shop_id']);*/
+	header("Location: https://" . $server_address . "/flower_shops/flower_shop_profile?flower_shop_id=" . $_SESSION['flower_shop_id']);
   }
   
   print("<p><b>Delivery request:</b></p>");
