@@ -18,7 +18,7 @@
 		$con = mysql_connect("localhost", "root", "altair8");
 		mysql_select_db("driver_site", $con);
 		
-		file_put_contents("driver_site_event_input_test", "\ndriver_esl_token: " . $_REQUEST['driver_esl_token'], FILE_APPEND);
+		file_put_contents("driver_site_event_input_test", "\ndriver_esl_token: " . $_REQUEST['esl_token'], FILE_APPEND);
 		
 		$sql = "SELECT driver_id FROM FLOWER_SHOPS WHERE driver_esl_token='" . $_REQUEST['esl_token'] . "'";
 				file_put_contents("driver_site_event_input_test", "\ngets here 1: " . $username, FILE_APPEND);
