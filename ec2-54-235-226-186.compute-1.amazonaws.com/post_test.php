@@ -16,6 +16,7 @@
 			'Content-Type: application/json',
 			'Content-Length: ' . strlen($request))
 		);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_exec($ch);
 		print("after sending curl request");
 	}
