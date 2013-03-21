@@ -6,9 +6,9 @@
 		print("sent: " . $_REQUEST['send']);
 		$request = "hello";
 		
-		//$url="https://ec2-54-235-226-186.compute-1.amazonaws.com/post_receive_test.php?test=yes";
+		$url="https://ec2-54-235-226-186.compute-1.amazonaws.com/post_receive_test.php?test=yes";
 		//$url="http://requestb.in/x8lr1zx8?inspect";
-		$url="http://requestb.in/14yp02s1";
+		//$url="http://requestb.in/14yp02s1";
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
@@ -17,7 +17,7 @@
 			'Content-Type: application/json',
 			'Content-Length: ' . strlen($request))
 		);
-		//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_exec($ch);
 		print("after sending curl request");
 	}
