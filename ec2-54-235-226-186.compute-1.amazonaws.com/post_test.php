@@ -1,6 +1,7 @@
 <?php
 
 	
+	var_dump($_REQUEST);
 	if(array_key_exists('send', $_REQUEST)){
 		print("sent: " . $_REQUEST['send']);
 		$request = "hello";
