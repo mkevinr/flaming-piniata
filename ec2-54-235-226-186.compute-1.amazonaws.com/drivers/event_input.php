@@ -19,6 +19,7 @@
 		mysql_select_db("driver_site", $con);
 		
 		$sql = "SELECT driver_id FROM FLOWER_SHOPS WHERE driver_esl_token='" . $_REQUEST['esl_token'] . "'";
+				file_put_contents("driver_site_event_input_test", "\ngets here 1: " . $username, FILE_APPEND);
 		$result = mysql_query($sql, $con);
 		
 		if(!$result){
@@ -29,6 +30,8 @@
 		$driver_id = $row['driver_id'];
 		
 		$sql = "SELECT username FROM DRIVERS WHERE id=" . $driver_id;
+		
+		file_put_contents("driver_site_event_input_test", "\ngets here 2: " . $username, FILE_APPEND);
 		
 		$result = mysql_query($sql, $con);
 		
