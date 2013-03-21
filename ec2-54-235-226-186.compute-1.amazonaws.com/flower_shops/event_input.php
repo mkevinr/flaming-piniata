@@ -49,6 +49,8 @@
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		
+		$row = mysql_fetch_array($result);
+		
 		file_put_contents("flower_shop_event_input_test", "\ngot_here 11", FILE_APPEND);
 		$driver_id = $row['driver_id'];
 		file_put_contents("flower_shop_event_input_test", "\ngot_here 12", FILE_APPEND);
