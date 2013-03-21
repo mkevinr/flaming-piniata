@@ -20,5 +20,5 @@
 	}
 	print('after if');
 ?>
-<form action="https://ec2-54-235-226-186.compute-1.amazonaws.com/post_test.php?send=true">
+<form action="https://ec2-54-235-226-186.compute-1.amazonaws.com/post_test.php?send=true" method="POST">
 <input type="submit" value="Send"></form>
