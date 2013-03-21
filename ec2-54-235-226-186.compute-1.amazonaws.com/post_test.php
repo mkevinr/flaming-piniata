@@ -4,7 +4,7 @@
 	if(array_key_exists('send', $_REQUEST)){
 		$request = "hello";
 		
-		$url="https://ec2-54-235-226-186.compute-1.amazonaws.com/post_receive_test.php"
+		$url="https://ec2-54-235-226-186.compute-1.amazonaws.com/post_receive_test.php";
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
