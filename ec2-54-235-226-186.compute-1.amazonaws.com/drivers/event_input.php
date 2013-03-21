@@ -50,6 +50,7 @@
 		}
 		file_put_contents("driver_site_event_input_test", "\ngets here 6: " . $username, FILE_APPEND);
 		
+		$row = mysql_fetch_array($result);
 		$username = $row['username'];
 		
 		file_put_contents("driver_site_event_input_test", "\ngets here 5: " . $username, FILE_APPEND);
