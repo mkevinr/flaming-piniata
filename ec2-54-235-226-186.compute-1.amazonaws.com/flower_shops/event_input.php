@@ -62,6 +62,7 @@
 		
 			file_put_contents("flower_shop_event_input_test", "\ngot_here 15", FILE_APPEND);
 			file_put_contents("flower_shop_event_input_test", "\ngot_here 15: " . mysql_error(), FILE_APPEND);
+			file_put_contents("flower_shop_event_input_test", "\nsql: " . $sql, FILE_APPEND);
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		file_put_contents("flower_shop_event_input_test", "\ngot_here 5", FILE_APPEND);
