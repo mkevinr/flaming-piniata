@@ -68,6 +68,7 @@
     	'Content-Length: ' . strlen($request))
 	    );
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		file_put_contents("driver_site_event_input_test", "Just before curl exec", FILE_APPEND);
         curl_exec($ch);
 	}	
 	
