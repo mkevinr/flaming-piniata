@@ -14,6 +14,7 @@
 			'Content-Length: ' . strlen($request))
 		);
 		curl_exec($ch);
+		print("after sending curl request");
 	}
 ?>
 <form action="https://ec2-54-235-226-186.compute-1.amazonaws.com/post_test.php?send=true">
