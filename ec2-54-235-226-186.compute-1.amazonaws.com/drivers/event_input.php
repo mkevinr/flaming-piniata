@@ -36,11 +36,13 @@
 		$result = mysql_query($sql, $con);
 		
 		file_put_contents("driver_site_event_input_test", "\ngets here 4: " . $username, FILE_APPEND);
-		
+	
 		if(!$result){
-		
+	
+			file_put_contents("driver_site_event_input_test", "\ngets here 7: " . $username, FILE_APPEND);
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
+		file_put_contents("driver_site_event_input_test", "\ngets here 6: " . $username, FILE_APPEND);
 		
 		$username = $row['username'];
 		
