@@ -38,6 +38,7 @@
 
 		file_put_contents("flower_shop_event_input_test", "\ngot_here 9", FILE_APPEND);		
 		file_put_contents("flower_shop_event_input_test", "\nrequest['esl_token']: " . $_REQUEST['esl_token'], FILE_APPEND);		
+		file_put_contents("flower_shop_event_input_test", "\n" . $sql, FILE_APPEND);		
 		$result = mysql_query($sql, $con);
 		
 		file_put_contents("flower_shop_event_input_test", "\ngot_here 4", FILE_APPEND);
