@@ -29,6 +29,8 @@
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		
+		file_put_contents("driver_site_event_input_test", "\number of rows from first query: " . mysql_num_rows($result), FILE_APPEND);
+		
 		$driver_id = $row['driver_id'];
 		
 		$sql = "SELECT username FROM DRIVERS WHERE id=" . $driver_id;
