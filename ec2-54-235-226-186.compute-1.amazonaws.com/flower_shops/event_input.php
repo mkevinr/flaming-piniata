@@ -17,6 +17,8 @@
 		
 		$sql = "SELECT id FROM DELIVERIES WHERE guid=" . $event->code;
 		
+		file_put_contents("flower_shop_event_input_test", "\nevent->code: " . $event->code, FILE_APPEND);
+		
 		$result = mysql_query($sql, $con);
 		
 		file_put_contents("flower_shop_event_input_test", "\ngot_here 3", FILE_APPEND);
