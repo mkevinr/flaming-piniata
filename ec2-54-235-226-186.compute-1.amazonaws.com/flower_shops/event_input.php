@@ -43,19 +43,27 @@
 		
 		if(!$result){
 		
+			file_put_contents("flower_shop_event_input_test", "\ngot_here 10", FILE_APPEND);
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		
+		file_put_contents("flower_shop_event_input_test", "\ngot_here 11", FILE_APPEND);
 		$driver_id = $row['driver_id'];
+		file_put_contents("flower_shop_event_input_test", "\ngot_here 12", FILE_APPEND);
 		$estimated_delivery_time = $event->estimated_delivery_time;
+		file_put_contents("flower_shop_event_input_test", "\ngot_here 13", FILE_APPEND);
 		
 		$sql = "INSERT INTO BIDS (delivery_id,driver_id,estimated_delivery_time) VALUES (" . $delivery_id . ","
 				. $driver_id . "," . $estimated_delivery_time . ")";
 				
+		file_put_contents("flower_shop_event_input_test", "\ngot_here 14", FILE_APPEND);
+				
 		if(!mysql_query($sql, $con)){
 		
+			file_put_contents("flower_shop_event_input_test", "\ngot_here 15", FILE_APPEND);
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		file_put_contents("flower_shop_event_input_test", "\ngot_here 5", FILE_APPEND);
 	}
+	file_put_contents("flower_shop_event_input_test", "\ngot_here 16", FILE_APPEND);
 ?>
