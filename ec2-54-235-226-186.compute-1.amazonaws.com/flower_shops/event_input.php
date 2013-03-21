@@ -15,7 +15,7 @@
 		$con = mysql_connect("localhost", "root", "altair8");
 		mysql_select_db("flower_shop_site", $con);
 		
-		$sql = "SELECT id FROM DELIVERIES WHERE guid=" . $event->code;
+		$sql = "SELECT id FROM DELIVERIES WHERE guid='" . $event->code . "'";
 		
 		file_put_contents("flower_shop_event_input_test", "\nevent->code: " . $event->code, FILE_APPEND);
 		
