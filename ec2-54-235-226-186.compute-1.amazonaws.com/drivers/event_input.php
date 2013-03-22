@@ -122,33 +122,33 @@
 		}
 		else{
 			
-			file_put_contents("driver_site_event_input_test", "didn't automatic bid beginning", FILE_APPEND);
+			file_put_contents("driver_site_event_input_test", "\ndidn't automatic bid beginning", FILE_APPEND);
 			$sql = "INSERT INTO DELIVERIES_READY (driver_id,flower_shop_esl,code,latitude,longitude) VALUES ("
 					. $driver_id . "," . $flower_shop_esl . "," . $event->code . "," . $event->delivery_latitude 
 					. "," . $event->delivery_longitude . ")";
 					
-			file_put_contents("driver_site_event_input_test", "didn't automatic bid 2", FILE_APPEND);
+			file_put_contents("driver_site_event_input_test", "\ndidn't automatic bid 2", FILE_APPEND);
 					
 			$result = mysql_query($sql, $con);
 		
-			file_put_contents("driver_site_event_input_test", "didn't automatic bid 3", FILE_APPEND);
+			file_put_contents("driver_site_event_input_test", "\ndidn't automatic bid 3", FILE_APPEND);
 	
 			if(!$result){
 	
-				file_put_contents("driver_site_event_input_test", "didn't automatic bid 4", FILE_APPEND);
+				file_put_contents("driver_site_event_input_test", "\ndidn't automatic bid 4", FILE_APPEND);
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
 			
-			file_put_contents("driver_site_event_input_test", "didn't automatic bid 5", FILE_APPEND);
+			file_put_contents("driver_site_event_input_test", "\ndidn't automatic bid 5", FILE_APPEND);
 			$text_message = "Do you want to bid on a delivery outside of your automatic bid radius?"
 					. "The delivery address is " . $event->delivery_latitude . "," . $event->delivery_longitude
 					. " for flower shop " . $event->flower_shop_name;
 					
-			file_put_contents("driver_site_event_input_test", "didn't automatic bid", FILE_APPEND);
+			file_put_contents("driver_site_event_input_test", "\ndidn't automatic bid", FILE_APPEND);
 		}
 	}	
 	
-	file_put_contents("driver_site_event_input_test", "gets to just before sending text message", FILE_APPEND);
+	file_put_contents("driver_site_event_input_test", "\ngets to just before sending text message", FILE_APPEND);
 	// send text message to $phone_number
 	require "services-php/Services/Twilio.php";
 	
