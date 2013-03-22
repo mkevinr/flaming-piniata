@@ -101,7 +101,7 @@
 			, "driver_name" => $username
 			, "estimated_delivery_time" => $distance * 60);
 			
-			file_put_contents("sms_input_test", "\ncode: " . row['code'], FILE_APPEND);
+			file_put_contents("sms_input_test", "\ncode: " . $row['code'], FILE_APPEND);
 			
 			file_put_contents("sms_input_test", "\nrequest: " . print_r($request), FILE_APPEND);
 			
