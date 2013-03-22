@@ -110,10 +110,8 @@
 				$distance = "unknown";
 			}
 			
-			$text_message = "Do you want to bid on a delivery outside of your automatic bid radius?"
-					. "The delivery address is " . $event->delivery_latitude . "," . $event->delivery_longitude
-					. " which is " . $distance . " miles away. The delivery is"
-					. " for flower shop " . $event->flower_shop_name;
+			$text_message = "Do you want to bid on the delivery at " . $event->delivery_latitude . "," . $event->delivery_longitude
+					. " which is " . $distance . " miles away. Flower shop: " . $event->flower_shop_name;
 		}
 	}	
 	
