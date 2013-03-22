@@ -124,7 +124,7 @@
 			
 			file_put_contents("driver_site_event_input_test", "\ndidn't automatic bid beginning", FILE_APPEND);
 			$sql = "INSERT INTO DELIVERIES_READY (driver_id,flower_shop_esl,code,latitude,longitude) VALUES ("
-					. $driver_id . "," . $flower_shop_esl . "," . $event->code . "," . $event->delivery_latitude 
+					. $driver_id . ",'" . $flower_shop_esl . "','" . $event->code . "'," . $event->delivery_latitude 
 					. "," . $event->delivery_longitude . ")";
 					
 			file_put_contents("driver_site_event_input_test", "\ndidn't automatic bid 2", FILE_APPEND);
