@@ -20,7 +20,8 @@
 		}
 		
 		$row = mysql_fetch_array($result);		
-		$sql = "UPDATE DELIVERIES SET assigned_driver_id=" . $row['driver_id'] . ",estimated_delivery_time=" . $row['estimated_delivery_time'];
+		$sql = "UPDATE DELIVERIES SET assigned_driver_id=" . $row['driver_id'] . ",estimated_delivery_time=" . $row['estimated_delivery_time']
+				. " WHERE delivery_id=" . $_REQUEST['delivery_id'];
 		
 		if(!mysql_query($sql, $con)){
 		
