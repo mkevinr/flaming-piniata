@@ -74,8 +74,8 @@
 		$row = mysql_fetch_array($result);
 		$username = $row['username'];
 		$phone_number = $row['phone_number'];
-	}	
-/*		$automatic_bid = false;
+		
+		$automatic_bid = false;
 		if($row['latitude'] == null){
 		
 			$automatic_bid = false;
@@ -135,6 +135,8 @@
 			file_put_contents("driver_site_event_input_test", "didn't automatic bid", FILE_APPEND);
 		}
 	}	
+	
+	/*
 	
 	file_put_contents("driver_site_event_input_test", "gets to just before sending text message", FILE_APPEND);
 	// send text message to $phone_number
