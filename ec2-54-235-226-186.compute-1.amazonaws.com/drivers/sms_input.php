@@ -1,5 +1,7 @@
 <?php
 
+	file_put_contents("sms_input_test", "gets to sms_input");
+
 	function distance($lat1, $lng1, $lat2, $lng2, $miles = true)
 	{
 		$pi80 = M_PI / 180;
@@ -27,6 +29,8 @@
 
 	if($_REQUEST['Body'] == "bid anyway"){
 	
+		file_put_contents("sms_input_test", "gets in if", FILE_APPEND);
+	
 		require './twilio-php/Services/Twilio.php';
 		
 		$con = mysql_connect("localhost", "root", "altair8");
@@ -42,6 +46,8 @@
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		
+		file_put_contents("sms_input_test", "\ngets to after sql query", FILE_APPEND);
+		
 		$row = mysql_fetch_array($result);
 		
 		$driver_id = $row['driver_id'];
@@ -53,12 +59,16 @@
 		
 		$result = mysql_query($sql, $con);
 		
+		file_put_contents("sms_input_test", "\ngets to after sql query 2", FILE_APPEND);
+		
 		/*if(!$result){
 		
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}*/
 
 		if(mysql_num_rows($result) > 0){
+		
+			file_put_contents("sms_input_test", "\ngets in if 2", FILE_APPEND);
 		
 			$row = mysql_fetch_array($result);
 	
@@ -92,6 +102,8 @@
 		    );
 		    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		    curl_exec($ch);
+			
+			file_put_contents("sms_input_test", "\nexecuted curl", FILE_APPEND);
 		}
 	}
 
