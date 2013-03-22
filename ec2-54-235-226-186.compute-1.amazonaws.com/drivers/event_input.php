@@ -89,7 +89,7 @@
 			curl_exec($ch);
 			
 			$text_message = "Automatically bid on delivery at" . $event->delivery_latitude . "," . $event->delivery_longitude
-					. " for flower shop " . $event->flower_shop_name;
+					. " distance: " . $distance . " Shop " . $event->flower_shop_name;
 			
 		}
 		else{
