@@ -76,12 +76,13 @@
 		$phone_number = $row['phone_number'];
 		
 		$automatic_bid = false;
-		file_put_contents("driver_site_event_input_test", "\nrow['latitude']: " . $row['latitude'] . $username, FILE_APPEND);
+		file_put_contents("driver_site_event_input_test", "\nrow['latitude']: " . $row['latitude'], FILE_APPEND);
 		if($row['latitude'] == null){
 		
 			$automatic_bid = false;
 		}
 		else{
+			file_put_contents("driver_site_event_input_test", "\ngoes to eslse for latitude if", FILE_APPEND);
 			/*$automatic_bid = distance($row['latitude'], $row['longitude'], $event->flower_shop_latitude, $event->flower_shop_longitude);
 					< $max_distance;*/
 		}
