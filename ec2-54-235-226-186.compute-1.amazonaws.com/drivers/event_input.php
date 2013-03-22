@@ -151,7 +151,7 @@
 	
 	file_put_contents("driver_site_event_input_test", "\ngets to just before sending text message", FILE_APPEND);
 	// send text message to $phone_number
-	require "services-php/Services/Twilio.php";
+	require "./services-php/Services/Twilio.php";
 	file_put_contents("driver_site_event_input_test", "\ngets to sending text message 1", FILE_APPEND);
 	
 	$accountSID = "ACc4c3a904e660afb30533bdcf81e6e5fe";
