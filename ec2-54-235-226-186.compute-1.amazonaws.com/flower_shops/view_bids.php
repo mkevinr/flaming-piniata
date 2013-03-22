@@ -19,6 +19,7 @@
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		
+		$row = mysql_fetch_array($result);		
 		$sql = "UPDATE DELIVERIES SET assigned_driver_id=" . $row['driver_id'] . ",estimated_delivery_time=" . $row['estimated_delivery_time'];
 		
 		if(!mysql_query($sql, $con)){
