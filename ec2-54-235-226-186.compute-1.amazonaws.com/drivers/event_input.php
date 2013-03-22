@@ -1,5 +1,25 @@
 <?php
 
+	function distance($lat1, $lng1, $lat2, $lng2, $miles = true)
+	{
+		$pi80 = M_PI / 180;
+		$lat1 *= $pi80;
+		$lng1 *= $pi80;
+		$lat2 *= $pi80;
+		$lng2 *= $pi80;
+ 
+		$r = 6372.797; // mean radius of Earth in km
+		$dlat = $lat2 - $lat1;
+		$dlng = $lng2 - $lng1;
+		$a = sin($dlat / 2) * sin($dlat / 2) + cos($lat1) * cos($lat2) * sin($dlng / 2) * sin($dlng / 2);
+		$c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+		$km = $r * $c;
+ 
+		return ($miles ? ($km * 0.621371192) : $km);
+	}
+	
+	$max_distance = 50;
+
 	file_put_contents("driver_site_event_input_test", "got_here");
 
 	$json = $entityBody = file_get_contents('php://input');
@@ -35,8 +55,8 @@
 		$flower_shop_esl = $row['flower_shop_esl'];
 		$driver_id = $row['driver_id'];
 		
-		$sql = "SELECT username FROM DRIVERS WHERE id=" . $driver_id;
-		
+		$sql = "SELECT username,latitude,longitude FROM DRIVERS WHERE id=" . $driver_id;
+				
 		file_put_contents("driver_site_event_input_test", "\ndriver_id: " . $driver_id, FILE_APPEND);
 		file_put_contents("driver_site_event_input_test", "\ngets here 2: " . $username, FILE_APPEND);
 		
@@ -54,28 +74,37 @@
 		$row = mysql_fetch_array($result);
 		$username = $row['username'];
 		
+		$automatic_bid = distance($row['latitude'], $row['longitude'], $event->flower_shop_latitude, $event->flower_shop_longitude);
+				< $max_distance;
+		
 		file_put_contents("driver_site_event_input_test", "\ngets here 5: " . $username, FILE_APPEND);
 		file_put_contents("driver_site_event_input_test", "\nusername: " . $username, FILE_APPEND);
 		file_put_contents("driver_site_event_input_test", "\nflower_shop_esl: " . $flower_shop_esl);
 	
-		$request = json_encode(array(
-        "_domain" => "rfq"
-        , "_name" => "bid_available"
-		, "code" => $event->code
-		, "driver_name" => $username
-        , "estimated_delivery_time" => 5));
+		if($automatic_bid){
+			$request = json_encode(array(
+			"_domain" => "rfq"
+			, "_name" => "bid_available"
+			, "code" => $event->code
+			, "driver_name" => $username
+			, "estimated_delivery_time" => 5));
 
-        $ch = curl_init($flower_shop_esl);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    	'Content-Type: application/json',
-    	'Content-Length: ' . strlen($request))
-	    );
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		file_put_contents("driver_site_event_input_test", "Just before curl exec", FILE_APPEND);
-        curl_exec($ch);
+			$ch = curl_init($flower_shop_esl);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+			'Content-Type: application/json',
+			'Content-Length: ' . strlen($request))
+			);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			file_put_contents("driver_site_event_input_test", "Just before curl exec", FILE_APPEND);
+			curl_exec($ch);
+		}
+		else{
+			
+			file_put_contents("driver_site_event_input_test", "didn't automatic bid", FILE_APPEND);
+		}
 	}	
 	
 	print("<p><b>after if</b></p>");
