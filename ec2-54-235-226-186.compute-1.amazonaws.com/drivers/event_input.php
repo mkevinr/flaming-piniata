@@ -94,6 +94,8 @@
 	
 		if($automatic_bid){
 		
+			file_put_contents("driver_site_event_input_test", "\ngets to automatic bid at beginning: " . $flower_shop_esl, FILE_APPEND);
+		
 			$request = json_encode(array(
 			"_domain" => "rfq"
 			, "_name" => "bid_available"
