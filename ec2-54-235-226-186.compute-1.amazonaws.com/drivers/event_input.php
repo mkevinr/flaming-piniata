@@ -76,13 +76,14 @@
 		$phone_number = $row['phone_number'];
 		
 		$automatic_bid = false;
+		file_put_contents("driver_site_event_input_test", "\nrow['latitude']: " . $row['latitude'] . $username, FILE_APPEND);
 		if($row['latitude'] == null){
 		
 			$automatic_bid = false;
 		}
 		else{
-			$automatic_bid = distance($row['latitude'], $row['longitude'], $event->flower_shop_latitude, $event->flower_shop_longitude);
-					< $max_distance;
+			/*$automatic_bid = distance($row['latitude'], $row['longitude'], $event->flower_shop_latitude, $event->flower_shop_longitude);
+					< $max_distance;*/
 		}
 		
 		/*file_put_contents("driver_site_event_input_test", "\ngets here 5: " . $username, FILE_APPEND);
