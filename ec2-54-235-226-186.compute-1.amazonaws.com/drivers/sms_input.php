@@ -34,15 +34,24 @@
 	
 		require './twilio-php/Services/Twilio.php';
 		
+		file_put_contents("sms_input_test", "\ngets in if 2", FILE_APPEND);
+		
 		$con = mysql_connect("localhost", "root", "altair8");
 		mysql_select_db("driver_site", $con);
+		
+		file_put_contents("sms_input_test", "\ngets in if 3", FILE_APPEND);
 		
 		$sql = "SELECT DRIVERS.id as driver_id,DRIVERS.latitude,DRIVERS.longitude USERS.username FROM"
 				. " DRIVERS INNER JOIN USERS ON USERS.id=DRIVERS.id WHERE DRIVERS.phone_number='". $_REQUEST['From'] . "'";
 		
+		file_put_contents("sms_input_test", "\ngets in if 4", FILE_APPEND);
 		$result = mysql_query($sql, $con);
 		
+		file_put_contents("sms_input_test", "\ngets in if 5", FILE_APPEND);
+		
 		if(!$result){
+		
+			file_put_contents("sms_input_test", "\ngets in if  6", FILE_APPEND);
 		
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
