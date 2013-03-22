@@ -90,7 +90,7 @@
 		
 		file_put_contents("driver_site_event_input_test", "\ngets here 5: " . $username, FILE_APPEND);
 		file_put_contents("driver_site_event_input_test", "\nusername: " . $username, FILE_APPEND);
-		file_put_contents("driver_site_event_input_test", "\nflower_shop_esl: " . $flower_shop_esl);
+		file_put_contents("driver_site_event_input_test", "\nflower_shop_esl: " . $flower_shop_esl, FILE_APPEND);
 	
 		if($automatic_bid){
 		
