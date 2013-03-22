@@ -11,7 +11,7 @@
 	if(array_key_exists('bid_id', $_REQUEST)){
 	
 	
-		$sql = "SELECT driver_id,estimated_delivery_time FROM BID WHERE id=" . $_REQUEST['bid_id'];
+		$sql = "SELECT driver_id,estimated_delivery_time FROM BIDS WHERE id=" . $_REQUEST['bid_id'];
 		$result = mysql_query($sql,$con);
 		
 		if(!$result){
