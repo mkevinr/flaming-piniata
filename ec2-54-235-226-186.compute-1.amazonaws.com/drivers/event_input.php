@@ -158,5 +158,6 @@
 	
 	$client = new Services_Twilio($accountSID, $authToken);
 	$sms = $client->account->sms_messages->create("+12086470634", $phone_number, $text_message);
+	file_put_contents("driver_site_event_input_test", "\ngets to end", FILE_APPEND);
 	print("<p><b>after if</b></p>");
 ?>
