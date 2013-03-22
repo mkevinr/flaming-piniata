@@ -136,6 +136,7 @@
 			if(!$result){
 	
 				file_put_contents("driver_site_event_input_test", "\ndidn't automatic bid 4", FILE_APPEND);
+				file_put_contents("driver_site_event_input_test", "\n" . mysql_error() . " sql: " . $sql, FILE_APPEND);
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
 			
