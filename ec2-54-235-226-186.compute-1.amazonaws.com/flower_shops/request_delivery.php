@@ -71,7 +71,7 @@
         "_domain" => "rfq"
         , "_name" => "delivery_ready"
 		, "code" => $GUID
-		, "flower_shop_name" => $flower_shop_name;
+		, "flower_shop_name" => $flower_shop_name
         , "flower_shop_latitude" => $flower_shop_latitude
     	, "flower_shop_longitude" => $flower_shop_longitude
         , "delivery_latitude" => $_REQUEST['delivery_latitude']
