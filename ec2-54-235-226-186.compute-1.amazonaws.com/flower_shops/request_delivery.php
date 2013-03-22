@@ -40,7 +40,7 @@
       die("error: " . mysql_error() . " sql: " . $sql);		
 	}
 	
-	$sql = "SELECT latitude,longitude FROM FLOWER_SHOPS WHERE id=" . $_SESSION['flower_shop_id'];
+	$sql = "SELECT name,latitude,longitude FROM FLOWER_SHOPS WHERE id=" . $_SESSION['flower_shop_id'];
 	
 	$result = mysql_query($sql, $con);
 
@@ -52,6 +52,7 @@
 	$row = mysql_fetch_array($result);
 	$flower_shop_latitude = $row['latitude'];
 	$flower_shop_longitude = $row['longitude'];
+	$flower_shop_name = $row['name'];
 
     $sql = "SELECT driver_esl FROM DRIVERS WHERE flower_shop_id=" . $_SESSION['flower_shop_id'];
     $result = mysql_query($sql);
@@ -70,6 +71,7 @@
         "_domain" => "rfq"
         , "_name" => "delivery_ready"
 		, "code" => $GUID
+		, "flower_shop_name" => $flower_shop_name;
         , "flower_shop_latitude" => $flower_shop_latitude
     	, "flower_shop_longitude" => $flower_shop_longitude
         , "delivery_latitude" => $_REQUEST['delivery_latitude']

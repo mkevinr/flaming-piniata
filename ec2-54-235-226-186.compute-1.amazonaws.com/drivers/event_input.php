@@ -55,7 +55,7 @@
 		$flower_shop_esl = $row['flower_shop_esl'];
 		$driver_id = $row['driver_id'];
 		
-		$sql = "SELECT username,latitude,longitude FROM DRIVERS WHERE id=" . $driver_id;
+		$sql = "SELECT username,latitude,longitude,phone_number FROM DRIVERS WHERE id=" . $driver_id;
 				
 		file_put_contents("driver_site_event_input_test", "\ndriver_id: " . $driver_id, FILE_APPEND);
 		file_put_contents("driver_site_event_input_test", "\ngets here 2: " . $username, FILE_APPEND);
@@ -73,15 +73,24 @@
 		
 		$row = mysql_fetch_array($result);
 		$username = $row['username'];
+		$phone_number = $row['phone_number'];
 		
-		$automatic_bid = distance($row['latitude'], $row['longitude'], $event->flower_shop_latitude, $event->flower_shop_longitude);
-				< $max_distance;
+		$automatic_bid = false;
+		if($row['latitude'] == null){
+		
+			$automatic_bid = false;
+		}
+		else{
+			$automatic_bid = distance($row['latitude'], $row['longitude'], $event->flower_shop_latitude, $event->flower_shop_longitude);
+					< $max_distance;
+		}
 		
 		file_put_contents("driver_site_event_input_test", "\ngets here 5: " . $username, FILE_APPEND);
 		file_put_contents("driver_site_event_input_test", "\nusername: " . $username, FILE_APPEND);
 		file_put_contents("driver_site_event_input_test", "\nflower_shop_esl: " . $flower_shop_esl);
 	
 		if($automatic_bid){
+		
 			$request = json_encode(array(
 			"_domain" => "rfq"
 			, "_name" => "bid_available"
@@ -100,12 +109,40 @@
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			file_put_contents("driver_site_event_input_test", "Just before curl exec", FILE_APPEND);
 			curl_exec($ch);
+			
+			$text_message = "Automatically bid on delivery at" . $event->delivery_latitude . "," . $event->delivery_longitude
+					. " for flower shop " . $event->flower_shop_name;
+
 		}
 		else{
 			
+			$sql = "INSERT INTO DELIVERIES_READY (driver_id,flower_shop_esl,code,latitude,longitude) VALUES ("
+					. $driver_id . "," . $flower_shop_esl . "," . $event->code . "," . $event->delivery_latitude 
+					. "," . $event->delivery_longitude . ")";
+					
+			$result = mysql_query($sql, $con);
+		
+	
+			if(!$result){
+	
+				die("error: " . mysql_error() . " sql: " . $sql);
+			}
+			
+			$text_message = "Do you want to bid on a delivery outside of your automatic bid radius?"
+					. "The delivery address is " . $event->delivery_latitude . "," . $event->delivery_longitude
+					. " for flower shop " . $event->flower_shop_name;
+					
 			file_put_contents("driver_site_event_input_test", "didn't automatic bid", FILE_APPEND);
 		}
 	}	
 	
+	// send text message to $phone_number
+	require "services-php/Services/Twilio.php";
+	
+	$accountSID = "ACc4c3a904e660afb30533bdcf81e6e5fe";
+	$authToken = "38353271ed843f8df4d0aac99db0c233";
+	
+	$client = new Services_Twilio($accountSID, $authToken);
+	$sms = $client->account->sms_messages->create("+12086470634", $phone_number, $text_message);
 	print("<p><b>after if</b></p>");
 ?>
