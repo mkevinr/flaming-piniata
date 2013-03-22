@@ -41,8 +41,7 @@
 		
 		file_put_contents("sms_input_test", "\ngets in if 3", FILE_APPEND);
 		
-		$sql = "SELECT DRIVERS.id as driver_id,DRIVERS.latitude,DRIVERS.longitude,USERS.username FROM"
-				. " DRIVERS INNER JOIN USERS ON USERS.id=DRIVERS.id WHERE DRIVERS.phone_number='". $_REQUEST['From'] . "'";
+		$sql = "SELECT * FROM DRIVERS WHERE phone_number='". $_REQUEST['From'] . "'";
 		
 		file_put_contents("sms_input_test", "\ngets in if 4", FILE_APPEND);
 		$result = mysql_query($sql, $con);
@@ -61,7 +60,7 @@
 		
 		$row = mysql_fetch_array($result);
 		
-		$driver_id = $row['driver_id'];
+		$driver_id = $row['id'];
 		$username = $row['username'];
 		$driver_latitude = $row['latitude'];
 		$driver_longitude = $row['longitude'];
