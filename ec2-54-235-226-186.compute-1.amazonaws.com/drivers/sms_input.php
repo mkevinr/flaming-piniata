@@ -65,7 +65,8 @@
 		$driver_latitude = $row['latitude'];
 		$driver_longitude = $row['longitude'];
 		
-		$sql = "SELECT flower_shop_esl,code,latitude,longitude FROM DELIVERIES_READY WHERE driver_id=" . $driver_id;
+		$sql = "SELECT flower_shop_esl,code,latitude,longitude FROM DELIVERIES_READY WHERE driver_id=" . $driver_id
+				. " ORDER BY id DESC";
 		
 		$result = mysql_query($sql, $con);
 		
@@ -118,6 +119,17 @@
 		    curl_exec($ch);
 			
 			file_put_contents("sms_input_test", "\nexecuted curl", FILE_APPEND);
+			
+			$sql = "DELETE FROM DELIVERIES_READY WHERE driver_id=" . $driver_id;
+			
+			if(!mysql_query($sql, $con)){
+		
+				file_put_contents("sms_input_test", "\nsql error: " . mysql_error() . " sql: " . $sql, FILE_APPEND);
+		
+				die("error: " . mysql_error() . " sql: " . $sql);
+			}
+			
+			file_put_contents("sms_input_test", "\ndeleted deliveries ready", FILE_APPEND);			
 		}
 	}
 
