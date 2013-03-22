@@ -110,8 +110,8 @@
 				$distance = "unknown";
 			}
 			
-			$text_message = "Do you want to bid on the delivery at " . $event->delivery_latitude . "," . $event->delivery_longitude
-					. " which is " . $distance . " miles away. Flower shop: " . $event->flower_shop_name;
+			$text_message = "Bid? Delivery at: " . $event->delivery_latitude . "," . $event->delivery_longitude
+					. " distance: " . $distance . " Shop: " . $event->flower_shop_name;
 		}
 	}	
 	
