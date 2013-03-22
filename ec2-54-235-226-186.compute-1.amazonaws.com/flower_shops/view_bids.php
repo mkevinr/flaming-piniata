@@ -60,7 +60,7 @@
 		
 		if($row['username'] != null){
 		
-			print("<form action=\"https://" . $server_address . "/view_bids.php?delivery_id=" . $_REQUEST['delivery_id'] 
+			print("<form action=\"https://" . $server_address . "/flower_shops/view_bids.php?delivery_id=" . $_REQUEST['delivery_id'] 
 					. "&bid_id=" . $row['id'] . "\" method=\"POST\">");
 			print("<input type=\"submit\" value=\"Select Bid\"></form><br/><br/>");
 		}
