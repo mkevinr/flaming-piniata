@@ -64,7 +64,7 @@
 			$automatic_bid = false;
 		}
 		else{
-			$distance = distance($row['latitude'], $row['longitude'], $event->flower_shop_latitude, $event->flower_shop_longitude);
+			$distance = distance($row['latitude'], $row['longitude'], $event->delivery_latitude, $event->delivery_longitude);
 			$automatic_bid = $distance < $max_distance;
 		}
 	
