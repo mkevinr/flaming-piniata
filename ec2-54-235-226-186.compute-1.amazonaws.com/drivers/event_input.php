@@ -91,7 +91,7 @@
 	
 		if($automatic_bid){
 		
-			$request = json_encode(array(
+			/*$request = json_encode(array(
 			"_domain" => "rfq"
 			, "_name" => "bid_available"
 			, "code" => $event->code
@@ -111,7 +111,7 @@
 			curl_exec($ch);
 			
 			$text_message = "Automatically bid on delivery at" . $event->delivery_latitude . "," . $event->delivery_longitude
-					. " for flower shop " . $event->flower_shop_name;
+					. " for flower shop " . $event->flower_shop_name;*/
 
 		}
 		else{
