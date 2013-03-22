@@ -80,6 +80,7 @@
 		if($row['latitude'] == null){
 		
 			$automatic_bid = false;
+			file_put_contents("driver_site_event_input_test", "\n doesn't go to esle for latitude if", FILE_APPEND);
 		}
 		else{
 			file_put_contents("driver_site_event_input_test", "\ngoes to eslse for latitude if", FILE_APPEND);
