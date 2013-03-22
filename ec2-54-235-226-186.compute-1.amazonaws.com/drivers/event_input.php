@@ -57,14 +57,15 @@
 		$phone_number = $row['phone_number'];
 		
 		$automatic_bid = false;
+		$distance = -1;
 
 		if($row['latitude'] == null){
 		
 			$automatic_bid = false;
 		}
 		else{
-			$automatic_bid = distance($row['latitude'], $row['longitude'], $event->flower_shop_latitude, $event->flower_shop_longitude)
-					< $max_distance;
+			$distance = distance($row['latitude'], $row['longitude'], $event->flower_shop_latitude, $event->flower_shop_longitude)
+			$automatic_bid = $distance < $max_distance;
 		}
 	
 		if($automatic_bid){
@@ -104,9 +105,13 @@
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
 			
+			if($distance == -1){
+			
+				$distance = "unknown";
+			}
+			
 			$text_message = "Do you want to bid on a delivery outside of your automatic bid radius?"
-					. "The delivery address is " . $event->delivery_latitude . "," . $event->delivery_longitude
-					. " for flower shop " . $event->flower_shop_name;
+					. "The distance to the delivery address is " . $distance . " for flower shop " . $event->flower_shop_name;
 		}
 	}	
 	
