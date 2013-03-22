@@ -88,13 +88,13 @@
 					< $max_distance;
 		}
 		
-		/*file_put_contents("driver_site_event_input_test", "\ngets here 5: " . $username, FILE_APPEND);
+		file_put_contents("driver_site_event_input_test", "\ngets here 5: " . $username, FILE_APPEND);
 		file_put_contents("driver_site_event_input_test", "\nusername: " . $username, FILE_APPEND);
-		file_put_contents("driver_site_event_input_test", "\nflower_shop_esl: " . $flower_shop_esl);*/
+		file_put_contents("driver_site_event_input_test", "\nflower_shop_esl: " . $flower_shop_esl);
 	
 		if($automatic_bid){
 		
-			/*$request = json_encode(array(
+			$request = json_encode(array(
 			"_domain" => "rfq"
 			, "_name" => "bid_available"
 			, "code" => $event->code
@@ -114,8 +114,8 @@
 			curl_exec($ch);
 			
 			$text_message = "Automatically bid on delivery at" . $event->delivery_latitude . "," . $event->delivery_longitude
-					. " for flower shop " . $event->flower_shop_name;*/
-
+					. " for flower shop " . $event->flower_shop_name;
+			
 		}
 		else{
 			
