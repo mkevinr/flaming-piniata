@@ -20,16 +20,17 @@
 		return ($miles ? ($km * 0.621371192) : $km);
 	}
 
-	file_put_contents("sms_input_test", "was called!");
+	file_put_contents("sms_input_test", "\nwas called!", FILE_APPEND);
 	
 	$entityBody = file_get_contents('php://input');
 	
 	file_put_contents("sms_input_test", "\nrequest: " . print_r($_REQUEST), FILE_APPEND);
-	file_put_contents("sms_input_test", "\n" . $entityBody, FILE_APPEND);
+	file_put_contents("sms_input_test", "\nentity body: " . $entityBody, FILE_APPEND);
+	file_put_contents("sms_input_test", "\nrequest['body']: " . $_REQUEST['Body'], FILE_APPEND);
 
 	if($_REQUEST['Body'] == "bid anyway"){
 	
-		file_put_contents("sms_input_test", "gets in if", FILE_APPEND);
+		file_put_contents("sms_input_test", "\ngets in if", FILE_APPEND);
 	
 		require './twilio-php/Services/Twilio.php';
 		
