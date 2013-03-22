@@ -74,8 +74,8 @@
 		$row = mysql_fetch_array($result);
 		$username = $row['username'];
 		$phone_number = $row['phone_number'];
-		
-		$automatic_bid = false;
+	}	
+/*		$automatic_bid = false;
 		if($row['latitude'] == null){
 		
 			$automatic_bid = false;
@@ -145,5 +145,5 @@
 	
 	$client = new Services_Twilio($accountSID, $authToken);
 	$sms = $client->account->sms_messages->create("+12086470634", $phone_number, $text_message);
-	print("<p><b>after if</b></p>");
+	print("<p><b>after if</b></p>");*/
 ?>
