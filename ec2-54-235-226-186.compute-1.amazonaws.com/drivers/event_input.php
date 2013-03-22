@@ -116,7 +116,7 @@
 		}
 		else{
 			
-			$sql = "INSERT INTO DELIVERIES_READY (driver_id,flower_shop_esl,code,latitude,longitude) VALUES ("
+			/*$sql = "INSERT INTO DELIVERIES_READY (driver_id,flower_shop_esl,code,latitude,longitude) VALUES ("
 					. $driver_id . "," . $flower_shop_esl . "," . $event->code . "," . $event->delivery_latitude 
 					. "," . $event->delivery_longitude . ")";
 					
@@ -132,7 +132,7 @@
 					. "The delivery address is " . $event->delivery_latitude . "," . $event->delivery_longitude
 					. " for flower shop " . $event->flower_shop_name;
 					
-			file_put_contents("driver_site_event_input_test", "didn't automatic bid", FILE_APPEND);
+			file_put_contents("driver_site_event_input_test", "didn't automatic bid", FILE_APPEND);*/
 		}
 	}	
 	
