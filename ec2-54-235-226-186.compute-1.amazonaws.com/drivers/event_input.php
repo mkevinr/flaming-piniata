@@ -139,8 +139,6 @@
 		}
 	}	
 	
-	/*
-	
 	file_put_contents("driver_site_event_input_test", "gets to just before sending text message", FILE_APPEND);
 	// send text message to $phone_number
 	require "services-php/Services/Twilio.php";
@@ -150,5 +148,5 @@
 	
 	$client = new Services_Twilio($accountSID, $authToken);
 	$sms = $client->account->sms_messages->create("+12086470634", $phone_number, $text_message);
-	print("<p><b>after if</b></p>");*/
+	print("<p><b>after if</b></p>");
 ?>
