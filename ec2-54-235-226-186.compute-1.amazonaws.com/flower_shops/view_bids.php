@@ -46,8 +46,6 @@
 	$sql = "SELECT USERS.username,BIDS.id,BIDS.driver_id,BIDS.estimated_delivery_time FROM BIDS INNER JOIN USERS ON BIDS.driver_id=USERS.id"
 			. " WHERE delivery_id=" . $_REQUEST['delivery_id'];
 			
-	print("sql: " . $sql);
-
 	$result = mysql_query($sql,$con);
 	
 	if(!$result){
