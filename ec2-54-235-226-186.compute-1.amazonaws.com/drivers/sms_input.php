@@ -67,6 +67,8 @@
 		
 		$sql = "SELECT flower_shop_esl,code,latitude,longitude FROM DELIVERIES_READY WHERE driver_id=" . $driver_id
 				. " ORDER BY id DESC";
+				
+		file_put_contents("sms_input_test", "\nsql: " . $sql, FILE_APPEND);
 		
 		$result = mysql_query($sql, $con);
 		
