@@ -52,6 +52,7 @@
 		if(!$result){
 		
 			file_put_contents("sms_input_test", "\ngets in if  6", FILE_APPEND);
+			file_put_contents("sms_input_test", "\nsql error: " . mysql_error() . " sql: " . $sql, FILE_APPEND);
 		
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
