@@ -57,8 +57,8 @@
 	
 	while($row = mysql_fetch_array($result)){
 	
-		print("<b>Assigned Driver:</b> \t" . $row['username'] . "<br/>");
-		print("<b>Estimated Delivery Time:</b> \t" . $row['estimated_delivery_time'] . "<br/>");
+		print("<b>Assigned Driver:</b> " . $row['username'] . "<br/>");
+		print("<b>Estimated Delivery Time:</b> " . $row['estimated_delivery_time'] . "<br/>");
 		
 		if($row['username'] != null){
 		

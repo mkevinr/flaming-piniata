@@ -27,11 +27,11 @@
 	
 	while($row = mysql_fetch_array($result)){
 	
-		print("<b>Delivery Latitude:</b> \t" . $row['delivery_latitude'] . "<br/>");
-		print("<b>Delivery Longitude:</b> \t" . $row['delivery_longitude'] . "<br/>");
-		print("<b>Assigned Driver:</b> \t" . $row['username'] . "<br/>");
-		print("<b>Estimated Delivery Time:</b> \t" . $row['estimated_delivery_time'] . "<br/>");
-		print("<b>Actual Delivery Time:</b> \t" . $row['actual_delivery_time'] . "<br/><br/>");
+		print("<b>Delivery Latitude:</b> " . $row['delivery_latitude'] . "<br/>");
+		print("<b>Delivery Longitude:</b> " . $row['delivery_longitude'] . "<br/>");
+		print("<b>Assigned Driver:</b> " . $row['username'] . "<br/>");
+		print("<b>Estimated Delivery Time:</b> " . $row['estimated_delivery_time'] . "<br/>");
+		print("<b>Actual Delivery Time:</b> " . $row['actual_delivery_time'] . "<br/><br/>");
 		
 		if($row['username'] == null){
 		
