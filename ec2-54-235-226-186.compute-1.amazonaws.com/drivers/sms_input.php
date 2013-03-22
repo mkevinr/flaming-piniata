@@ -93,12 +93,16 @@
 				$distance = distance($driver_latitude,$driver_longitude,$row['latitude'],$row['longitude']);
 			}
 
-  		    $request = json_encode(array(
+  		    $request = array(
 			"_domain" => "rfq"
 			, "_name" => "bid_available"
 			, "code" => $row['code']
 			, "driver_name" => $username
-			, "estimated_delivery_time" => $distance * 60));
+			, "estimated_delivery_time" => $distance * 60);
+			
+			file_put_contents("sms_input_test", "\nrequest: " . print_r($request), FILE_APPEND);
+			
+			$request = json_encode($request);
 		
 			printf("$request: " . $request);
 
