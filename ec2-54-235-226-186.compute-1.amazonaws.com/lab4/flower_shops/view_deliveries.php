@@ -26,8 +26,8 @@
 	
 	while($row = mysql_fetch_array($result)){
 	
-		print("<b>Destination Latitude:</b> " . $row['delivery_latitude'] . "<br/>");
-		print("<b>Destination Longitude:</b> " . $row['delivery_longitude'] . "<br/>");
+		print("<b>Destination Latitude:</b> " . $row['destination_latitude'] . "<br/>");
+		print("<b>Destination Longitude:</b> " . $row['destination_longitude'] . "<br/>");
 		print("<b>Delivery Status:</b> " . $row['status'] . "<br/><br/>");
 		print("<b>Assigned Driver:</b> " . $row['assigned_driver_name'] . "<br/>");
 		
