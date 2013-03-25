@@ -6,7 +6,7 @@
 
 	$server_address = file_get_contents("../server_address");
 	
-	print("<a href=\"https://" . $server_address . "/lab4/guild/register.php\"><b>Register</b></a>");
+	print("<a href=\"https://" . $server_address . "/lab4/guild/register.php\">Register</a>");
 	
 ?>
 

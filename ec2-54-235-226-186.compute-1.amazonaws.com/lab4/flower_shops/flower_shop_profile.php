@@ -86,7 +86,6 @@
 				. $_REQUEST['flower_shop_id'] . "\" method=\"POST\">");
 		print("<br/><input type=\"submit\" value=\"Register\"/></form>");
 	  }
-	}
   }
 ?>
 
