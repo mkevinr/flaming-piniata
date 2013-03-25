@@ -1,12 +1,12 @@
 <html>
 <body>
-Welcome to the Driver's Guild site!<br/><br/>
+<b>Welcome to the Driver's Guild site!</b><br/><br/>
 
 <?php
 
 	$server_address = file_get_contents("../server_address");
 	
-	print("<a href=\"https://" . $server_address . "/lab4/guild/register.php\">Register</a>");
+	print("<a href=\"https://" . $server_address . "/lab4/guild/register.php\"><b>Register</b></a>");
 	
 ?>
 

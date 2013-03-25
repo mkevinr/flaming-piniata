@@ -93,12 +93,12 @@
 	
 		$universal_identifier = getGUID();
 		$driver_esl_token = getGUID();
-		print("Your universal identifier: " . $universal_identifier);
-		print("Guild's esl for you: https://" . $server_address . "/lab4/guild/event_input.php?esl_token=" . $driver_esl_token);
+		print("<b>Your universal identifier:</b> " . $universal_identifier . "<br/>");
+		print("<b>Guild's esl for you:</b> https://" . $server_address . "/lab4/guild/event_input.php?esl_token=" . $driver_esl_token . "<br/>");
 		print("<form action=\"https://" . $server_address . "/lab4/guild/register.php?user_type=driver&universal_identifiers="
 				. $universal_identifier . "&guild_esl_token=" . $driver_esl_token . "\" method=\"POST\">");
-		print("Name: <input type=\"text\" name=\"name\"><br>");
-		print("Your esl: <input type=\"text\" name=\"driver_esl\"><br>");
+		print("<b>Name:</b> <input type=\"text\" name=\"name\"><br/>");
+		print("<b>Your esl:</b> <input type=\"text\" name=\"driver_esl\"><br/>");
 		print("<input type=\"submit\" value=\"Submit\">");
 		print("</form>");
 	}

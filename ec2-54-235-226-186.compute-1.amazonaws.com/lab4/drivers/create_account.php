@@ -64,15 +64,15 @@
 
   if(array_key_exists('failed', $_REQUEST) && $_REQUEST['failed'] === true){
 
-    echo "Account creation failed! Try again.<br/>";
+    echo "<b>Account creation failed! Try again.</b><br/>";
   }
   
   print("<form action=\"https://" . $server_address . "/lab4/drivers/create_account.php\" method=\"POST\">");
 ?>
 
-Name: <input type="text" name="name"><br>
-User name: <input type="text" name="username"><br>
-Phone number: <input type="text" name="phone_number"><br>
+<b>Name:</b> <input type="text" name="name"><br/>
+<b>User name:</b> <input type="text" name="username"><br/>
+<b>Phone number:</b> <input type="text" name="phone_number"><br/>
 <input type="submit" value="Submit">
 </form>
 <body>
