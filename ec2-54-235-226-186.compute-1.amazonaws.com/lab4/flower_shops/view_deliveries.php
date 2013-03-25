@@ -3,6 +3,9 @@
 
 <?php
 
+    $con = mysql_connect("localhost", "root", "altair8");
+    mysql_select_db("flower_shop_site2", $con);
+
 	session_start();
 	
 	if(array_key_exists("pickup", $_REQUEST) && $_REQUEST['pickup'] == true){
@@ -59,9 +62,6 @@
 	
 	print("<b>Deliveries:</b><br/><br/>");
 
-    $con = mysql_connect("localhost", "root", "altair8");
-    mysql_select_db("flower_shop_site2", $con);
-	
 	$sql = "SELECT * FROM DELIVERIES WHERE flower_shop_id=" . $_SESSION['flower_shop_id'];
 
 	$result = mysql_query($sql,$con);
