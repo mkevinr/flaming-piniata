@@ -24,7 +24,7 @@
 			
 			$sql = "INSERT INTO DELIVERIES (flower_shop_id,guid) VALUES (" . $row['flower_shop_id'] . ",'" . $event->code . "')";
 			
-			if(!mysql_query($sql, $con);){
+			if(!mysql_query($sql, $con)){
 		
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
