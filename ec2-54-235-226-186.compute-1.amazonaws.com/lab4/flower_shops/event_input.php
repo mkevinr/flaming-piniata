@@ -27,7 +27,7 @@
 		$delivery_id = $row['id'];
 		file_put_contents("flower_shop_event_input_test","\nGets here 1", FILE_APPEND);
 		
-		$sql = "SELECT id FROM GUILDS WHERE flower_shop_esl_token='" . $_REQUEST['esl_token'] . "'";
+		$sql = "SELECT guild_id FROM GUILDS WHERE flower_shop_esl_token='" . $_REQUEST['esl_token'] . "'";
 		
 		file_put_contents("flower_shop_event_input_test","\nGets here 2", FILE_APPEND);
 		
