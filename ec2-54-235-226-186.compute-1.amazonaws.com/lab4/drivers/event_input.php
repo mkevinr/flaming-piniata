@@ -101,7 +101,7 @@
 			else{
 				
 				$sql = "INSERT INTO DELIVERIES (driver_id,unique_delivery_id,guild_id) VALUES ("
-						. $driver_id . ",'" . $event->code . "'," . $guild_id)";
+						. $driver_id . ",'" . $event->code . "'," . $guild_id . ")";
 						
 				if(!mysql_query($sql, $con)){
 		
