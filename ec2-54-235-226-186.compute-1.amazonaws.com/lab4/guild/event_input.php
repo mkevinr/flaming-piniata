@@ -218,7 +218,7 @@
 			file_put_contents("guild_event_input_test", "\ncomplete after sql 3", FILE_APPEND);
 			
 			$sql = "SELECT flower_shop_esl,guid FROM DELIVERIES JOIN FLOWER_SHOPS ON DELIVERIES.flower_shop_id=FLOWER_SHOPS.id"
-					. " WHERE assigned_driver_id=" . $driver_id;
+					. " WHERE driver_assigned_id=" . $driver_id;
 					
 			file_put_contents("guild_event_input_test", "\ncomplete gets here 1", FILE_APPEND);
 			
