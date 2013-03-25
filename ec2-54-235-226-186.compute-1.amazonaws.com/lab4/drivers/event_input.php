@@ -41,7 +41,7 @@
 			}
 			
 			$row = mysql_fetch_array($result);
-			$guild_id = $row['guild_id'];
+			$guild_id = $row['id'];
 			$guild_esl = $row['guild_esl'];
 			$driver_id = $row['driver_id'];
 			
