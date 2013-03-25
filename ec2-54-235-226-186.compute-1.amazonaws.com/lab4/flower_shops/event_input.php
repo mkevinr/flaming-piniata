@@ -64,11 +64,16 @@
 	}
 	else if($event->_domain == "delivery" && $event->_name == "complete"){
 	
+		file_put_contents("flower_shop_event_input_test","\nGets into complete", FILE_APPEND);
 		$sql = "UPDATE DELIVERIES SET status='complete' WHERE guid='" . $event->code . "'";
 		
+		file_put_contents("flower_shop_event_input_test","\nGets into complete 2", FILE_APPEND);
 		if(!mysql_query($sql, $con)){
 		
+			file_put_contents("flower_shop_event_input_test","\nGets into complete 3", FILE_APPEND);
+			file_put_contents("flower_shop_event_input_test","\nGets into complete sql error: " . mysql_error() . " sql: " . $sql, FILE_APPEND);
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
+		file_put_contents("flower_shop_event_input_test","\nGets into complete 4", FILE_APPEND);
 	}
 ?>
