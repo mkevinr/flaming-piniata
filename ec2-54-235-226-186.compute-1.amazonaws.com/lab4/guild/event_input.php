@@ -7,15 +7,15 @@
 	$con = mysql_connect("localhost", "root", "altair8");
 	mysql_select_db("guild_site", $con);
 	
-	file_put_contents("driver_event_input_test", "Gets to before first if");
+	file_put_contents("guild_event_input_test", "Gets to before first if");
 	
 	if($event->_domain == "rfq"){
 	
-		file_put_contents("driver_event_input_test", "\nGets in first if", FILE_APPEND);
+		file_put_contents("guild_event_input_test", "\nGets in first if", FILE_APPEND);
 		
 		if($event->_name == "delivery_ready"){
 		
-			file_put_contents("driver_event_input_test", "\nGets in second if", FILE_APPEND);
+			file_put_contents("guild_event_input_test", "\nGets in second if", FILE_APPEND);
 	
 			$sql = "SELECT flower_shop_id FROM FLOWER_SHOPS WHERE guild_esl_token='" . $_REQUEST['esl_token'] . "'";
 			
@@ -28,7 +28,7 @@
 			
 			$row = mysql_fetch_array($result);
 			
-			file_put_contents("driver_event_input_test", "\nAfter first sql", FILE_APPEND);
+			file_put_contents("guild_event_input_test", "\nAfter first sql", FILE_APPEND);
 			
 			$sql = "INSERT INTO DELIVERIES (flower_shop_id,guid) VALUES (" . $row['flower_shop_id'] . ",'" . $event->code . "')";
 			
@@ -46,11 +46,11 @@
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
 			
-			file_put_contents("driver_event_input_test", "\nAfter second sql", FILE_APPEND);
+			file_put_contents("guild_event_input_test", "\nAfter second sql", FILE_APPEND);
 			
 			while($row = mysql_fetch_array($result)){
 			
-				file_put_contents("driver_event_input_test", "\nIn while loop", FILE_APPEND);
+				file_put_contents("guild_event_input_test", "\nIn while loop", FILE_APPEND);
 			
 				$request = $json;
 
@@ -65,6 +65,8 @@
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 				curl_exec($ch);				
 			}
+			
+			file_put_contents("guild_event_input_test", "\nAfter while loop", FILE_APPEND);
 		}
 		else if($event->_name == "bid_awarded"){
 		
