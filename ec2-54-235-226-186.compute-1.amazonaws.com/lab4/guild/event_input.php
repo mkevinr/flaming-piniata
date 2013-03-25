@@ -112,7 +112,7 @@
 		}
 		else if($event->_name == "bid_available"){
 		
-			$sql = "SELECT universal_id FROM DRIVERS where guild_esl_token='" . $_REQUEST['esl_token'] . "'";
+			$sql = "SELECT universal_id,rating FROM DRIVERS where guild_esl_token='" . $_REQUEST['esl_token'] . "'";
 
 			$result = mysql_query($sql, $con);
 			
@@ -123,6 +123,7 @@
 			
 			$row = mysql_fetch_array($result);
 			$universal_id = $row['universal_id'];
+			$rating = $row['rating'];
 
 			$sql = "SELECT flower_shop_esl FROM DELIVERIES JOIN FLOWER_SHOPS ON DELIVERIES.flower_shop_id=FLOWER_SHOPS.id"
 					. " WHERE guid='" . $event->code . "'";
@@ -142,6 +143,7 @@
 					, "code" => $event->code
 					, "driver_name" => $event->driver_name
 					, "driver_universal_id" => $universal_id
+					, "rating" => $rating
 					, "estimated_delivery_time" => $event->estimated_delivery_time));
 
 			$ch = curl_init($row['flower_shop_esl']);
