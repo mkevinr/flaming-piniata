@@ -81,11 +81,11 @@
 	if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "flower_shop"){
 		
 		$flower_shop_esl_token = getGUID();
-		print("Guild's esl for you: https://" . $server_address . "/lab4/guild/event_input.php?esl_token=" . $flower_shop_esl_token);
+		print("<b>Guild's esl for you:</b> https://" . $server_address . "/lab4/guild/event_input.php?esl_token=" . $flower_shop_esl_token);
 		print("<form action=\"https://" . $server_address . "/lab4/guild/register.php?user_type=flower_shop&guild_esl_token="
 				. $flower_shop_esl_token . "\" method=\"POST\">");
-		print("Name: <input type=\"text\" name=\"name\"><br>");
-		print("Your esl: <input type=\"text\" name=\"flower_shop_esl\"><br>");
+		print("<b>Name:</b> <input type=\"text\" name=\"name\"><br>");
+		print("<b>Your esl:</b> <input type=\"text\" name=\"flower_shop_esl\"><br>");
 		print("<input type=\"submit\" value=\"Submit\">");
 		print("</form>");
 	}
