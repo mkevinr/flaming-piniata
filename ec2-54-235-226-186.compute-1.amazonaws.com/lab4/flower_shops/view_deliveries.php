@@ -84,7 +84,7 @@
 					. "\" method=\"POST\">");
 			print("<input type=\"submit\" value=\"View Bids\"></form><br/>");
 		}
-		else{
+		else if($row['status'] == "driver_assigned"){
 		
 			print("<form action=\"https://" . $server_address . "/lab4/flower_shops/view_deliveries.php?delivery_id=" 
 					. $row['id']. "&pickup=true\" method=\"POST\">");
