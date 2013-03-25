@@ -45,7 +45,7 @@
 		file_put_contents("sms_input_test", "\nGets past first sql", FILE_APPEND);
 		
 		$driver_id = $row['id'];
-		$username = $row['username'];
+		$name = $row['name'];
 		$driver_latitude = $row['latitude'];
 		$driver_longitude = $row['longitude'];
 		
@@ -79,7 +79,7 @@
 			"_domain" => "rfq"
 			, "_name" => "bid_available"
 			, "code" => $row['unique_delivery_id']
-			, "driver_name" => $username
+			, "driver_name" => $name
 			, "estimated_delivery_time" => $distance * 60);
 			
 			$request = json_encode($request);

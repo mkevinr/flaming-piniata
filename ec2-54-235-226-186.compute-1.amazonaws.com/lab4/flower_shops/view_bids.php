@@ -30,6 +30,19 @@
 		$driver_name = $row['driver_name'];
 		$universal_driver_id = $row['universal_driver_id'];
 		
+		$sql = "SELECT guild_esl FROM GUILDS WHERE id=" . $guild_id;
+		
+		$result = mysql_query($sql,$con);
+		
+		if(!$result){
+		
+			die("error: " . mysql_error() . " sql: " . $sql);
+		}
+		
+		$row = mysql_fetch_array($result);
+
+		$guild_esl = $row['guild_esl'];
+		
 		$sql = "SELECT name,latitude,longitude FROM FLOWER_SHOPS WHERE id=" . $flower_shop_id;
 		
 		$result = mysql_query($sql,$con);
