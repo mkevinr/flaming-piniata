@@ -17,7 +17,7 @@
 		
 			file_put_contents("guild_event_input_test", "\nGets in second if", FILE_APPEND);
 	
-			$sql = "SELECT flower_shop_id FROM FLOWER_SHOPS WHERE guild_esl_token='" . $_REQUEST['esl_token'] . "'";
+			$sql = "SELECT id FROM FLOWER_SHOPS WHERE guild_esl_token='" . $_REQUEST['esl_token'] . "'";
 			
 			file_put_contents("guild_event_input_test", "\nGets here 1", FILE_APPEND);
 			
@@ -38,7 +38,7 @@
 			
 			file_put_contents("guild_event_input_test", "\nAfter first sql", FILE_APPEND);
 			
-			$sql = "INSERT INTO DELIVERIES (flower_shop_id,guid) VALUES (" . $row['flower_shop_id'] . ",'" . $event->code . "')";
+			$sql = "INSERT INTO DELIVERIES (flower_shop_id,guid) VALUES (" . $row['id'] . ",'" . $event->code . "')";
 			
 			if(!mysql_query($sql, $con)){
 		
