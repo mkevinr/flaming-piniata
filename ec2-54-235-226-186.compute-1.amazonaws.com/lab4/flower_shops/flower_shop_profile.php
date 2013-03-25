@@ -70,13 +70,12 @@
 		// Show form for the driver to register.
 		$flower_shop_esl_token = getGUID();
 		
-		print("<br/><b>Your Username:</b> " . $driver_username);
 		print("<br/><b>Flower Shop's esl:</b> " . "https://" . $server_address . "/lab4/flower_shops/event_input.php?esl_token=" 
 				. $flower_shop_esl_token);
 		print("<form action=\"https://" . $server_address . "/lab4/flower_shops/flower_shop_profile.php?save=true&flower_shop_id="
 				. $_REQUEST['flower_shop_id'] . "&flower_shop_esl_token=" . $flower_shop_esl_token . "\" method=\"POST\">");
-		print("<br/>Guild name: </b><input type=\"text\" name=\"name\"/>");
-		print("<br/>Your esl: </b><input type=\"text\" name=\"guild_esl\"/>");
+		print("<br/><b>Guild name: </b><input type=\"text\" name=\"name\"/>");
+		print("<br/><b>Your esl: </b><input type=\"text\" name=\"guild_esl\"/>");
 		print("<br/><input type=\"submit\" value=\"Save\"/></form>");
 	  }
 	  else{
