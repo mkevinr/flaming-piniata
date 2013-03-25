@@ -166,10 +166,16 @@
 		
 		$sql = "UPDATE DRIVERS SET current_delivery_id=NULL WHERE driver_id=" . $driver_id;
 		
+		file_put_contents("sms_input_test", "\nAfter complete gets here 8", FILE_APPEND);	
+		
 		if(!mysql_query($sql, $con)){
 		
+			file_put_contents("sms_input_test", "\ncomplete gets here 9", FILE_APPEND);	
+			file_put_contents("sms_input_test", "\ncomplete sql error: " mysql_error() . " sql: " . $sql, FILE_APPEND);			
+			
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
+		
 		
 		file_put_contents("sms_input_test", "\nAfter complete sql 4", FILE_APPEND);	
 	}
