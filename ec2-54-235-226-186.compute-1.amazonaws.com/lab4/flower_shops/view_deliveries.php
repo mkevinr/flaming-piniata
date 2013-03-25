@@ -35,6 +35,13 @@
 		
 		$row = mysql_fetch_array($result);
 		
+		$sql = "UPDATE DELIVERIES SET status='picked_up' WHERE id=" . $_REQUEST['delivery_id'];
+		
+		if(!mysql_query($sql,$con)){
+		
+			die("error: " . mysql_error() . " sql: " . $sql);
+		}		
+		
 		$guild_esl = $row['guild_esl'];
 		
 		$request = json_encode(array(
