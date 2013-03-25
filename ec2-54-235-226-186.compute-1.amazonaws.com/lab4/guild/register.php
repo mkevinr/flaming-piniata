@@ -91,12 +91,12 @@
 	}
 	else if(array_key_exists('user_type', $_REQUEST) && $_REQUEST['user_type'] == "driver"){
 	
-		$universal_identifier = getGUID();
+		$universal_id = getGUID();
 		$driver_esl_token = getGUID();
 		print("<b>Your universal identifier:</b> " . $universal_identifier . "<br/>");
 		print("<b>Guild's esl for you:</b> https://" . $server_address . "/lab4/guild/event_input.php?esl_token=" . $driver_esl_token . "<br/>");
-		print("<form action=\"https://" . $server_address . "/lab4/guild/register.php?user_type=driver&universal_identifiers="
-				. $universal_identifier . "&guild_esl_token=" . $driver_esl_token . "\" method=\"POST\">");
+		print("<form action=\"https://" . $server_address . "/lab4/guild/register.php?user_type=driver&universal_id="
+				. $universal_id . "&guild_esl_token=" . $driver_esl_token . "\" method=\"POST\">");
 		print("<b>Name:</b> <input type=\"text\" name=\"name\"><br/>");
 		print("<b>Your esl:</b> <input type=\"text\" name=\"driver_esl\"><br/>");
 		print("<input type=\"submit\" value=\"Submit\">");
