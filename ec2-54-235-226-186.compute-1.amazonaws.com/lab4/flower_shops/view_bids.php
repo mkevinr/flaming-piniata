@@ -66,12 +66,15 @@
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		
+		file_put_contents("flower_shop_view_bids_test", "before delete bids sql");
 		$sql = "DELETE FROM BIDS WHERE delivery_id=" . $_REQUEST['delivery_id'];
 		
 		if(!mysql_query($sql, $con)){
 		
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
+		
+		file_put_contents("flower_shop_view_bids_test", "\nbefore curl", FILE_APPEND);
 		
 		$request = json_encode(array(
 				"_domain" => "rfq"
@@ -95,6 +98,8 @@
 		);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_exec($ch);
+		
+		file_put_contents("flower_shop_view_bids_test", "\nafter curl", FILE_APPEND);
 	
 		header("Location: https://" . $server_address . "/lab4/flower_shops/view_deliveries.php");
 	}
