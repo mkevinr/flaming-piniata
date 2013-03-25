@@ -139,7 +139,7 @@
 			$request = json_encode(array(
 					"_domain" => "rfq"
 					, "_name" => "bid_available"
-					, "code" => $GUID
+					, "code" => $event->code
 					, "driver_name" => $event->driver_name
 					, "driver_universal_id" => $universal_id
 					, "estimated_delivery_time" => $event->estimated_delivery_time));
