@@ -1,12 +1,16 @@
 <?php
 
+	file_put_contents("flower_shop_event_input_test","Gets to flower_shop_input!");
 	$json = file_get_contents('php://input');
 	$event = json_decode($json);
 	
 	$con = mysql_connect("localhost", "root", "altair8");
 	mysql_select_db("flower_shop_site2", $con);
 	
+	file_put_contents("flower_shop_event_input_test","\nGets to before first if", FILE_APPEND);
 	if($event->_domain == "rfq" && $event->_name == "bid_available"){
+	
+		file_put_contents("flower_shop_event_input_test","\nGets in if", FILE_APPEND);
 	
 		$sql = "SELECT id FROM DELIVERIES WHERE guid='" . $event->code . "'";
 		
@@ -18,6 +22,8 @@
 		}
 		
 		$row = mysql_fetch_array($result);
+		
+		file_put_contents("flower_shop_event_input_test","\nGets after first sql", FILE_APPEND);
 		$delivery_id = $row['id'];
 		
 		$sql = "SELECT id FROM GUILDS WHERE flower_shop_esl_token='" . $_REQUEST['esl_token'] . "'";
@@ -31,6 +37,8 @@
 		
 		$row = mysql_fetch_array($result);
 		
+		file_put_contents("flower_shop_event_input_test","\nGets after second sql", FILE_APPEND);
+		
 		$guild_id = $row['guild_id'];
 				
 		$sql = "INSERT INTO BIDS (delivery_id,guild_id,driver_name,universal_driver_id,estimated_delivery_time,rating) VALUES ("
@@ -41,6 +49,8 @@
 		
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
+		
+		file_put_contents("flower_shop_event_input_test","\nGets after second sql", FILE_APPEND);
 	}
 	else if($event->_domain == "delivery" && $event->_name == "complete"){
 	
