@@ -189,7 +189,7 @@
 			$row = mysql_fetch_array($result);
 			
 			//$universal_id = $row['universal_id'];
-			$driver_id = $row['driver_id'];
+			$driver_id = $row['id'];
 			$rating = $row['rating'];
 		
 			$sql = "UPDATE DELIVERIES SET completed_time=NOW() WHERE driver_assigned_id=" . $driver_id;
