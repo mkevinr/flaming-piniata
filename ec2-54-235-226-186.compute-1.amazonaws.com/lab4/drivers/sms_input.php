@@ -49,12 +49,13 @@
 		$driver_latitude = $row['latitude'];
 		$driver_longitude = $row['longitude'];
 		
-		$sql = "SELECT flower_shop_esl,code,latitude,longitude FROM DELIVERIES_READY WHERE driver_id=" . $driver_id
-				. " ORDER BY id DESC";
+		$sql = "SELECT guild_esl,unique_delivery_id FROM DELIVERIES JOIN GUILDS ON DELIVERIES.guild_id=GUILDS.id WHERE DELIVERIES.driver_id="
+				. $driver_id . " ORDER BY DELIVERIES.id DESC";
 				
 		$result = mysql_query($sql, $con);
 		
 		file_put_contents("sms_input_test", "\nGets past second sql", FILE_APPEND);
+		file_put_contents("sms_input_test", "\nSecond sql: " .  $sql, FILE_APPEND);
 		
 		if(mysql_num_rows($result) > 0){
 		
@@ -62,7 +63,7 @@
 		
 			$row = mysql_fetch_array($result);
 	
-			$esl = $row['flower_shop_esl'];
+			$esl = $row['guild_esl'];
 			
 			if($driver_latitude == null){
 				
@@ -77,7 +78,7 @@
   		    $request = array(
 			"_domain" => "rfq"
 			, "_name" => "bid_available"
-			, "code" => $row['code']
+			, "code" => $row['unique_delivery_id']
 			, "driver_name" => $username
 			, "estimated_delivery_time" => $distance * 60);
 			
@@ -99,7 +100,10 @@
 		}
 	}
 	else if($_REQUEST['Body'] == "complete"){
-	
+
+		$con = mysql_connect("localhost", "root", "altair8");
+		mysql_select_db("driver_site2", $con);
+		
 		$sql = "SELECT * FROM DRIVERS WHERE phone_number='". $_REQUEST['From'] . "'";
 		
 		$result = mysql_query($sql, $con);

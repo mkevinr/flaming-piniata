@@ -100,8 +100,9 @@
 			}
 			else{
 				
-				$sql = "INSERT INTO DELIVERIES (driver_id,unique_delivery_id,guild_id) VALUES ("
-						. $driver_id . ",'" . $event->code . "'," . $guild_id . ")";
+				$sql = "INSERT INTO DELIVERIES (driver_id,unique_delivery_id,guild_id,destination_latitude,destination_longitude) VALUES ("
+						. $driver_id . ",'" . $event->code . "'," . $guild_id . "," . $event->delivery_latitude . ","
+						. $event->delivery_longitude . ")";
 						
 				if(!mysql_query($sql, $con)){
 		
