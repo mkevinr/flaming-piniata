@@ -19,12 +19,20 @@
 	
 			$sql = "SELECT flower_shop_id FROM FLOWER_SHOPS WHERE guild_esl_token='" . $_REQUEST['esl_token'] . "'";
 			
+			file_put_contents("guild_event_input_test", "\nGets here 1", FILE_APPEND);
+			
 			$result = mysql_query($sql, $con);
+			
+			file_put_contents("guild_event_input_test", "\nGets here 2", FILE_APPEND);
 			
 			if(!$result){
 			
+				file_put_contents("guild_event_input_test", "\nGets here 3", FILE_APPEND);
+				file_put_contents("guild_event_input_test", "\nsql error: " . mysql_error() . " sql: " . $sql, FILE_APPEND);
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
+			
+			file_put_contents("guild_event_input_test", "\nGets here 4", FILE_APPEND);
 			
 			$row = mysql_fetch_array($result);
 			
