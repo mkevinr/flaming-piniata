@@ -53,7 +53,7 @@
 				
 		$sql = "INSERT INTO BIDS (delivery_id,guild_id,driver_name,universal_driver_id,estimated_delivery_time,rating) VALUES ("
 				. $delivery_id . "," . $guild_id . ",'" . $event->driver_name . "','" . $event->driver_universal_id . "'," 
-				. $event->estimated_delivery_time . "," . $event->$rating . ")";
+				. $event->estimated_delivery_time . "," . $event->rating . ")";
 				
 		if(!mysql_query($sql, $con)){
 		
