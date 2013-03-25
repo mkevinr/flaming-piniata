@@ -27,7 +27,7 @@
 		$delivery_id = $row['id'];
 		file_put_contents("flower_shop_event_input_test","\nGets here 1", FILE_APPEND);
 		
-		$sql = "SELECT guild_id FROM GUILDS WHERE flower_shop_esl_token='" . $_REQUEST['esl_token'] . "'";
+		$sql = "SELECT id FROM GUILDS WHERE flower_shop_esl_token='" . $_REQUEST['esl_token'] . "'";
 		
 		file_put_contents("flower_shop_event_input_test","\nGets here 2", FILE_APPEND);
 		
@@ -49,7 +49,7 @@
 		
 		file_put_contents("flower_shop_event_input_test","\nGets after second sql", FILE_APPEND);
 		
-		$guild_id = $row['guild_id'];
+		$guild_id = $row['id'];
 				
 		$sql = "INSERT INTO BIDS (delivery_id,guild_id,driver_name,universal_driver_id,estimated_delivery_time,rating) VALUES ("
 				. $delivery_id . "," . $guild_id . ",'" . $event->driver_name . "','" . $event->driver_universal_id . "'," 
