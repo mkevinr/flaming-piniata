@@ -163,20 +163,32 @@
 			$row = mysql_fetch_array($result);
 			file_put_contents("driver_event_input_test", "\nbid awarded after sql 2", FILE_APPEND);
 			$driver_id = $row['driver_id'];
+			file_put_contents("driver_event_input_test", "\nbid awarded gets here 1", FILE_APPEND);
 			
 			$sql = "UPDATE drivers SET current_delivery_id=" . $delivery_id . " WHERE id=" . $driver_id;
+			file_put_contents("driver_event_input_test", "\nbid awarded gets here 2", FILE_APPEND);
 			
 			if(!mysql_query($sql, $con)){
+			
+				file_put_contents("driver_event_input_test", "\nbid awarded gets here 3", FILE_APPEND);
+				file_put_contents("driver_event_input_test", "\nbid awarded sql error: " . mysql_error()
+						. " sql: " . $sql, FILE_APPEND);
 		
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
 			
+			file_put_contents("driver_event_input_test", "\nbid awarded gets here 4", FILE_APPEND);
 			$sql = "SELECT phone_number FROM DRIVERS WHERE id=" . $driver_id;
+			file_put_contents("driver_event_input_test", "\nbid awarded gets here 5", FILE_APPEND);
 					
 			$result = mysql_query($sql, $con);
+			file_put_contents("driver_event_input_test", "\nbid awarded gets here 6", FILE_APPEND);
 			
 			if(!$result){
 		
+				file_put_contents("driver_event_input_test", "\nbid awarded gets here 7", FILE_APPEND);
+				file_put_contents("driver_event_input_test", "\nbid awarded sql error: " . mysql_error()
+						. " sql: " . $sql, FILE_APPEND);
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
 			
