@@ -165,7 +165,7 @@
 			$driver_id = $row['driver_id'];
 			file_put_contents("driver_event_input_test", "\nbid awarded gets here 1", FILE_APPEND);
 			
-			$sql = "UPDATE drivers SET current_delivery_id=" . $delivery_id . " WHERE id=" . $driver_id;
+			$sql = "UPDATE DRIVERS SET current_delivery_id=" . $delivery_id . " WHERE id=" . $driver_id;
 			file_put_contents("driver_event_input_test", "\nbid awarded gets here 2", FILE_APPEND);
 			
 			if(!mysql_query($sql, $con)){
