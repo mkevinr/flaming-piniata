@@ -138,6 +138,8 @@
 		
 			$sql = "SELECT id FROM DELIVERIES WHERE unique_delivery_id='" . $event->code . "'";
 			
+			file_put_contents("driver_event_input_test", "\nbid awarded $event->code: " . $event->code, FILE_APPEND);
+			
 			$result = mysql_query($sql, $con);
 			
 			if(!$result){
