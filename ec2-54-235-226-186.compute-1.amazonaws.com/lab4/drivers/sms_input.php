@@ -164,7 +164,7 @@
 		
 		file_put_contents("sms_input_test", "\nAfter complete sql 3", FILE_APPEND);	
 		
-		$sql = "UPDATE DRIVERS SET current_delivery_id=NULL WHERE driver_id=" . $driver_id;
+		$sql = "UPDATE DRIVERS SET current_delivery_id=NULL WHERE id=" . $driver_id;
 		
 		file_put_contents("sms_input_test", "\nAfter complete gets here 8", FILE_APPEND);	
 		
