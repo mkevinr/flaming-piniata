@@ -1,5 +1,7 @@
 <?php
 
+	file_put_contents("sms_input_test", "Gets to sms_input");
+	
 	function distance($lat1, $lng1, $lat2, $lng2, $miles = true)
 	{
 		$pi80 = M_PI / 180;
@@ -20,8 +22,11 @@
 
 	$entityBody = file_get_contents('php://input');
 
+	file_put_contents("sms_input_test", "\nGets to before first if", FILE_APPEND);
 	if($_REQUEST['Body'] == "bid anyway"){
 	
+		file_put_contents("sms_input_test", "\nGets in first if", FILE_APPEND);
+		
 		require './twilio-php/Services/Twilio.php';
 		
 		$con = mysql_connect("localhost", "root", "altair8");
@@ -37,6 +42,7 @@
 		}
 		
 		$row = mysql_fetch_array($result);
+		file_put_contents("sms_input_test", "\nGets past first sql", FILE_APPEND);
 		
 		$driver_id = $row['id'];
 		$username = $row['username'];
@@ -48,7 +54,11 @@
 				
 		$result = mysql_query($sql, $con);
 		
+		file_put_contents("sms_input_test", "\nGets past second sql", FILE_APPEND);
+		
 		if(mysql_num_rows($result) > 0){
+		
+			file_put_contents("sms_input_test", "\nGets in second if", FILE_APPEND);
 		
 			$row = mysql_fetch_array($result);
 	
@@ -62,6 +72,7 @@
 			
 				$distance = distance($driver_latitude,$driver_longitude,$row['latitude'],$row['longitude']);
 			}
+			file_put_contents("sms_input_test", "\nGets past distance", FILE_APPEND);
 
   		    $request = array(
 			"_domain" => "rfq"
@@ -84,6 +95,7 @@
 		    );
 		    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		    curl_exec($ch);
+			file_put_contents("sms_input_test", "\nGets past curl", FILE_APPEND);
 		}
 	}
 	else if($_REQUEST['Body'] == "complete"){
