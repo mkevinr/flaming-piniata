@@ -167,7 +167,7 @@
 			file_put_contents("driver_event_input_test", "\nbid awarded after sql 2", FILE_APPEND);
 			$driver_id = $row['driver_id'];
 			file_put_contents("driver_event_input_test", "\nbid awarded gets here 1", FILE_APPEND);
-			file_put_contents("debug_test", "delivery_id: " . $delivery_id . " driver_id: " . $driver_id, FILE_APPEND);
+			file_put_contents("debug_test", "\ndelivery_id: " . $delivery_id . " driver_id: " . $driver_id, FILE_APPEND);
 			$sql = "UPDATE DRIVERS SET current_delivery_id=" . $delivery_id . " WHERE id=" . $driver_id;
 			file_put_contents("driver_event_input_test", "\nbid awarded gets here 2", FILE_APPEND);
 			
