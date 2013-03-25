@@ -100,6 +100,8 @@
 		}
 	}
 	else if($_REQUEST['Body'] == "complete"){
+	
+		file_put_contents("sms_input_test", "\nGets in complete if", FILE_APPEND);	
 
 		$con = mysql_connect("localhost", "root", "altair8");
 		mysql_select_db("driver_site2", $con);
@@ -115,9 +117,22 @@
 		
 		$row = mysql_fetch_array($result);
 		
+		file_put_contents("sms_input_test", "\nAfter complete sql 1", FILE_APPEND);	
+		
 		$driver_id = $row['id'];
 		
 		$sql = "SELECT guild_esl FROM DELIVERIES JOIN GUILDS ON DELIVERIES.guild_id=GUILDS.id WHERE DELIVERIES.id=" . $row['current_delivery_id'];
+		
+		$result = mysql_query($sql, $con);
+		
+		if(!$result){
+		
+			die("error: " . mysql_error() . " sql: " . $sql);
+		}
+		
+		$row = mysql_fetch_array($result);
+		
+		file_put_contents("sms_input_test", "\nAfter complete sql 2", FILE_APPEND);	
 		
 		$esl = $row['guild_esl'];
 	
@@ -138,6 +153,8 @@
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_exec($ch);
 		
+		file_put_contents("sms_input_test", "\nAfter complete curl", FILE_APPEND);	
+		
 		$sql = "DELETE FROM DELIVERIES WHERE driver_id=" . $driver_id;
 			
 		if(!mysql_query($sql, $con)){
@@ -145,11 +162,15 @@
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
 		
+		file_put_contents("sms_input_test", "\nAfter complete sql 3", FILE_APPEND);	
+		
 		$sql = "UPDATE DRIVERS SET current_delivery_id=NULL WHERE driver_id=" . $driver_id;
 		
 		if(!mysql_query($sql, $con)){
 		
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
+		
+		file_put_contents("sms_input_test", "\nAfter complete sql 4", FILE_APPEND);	
 	}
 ?>
