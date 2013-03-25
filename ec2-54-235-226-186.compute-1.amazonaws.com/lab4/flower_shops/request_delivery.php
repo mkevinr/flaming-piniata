@@ -32,7 +32,7 @@
 	
 	$GUID = getGUID();
 	
-	$sql = "INSERT INTO DELIVERIES (guid,flower_shop_id,delivery_latitude,delivery_longitude,status) VALUES"
+	$sql = "INSERT INTO DELIVERIES (guid,flower_shop_id,destination_latitude,destination_longitude,status) VALUES"
 			. "('" . $GUID . "'," . $_SESSION['flower_shop_id'] . "," . $_REQUEST['delivery_latitude'] . "," . $_REQUEST['delivery_longitude']
 			. ",'begun')";
 	
