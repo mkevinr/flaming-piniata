@@ -78,6 +78,8 @@
 		}
 		else if($event->_name == "bid_awarded"){
 		
+			file_put_contents("guild_event_input_test", "\nGets in bid_awarded if", FILE_APPEND);
+		
 			$sql = "SELECT id,driver_esl FROM DRIVERS WHERE universal_id='" . $event->universal_driver_id . "'";
 			
 			$result = mysql_query($sql, $con);
@@ -88,6 +90,7 @@
 			}
 			
 			$row = mysql_fetch_array($result);
+			file_put_contents("guild_event_input_test", "\nGets after bid_awarded sql 1", FILE_APPEND);
 			$driver_esl = $row['driver_esl'];
 			
 			$sql = "UPDATE DELIVERIES SET driver_assigned_id=" . $row['id'] . ",bid_awarded_time=NOW() WHERE guid='" . $event->code . "'";
@@ -96,6 +99,8 @@
 			
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
+			
+			file_put_contents("guild_event_input_test", "\nGets after bid_awarded sql 2", FILE_APPEND);
 			
 			$request = $json;
 
@@ -109,6 +114,7 @@
 			);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			curl_exec($ch);							
+			file_put_contents("guild_event_input_test", "\nGets after bid_awarded curl", FILE_APPEND);
 		}
 		else if($event->_name == "bid_available"){
 		
