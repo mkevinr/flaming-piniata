@@ -104,15 +104,6 @@
 			}
 			else{
 				
-				$sql = "INSERT INTO DELIVERIES (driver_id,unique_delivery_id,guild_id,destination_latitude,destination_longitude) VALUES ("
-						. $driver_id . ",'" . $event->code . "'," . $guild_id . "," . $event->delivery_latitude . ","
-						. $event->delivery_longitude . ")";
-						
-				if(!mysql_query($sql, $con)){
-		
-					die("error: " . mysql_error() . " sql: " . $sql);
-				}
-				
 				if($distance == -1){
 				
 					$distance = "unknown";
@@ -120,6 +111,15 @@
 				
 				$text_message = "Bid? Delivery at: " . $event->delivery_latitude . "," . $event->delivery_longitude
 						. " distance: " . $distance . " Shop: " . $event->flower_shop_name;
+			}
+			
+			$sql = "INSERT INTO DELIVERIES (driver_id,unique_delivery_id,guild_id,destination_latitude,destination_longitude) VALUES ("
+					. $driver_id . ",'" . $event->code . "'," . $guild_id . "," . $event->delivery_latitude . ","
+					. $event->delivery_longitude . ")";
+						
+			if(!mysql_query($sql, $con)){
+		
+				die("error: " . mysql_error() . " sql: " . $sql);
 			}
 			
 			// send text message to $phone_number
