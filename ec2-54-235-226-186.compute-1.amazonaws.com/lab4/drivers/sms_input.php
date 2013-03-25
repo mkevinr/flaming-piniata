@@ -49,8 +49,8 @@
 		$driver_latitude = $row['latitude'];
 		$driver_longitude = $row['longitude'];
 		
-		$sql = "SELECT guild_esl,unique_delivery_id FROM DELIVERIES JOIN GUILDS ON DELIVERIES.guild_id=GUILDS.id WHERE DELIVERIES.driver_id="
-				. $driver_id . " ORDER BY DELIVERIES.id DESC";
+		$sql = "SELECT guild_esl,unique_delivery_id,destination_latitude,destination_longitude FROM DELIVERIES JOIN GUILDS"
+				. " ON DELIVERIES.guild_id=GUILDS.id WHERE DELIVERIES.driver_id=" . $driver_id . " ORDER BY DELIVERIES.id DESC";
 				
 		$result = mysql_query($sql, $con);
 		
@@ -71,7 +71,7 @@
 			}
 			else{
 			
-				$distance = distance($driver_latitude,$driver_longitude,$row['latitude'],$row['longitude']);
+				$distance = distance($driver_latitude,$driver_longitude,$row['destination_latitude'],$row['destination_longitude']);
 			}
 			file_put_contents("sms_input_test", "\nGets past distance", FILE_APPEND);
 
