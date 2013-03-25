@@ -219,13 +219,21 @@
 			
 			$sql = "SELECT flower_shop_esl,guid FROM DELIVERIES JOIN FLOWER_SHOPS ON DELIVERIES.flower_shop_id=FLOWER_SHOPS.id"
 					. " WHERE assigned_driver_id=" . $driver_id;
+					
+			file_put_contents("guild_event_input_test", "\ncomplete gets here 1", FILE_APPEND);
 			
 			$result = mysql_query($sql, $con);
 			
+			file_put_contents("guild_event_input_test", "\ncomplete gets here 2", FILE_APPEND);
+			
 			if(!$result){
 			
+				file_put_contents("guild_event_input_test", "\ncomplete gets here 3", FILE_APPEND);
+				file_put_contents("guild_event_input_test", "\ncomplete sql error: " . mysql_error() . " sql: " . $sql, FILE_APPEND);
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
+			
+			file_put_contents("guild_event_input_test", "\ncomplete gets here 4", FILE_APPEND);
 			
 			$row = mysql_fetch_array($result);
 			
