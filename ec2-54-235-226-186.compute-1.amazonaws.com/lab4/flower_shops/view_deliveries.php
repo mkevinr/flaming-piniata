@@ -4,6 +4,53 @@
 <?php
 
 	session_start();
+	
+	if(array_key_exists("pickup", $_REQUEST) && $_REQUEST['pickup'] == true){
+	
+		$sql = "SELECT * FROM DELIVERIES WHERE id=" . $_REQUEST['delivery_id'];
+		
+		$result = mysql_query($sql,$con);
+		
+		if(!$result){
+		
+			die("error: " . mysql_error() . " sql: " . $sql);
+		}
+		
+		$row = mysql_fetch_array($result);
+		
+		$code = $row['guid'];
+		$driver_guid = $row['assigned_driver_guid'];
+		
+		$sql = "SELECT * FROM GUILDS WHERE id=" . $row['assigned_guild_id'];
+		
+		$result = mysql_query($sql,$con);
+		
+		if(!$result){
+		
+			die("error: " . mysql_error() . " sql: " . $sql);
+		}
+		
+		$row = mysql_fetch_array($result);
+		
+		$guild_esl = $row['guild_esl'];
+		
+		$request = json_encode(array(
+				"_domain" => "delivery"
+				, "_name" => "picked_up"
+				, "code" => $code
+				, "driver_universal_id" => $driver_guid));
+
+		$ch = curl_init($guild_esl);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+		'Content-Type: application/json',
+		'Content-Length: ' . strlen($request))
+		);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_exec($ch);	
+	}
 
 	$server_address = file_get_contents("../server_address");
 	print("<a href=\"https://" . $server_address . "/lab4/flower_shops/\"><b>Home</b></a><br/>");
@@ -36,6 +83,12 @@
 			print("<form action=\"https://" . $server_address . "/lab4/flower_shops/view_bids.php?delivery_id=" . $row['id']
 					. "\" method=\"POST\">");
 			print("<input type=\"submit\" value=\"View Bids\"></form><br/>");
+		}
+		else{
+		
+			print("<form action=\"https://" . $server_address . "/lab4/flower_shops/view_deliveries.php?delivery_id=" 
+					. $row['id']. "&pickup=true\" method=\"POST\">");
+			print("<input type=\"submit\" value=\"Notify Pickup\"></form><br/>");			
 		}
 	}
 ?>
