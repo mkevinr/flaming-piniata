@@ -1,5 +1,7 @@
 <?php
 
+	file_put_contents("driver_event_input_test", "Gets to driver_event_input_test!");
+
 	function distance($lat1, $lng1, $lat2, $lng2, $miles = true)
 	{
 		$pi80 = M_PI / 180;
@@ -27,8 +29,10 @@
 	$con = mysql_connect("localhost", "root", "altair8");
 	mysql_select_db("driver_site2", $con);
 	
+	file_put_contents("driver_event_input_test", "\nGets to before if 1", FILE_APPEND);
 	if($event->_domain == "rfq"){
 	
+		file_put_contents("driver_event_input_test", "\nGets in if 1", FILE_APPEND);
 		if($event->_name == "delivery_ready"){
 	
 			$sql = "SELECT id,guild_esl,driver_id FROM GUILDS WHERE driver_esl_token='" . $_REQUEST['esl_token'] . "'";
@@ -130,6 +134,8 @@
 		}
 		else if($event->_name == "bid_awarded"){
 		
+			file_put_contents("driver_event_input_test", "\nGets in bid awarded", FILE_APPEND);
+		
 			$sql = "SELECT id FROM DELIVERIES WHERE unique_delivery_id='" . $event->code . "'";
 			
 			$result = mysql_query($sql, $con);
@@ -140,6 +146,8 @@
 			}
 			
 			$row = mysql_fetch_array($result);			
+			
+			file_put_contents("driver_event_input_test", "\nbid awarded after sql 1", FILE_APPEND);
 			
 			$delivery_id = $row['id'];
 		
@@ -153,6 +161,7 @@
 			}
 			
 			$row = mysql_fetch_array($result);
+			file_put_contents("driver_event_input_test", "\nbid awarded after sql 2", FILE_APPEND);
 			$driver_id = $row['driver_id'];
 			
 			$sql = "UPDATE drivers SET current_delivery_id=" . $delivery_id . " WHERE id=" . $driver_id;
@@ -172,6 +181,7 @@
 			}
 			
 			$row = mysql_fetch_array($result);
+			file_put_contents("driver_event_input_test", "\nbid awarded after sql 3", FILE_APPEND);
 			$phone_number = $row['phone_number'];
 			
 			$text_message = "Bid awarded from shop: " . $event->flower_shop_name . " at " . $event->flower_shop_latitude . ","
@@ -185,6 +195,7 @@
 
 			$client = new Services_Twilio($accountSID, $authToken);
 			$sms = $client->account->sms_messages->create("+12086470634", $phone_number, $text_message);
+			file_put_contents("driver_event_input_test", "\nbid awarded after text_message", FILE_APPEND);
 		}
 	}	
 ?>
