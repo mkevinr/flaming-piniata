@@ -25,15 +25,25 @@
 		
 		file_put_contents("flower_shop_event_input_test","\nGets after first sql", FILE_APPEND);
 		$delivery_id = $row['id'];
+		file_put_contents("flower_shop_event_input_test","\nGets here 1", FILE_APPEND);
 		
 		$sql = "SELECT id FROM GUILDS WHERE flower_shop_esl_token='" . $_REQUEST['esl_token'] . "'";
 		
+		file_put_contents("flower_shop_event_input_test","\nGets here 2", FILE_APPEND);
+		
 		$result = mysql_query($sql, $con);
 		
+		file_put_contents("flower_shop_event_input_test","\nGets here 3", FILE_APPEND);
+		
 		if(!$result){
+			
+			file_put_contents("flower_shop_event_input_test","\nGets here 4", FILE_APPEND);
+			file_put_contents("flower_shop_event_input_test","\nsql error: " . mysql_error() . " sql: " . $sql, FILE_APPEND);
 		
 			die("error: " . mysql_error() . " sql: " . $sql);
 		}
+		
+		file_put_contents("flower_shop_event_input_test","\nGets here 5", FILE_APPEND);
 		
 		$row = mysql_fetch_array($result);
 		
