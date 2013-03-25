@@ -110,7 +110,6 @@
 		print("<form action=\"https://" . $server_address . "/lab4/flower_shops/view_bids.php?delivery_id=" . $_REQUEST['delivery_id'] 
 				. "&bid_id=" . $row['id'] . "\" method=\"POST\">");
 		print("<input type=\"submit\" value=\"Choose this Bid\"></form><br/><br/>");
-		}
 	}
 ?>
 
