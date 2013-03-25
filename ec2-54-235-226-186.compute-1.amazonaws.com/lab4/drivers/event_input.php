@@ -27,7 +27,7 @@
 	$con = mysql_connect("localhost", "root", "altair8");
 	mysql_select_db("driver_site2", $con);
 	
-	if($event->_domain == "rfq")
+	if($event->_domain == "rfq"){
 	
 		if($event->_name == "delivery_ready"){
 	
