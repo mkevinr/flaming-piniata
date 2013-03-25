@@ -166,6 +166,7 @@
 	}
 	else if($event->_domain == "delivery"){
 	
+		file_put_contents("guild_event_input_test", "\nGets in delivery if", FILE_APPEND);
 		if($event->_name == "picked_up"){
 		
 			$sql = "UPDATE DELIVERIES SET pick_up_time=NOW() WHERE guid='" . $event->code . "'";
@@ -176,6 +177,8 @@
 			}
 		}
 		else if($event->_name == "complete"){
+		
+			file_put_contents("guild_event_input_test", "\nGets in complete if", FILE_APPEND);
 		
 			$sql = "SELECT rating,universal_id,id FROM DRIVERS WHERE guild_esl_token='" . $_REQUEST['esl_token'] . "'";
 			
@@ -188,6 +191,8 @@
 			
 			$row = mysql_fetch_array($result);
 			
+			file_put_contents("guild_event_input_test", "\ncomplete after sql 1", FILE_APPEND);
+			
 			//$universal_id = $row['universal_id'];
 			$driver_id = $row['id'];
 			$rating = $row['rating'];
@@ -199,6 +204,8 @@
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
 			
+			file_put_contents("guild_event_input_test", "\ncomplete after sql 2", FILE_APPEND);
+			
 			$rating = $rating + 1;
 			
 			$sql = "UPDATE DRIVERS SET rating=" . $rating . " WHERE id=" . $driver_id;
@@ -207,6 +214,8 @@
 			
 				die("error: " . mysql_error() . " sql: " . $sql);
 			}
+			
+			file_put_contents("guild_event_input_test", "\ncomplete after sql 3", FILE_APPEND);
 			
 			$sql = "SELECT flower_shop_esl,guid FROM DELIVERIES JOIN FLOWER_SHOPS ON DELIVERIES.flower_shop_id=FLOWER_SHOPS.id"
 					. " WHERE assigned_driver_id=" . $driver_id;
@@ -219,6 +228,8 @@
 			}
 			
 			$row = mysql_fetch_array($result);
+			
+			file_put_contents("guild_event_input_test", "\ncomplete after sql 4", FILE_APPEND);
 			
 			$guid = $row['guid'];
 			$flower_shop_esl = $row['flower_shop_esl'];
@@ -240,6 +251,7 @@
 			);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			curl_exec($ch);	
+			file_put_contents("guild_event_input_test", "\ncomplete after curl", FILE_APPEND);
 		}
 	}
 ?>
